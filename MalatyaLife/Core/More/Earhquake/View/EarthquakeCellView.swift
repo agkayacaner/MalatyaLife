@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct EarthquakeCellView: View {
+    @StateObject var viewModel = EarthquakeViewModel()
     @Environment(\.colorScheme) var colorScheme
+    @State var earthquake : EarthquakeResponse.Earthquake
     
     var body: some View {
         HStack {
             VStack(alignment:.leading) {
-                Text("Deprem Başlık")
+                Text(earthquake.title)
                     .font(.subheadline)
                     .bold()
                 .padding(.bottom,2)
-                Text("Nerede Oldu")
+                Text(earthquake.locationProperties.epiCenter.name)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -26,18 +28,18 @@ struct EarthquakeCellView: View {
             
             HStack {
                 VStack(alignment:.trailing) {
-                    Text("13:30")
+                    Text(viewModel.getDateTime(dateTime: earthquake.dateTime))
                         .padding(.bottom,2)
                         .font(.footnote)
-                    Text("( 1 Saat Önce )")
+                    Text("( \(viewModel.getHourAgo(dateTime: earthquake.dateTime)) )")
                         .font(.caption)
                 }
                 .foregroundStyle(.secondary)
                 .padding(.trailing,10)
                 
-                Text(String("4.2"))
+                Text(String(earthquake.mag))
                     .font(.title)
-                    .foregroundColor(getMagnitudeColor(magnitude: 4.2))
+                    .foregroundColor(getMagnitudeColor(magnitude: earthquake.mag))
             }
         }
     }
@@ -61,5 +63,5 @@ extension EarthquakeCellView {
 }
 
 #Preview {
-    EarthquakeCellView()
+    EarthquakeCellView(earthquake: EarthquakeMockData.sampleEarthquake01)
 }

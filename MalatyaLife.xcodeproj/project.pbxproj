@@ -21,6 +21,9 @@
 		F7DCBA922B56CEF30001B60B /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA912B56CEF30001B60B /* APError.swift */; };
 		F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA932B56D1040001B60B /* PharmacyService.swift */; };
 		F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA952B56D2A40001B60B /* LoadingView.swift */; };
+		F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */; };
+		F7DCBA9C2B56D5DB0001B60B /* Earthquake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */; };
+		F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA9D2B56D5F30001B60B /* EarthquakeViewModel.swift */; };
 		F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */; };
 		F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE97B2B568F5500A379E5 /* ContentView.swift */; };
 		F7EAE97E2B568F5600A379E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE97D2B568F5600A379E5 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		F7DCBA912B56CEF30001B60B /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
 		F7DCBA932B56D1040001B60B /* PharmacyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyService.swift; sourceTree = "<group>"; };
 		F7DCBA952B56D2A40001B60B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeService.swift; sourceTree = "<group>"; };
+		F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earthquake.swift; sourceTree = "<group>"; };
+		F7DCBA9D2B56D5F30001B60B /* EarthquakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeViewModel.swift; sourceTree = "<group>"; };
 		F7EAE9762B568F5500A379E5 /* MalatyaLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalatyaLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalatyaLifeApp.swift; sourceTree = "<group>"; };
 		F7EAE97B2B568F5500A379E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,8 +88,8 @@
 		F7DCBA802B56BF7F0001B60B /* Earhquake */ = {
 			isa = PBXGroup;
 			children = (
-				F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */,
-				F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */,
+				F7DCBAA02B56D5FD0001B60B /* ViewModel */,
+				F7DCBA9F2B56D5F80001B60B /* View */,
 			);
 			path = Earhquake;
 			sourceTree = "<group>";
@@ -122,6 +128,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F7DCBA9F2B56D5F80001B60B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */,
+				F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F7DCBAA02B56D5FD0001B60B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA9D2B56D5F30001B60B /* EarthquakeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F7EAE96D2B568F5400A379E5 = {
 			isa = PBXGroup;
 			children = (
@@ -149,9 +172,6 @@
 				F7EAE98C2B5690F000A379E5 /* Utils */,
 				F7EAE97D2B568F5600A379E5 /* Assets.xcassets */,
 				F7EAE97F2B568F5600A379E5 /* Preview Content */,
-				F7DCBA8F2B56CEEC0001B60B /* Alert.swift */,
-				F7DCBA912B56CEF30001B60B /* APError.swift */,
-				F7DCBA952B56D2A40001B60B /* LoadingView.swift */,
 			);
 			path = MalatyaLife;
 			sourceTree = "<group>";
@@ -168,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F7DCBA932B56D1040001B60B /* PharmacyService.swift */,
+				F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -175,6 +196,9 @@
 		F7EAE9882B56909800A379E5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F7DCBA8F2B56CEEC0001B60B /* Alert.swift */,
+				F7DCBA912B56CEF30001B60B /* APError.swift */,
+				F7DCBA952B56D2A40001B60B /* LoadingView.swift */,
 				F7DCBA7C2B56B9350001B60B /* GetDate.swift */,
 			);
 			path = Extensions;
@@ -184,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */,
+				F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,10 +369,12 @@
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
+				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
+				F7DCBA9C2B56D5DB0001B60B /* Earthquake.swift in Sources */,
 				F7EAE99C2B56990200A379E5 /* EventsView.swift in Sources */,
 				F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */,
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
@@ -355,6 +382,7 @@
 				F7DCBA922B56CEF30001B60B /* APError.swift in Sources */,
 				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
 				F7DCBA8A2B56C3F50001B60B /* BusinessRequest.swift in Sources */,
+				F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */,
 				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
 				F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */,

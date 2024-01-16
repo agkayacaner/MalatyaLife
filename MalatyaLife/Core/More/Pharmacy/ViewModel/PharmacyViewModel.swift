@@ -15,7 +15,6 @@ final class PharmacyViewModel: ObservableObject {
     @Published var showDetail = false
     @Published var isLoading = false
     
-    
     func handleAPIError(_ error: APError) {
         var alertItem: AlertItem
 
@@ -33,6 +32,7 @@ final class PharmacyViewModel: ObservableObject {
         self.alertItem = alertItem
     }
     
+    @MainActor
     func getAllPharmacies() async {
         isLoading = true
         do {
