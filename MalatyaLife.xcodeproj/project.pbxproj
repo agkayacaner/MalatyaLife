@@ -11,6 +11,7 @@
 		F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE97B2B568F5500A379E5 /* ContentView.swift */; };
 		F7EAE97E2B568F5600A379E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE97D2B568F5600A379E5 /* Assets.xcassets */; };
 		F7EAE9812B568F5600A379E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE9802B568F5600A379E5 /* Preview Assets.xcassets */; };
+		F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9942B5691EB00A379E5 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		F7EAE97B2B568F5500A379E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7EAE97D2B568F5600A379E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7EAE9802B568F5600A379E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7EAE9942B5691EB00A379E5 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,12 @@
 		F7EAE9782B568F5500A379E5 /* MalatyaLife */ = {
 			isa = PBXGroup;
 			children = (
-				F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */,
-				F7EAE97B2B568F5500A379E5 /* ContentView.swift */,
+				F7EAE98A2B56909B00A379E5 /* App */,
+				F7EAE98B2B56909F00A379E5 /* Core */,
+				F7EAE9882B56909800A379E5 /* Extensions */,
+				F7EAE9892B56909900A379E5 /* Model */,
+				F7EAE9872B56909500A379E5 /* Services */,
+				F7EAE98C2B5690F000A379E5 /* Utils */,
 				F7EAE97D2B568F5600A379E5 /* Assets.xcassets */,
 				F7EAE97F2B568F5600A379E5 /* Preview Content */,
 			);
@@ -65,6 +71,107 @@
 				F7EAE9802B568F5600A379E5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F7EAE9872B56909500A379E5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F7EAE9882B56909800A379E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F7EAE9892B56909900A379E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F7EAE98A2B56909B00A379E5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F7EAE98B2B56909F00A379E5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE98D2B56911200A379E5 /* Authentication */,
+				F7EAE9902B56913900A379E5 /* Explore */,
+				F7EAE9922B56918B00A379E5 /* More */,
+				F7EAE98F2B56912300A379E5 /* Profile */,
+				F7EAE9912B56916C00A379E5 /* Root */,
+				F7EAE98E2B56911B00A379E5 /* Search */,
+				F7EAE9932B5691BC00A379E5 /* TabBar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F7EAE98C2B5690F000A379E5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F7EAE98D2B56911200A379E5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F7EAE98E2B56911B00A379E5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F7EAE98F2B56912300A379E5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F7EAE9902B56913900A379E5 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		F7EAE9912B56916C00A379E5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE97B2B568F5500A379E5 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		F7EAE9922B56918B00A379E5 /* More */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		F7EAE9932B5691BC00A379E5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE9942B5691EB00A379E5 /* MainTabView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,11 +211,11 @@
 			};
 			buildConfigurationList = F7EAE9712B568F5500A379E5 /* Build configuration list for PBXProject "MalatyaLife" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = tr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				tr,
 			);
 			mainGroup = F7EAE96D2B568F5400A379E5;
 			productRefGroup = F7EAE9772B568F5500A379E5 /* Products */;
@@ -139,6 +246,7 @@
 			files = (
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
+				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +386,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +396,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.caneragkaya.MalatyaLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,8 +420,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +430,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.caneragkaya.MalatyaLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
