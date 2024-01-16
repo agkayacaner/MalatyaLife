@@ -69,6 +69,6 @@ struct Business: Codable, Identifiable {
 }
 
 struct BusinessMockData {
-    static let sampleBusiness01 = Business(id: "1", name: "Sample Business 01", owner: "Sample Owner" ,address: "Sample Address", district: "Sample State", phone: "Sample Phone", email: "Sample Email", website: "Sample Website", description: "Sample Description", facebook: "Sample Facebook", instagram: "Sample Instagram", twitter: "Sample Twitter", workingHours: "Sample Working Hours", offDay: "Sample Off Day", image: "Sample Image" ,latitude: 0.0, longitude: 0.0, category: "Sample Category", created_at: 0.0)
+    static let sampleBusiness01 = Business(id: "1", name: "Sample Business 01", owner: "Sample Owner" ,address: "Sample Address", district: "Sample State", phone: "Sample Phone", email: "Sample Email", website: "Sample Website", description: "Sample Description", facebook: "Sample Facebook", instagram: "Sample Instagram", twitter: "Sample Twitter", workingHours: "Sample Working Hours", offDay: "Sample Off Day", image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,latitude: 0.0, longitude: 0.0, category: "Sample Category", created_at: 0.0)
 }
 

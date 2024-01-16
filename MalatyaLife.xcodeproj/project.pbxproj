@@ -15,6 +15,10 @@
 		F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D702B56EF1B00E624F5 /* FirebaseFirestoreSwift */; };
 		F70B5D732B56EF1B00E624F5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D722B56EF1B00E624F5 /* FirebaseStorage */; };
 		F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D772B570A5500E624F5 /* CustomTextField.swift */; };
+		F70B5D7B2B570E0800E624F5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D7A2B570E0800E624F5 /* Kingfisher */; };
+		F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */; };
+		F70B5D812B57141C00E624F5 /* BusinessCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D802B57141C00E624F5 /* BusinessCellView.swift */; };
+		F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D822B5723B200E624F5 /* BusinessService.swift */; };
 		F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */; };
 		F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */; };
 		F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7C2B56B9350001B60B /* GetDate.swift */; };
@@ -49,6 +53,9 @@
 		F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequestViewModel.swift; sourceTree = "<group>"; };
 		F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageService.swift; sourceTree = "<group>"; };
 		F70B5D772B570A5500E624F5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailView.swift; sourceTree = "<group>"; };
+		F70B5D802B57141C00E624F5 /* BusinessCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCellView.swift; sourceTree = "<group>"; };
+		F70B5D822B5723B200E624F5 /* BusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessService.swift; sourceTree = "<group>"; };
 		F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyListView.swift; sourceTree = "<group>"; };
 		F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyCellView.swift; sourceTree = "<group>"; };
 		F7DCBA7C2B56B9350001B60B /* GetDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDate.swift; sourceTree = "<group>"; };
@@ -83,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70B5D7B2B570E0800E624F5 /* Kingfisher in Frameworks */,
 				F70B5D6F2B56EF1B00E624F5 /* FirebaseFirestore in Frameworks */,
 				F70B5D732B56EF1B00E624F5 /* FirebaseStorage in Frameworks */,
 				F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */,
@@ -95,7 +103,9 @@
 		F70B5D672B56E01800E624F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */,
 				F7DCBA892B56C3F50001B60B /* BusinessRequestView.swift */,
+				F70B5D802B57141C00E624F5 /* BusinessCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +251,7 @@
 				F7DCBA932B56D1040001B60B /* PharmacyService.swift */,
 				F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */,
 				F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */,
+				F70B5D822B5723B200E624F5 /* BusinessService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -366,6 +377,7 @@
 				F70B5D6E2B56EF1B00E624F5 /* FirebaseFirestore */,
 				F70B5D702B56EF1B00E624F5 /* FirebaseFirestoreSwift */,
 				F70B5D722B56EF1B00E624F5 /* FirebaseStorage */,
+				F70B5D7A2B570E0800E624F5 /* Kingfisher */,
 			);
 			productName = MalatyaLife;
 			productReference = F7EAE9762B568F5500A379E5 /* MalatyaLife.app */;
@@ -397,6 +409,7 @@
 			mainGroup = F7EAE96D2B568F5400A379E5;
 			packageReferences = (
 				F70B5D562B56DD4300E624F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F7EAE9772B568F5500A379E5 /* Products */;
 			projectDirPath = "";
@@ -436,8 +449,10 @@
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
 				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
+				F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */,
 				F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */,
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
+				F70B5D812B57141C00E624F5 /* BusinessCellView.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
 				F7DCBA9C2B56D5DB0001B60B /* Earthquake.swift in Sources */,
@@ -451,6 +466,7 @@
 				F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */,
 				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
+				F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */,
 				F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */,
 				F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */,
 			);
@@ -682,6 +698,14 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -699,6 +723,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F70B5D562B56DD4300E624F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		F70B5D7A2B570E0800E624F5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

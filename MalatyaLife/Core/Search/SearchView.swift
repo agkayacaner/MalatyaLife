@@ -6,15 +6,41 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
+import FirebaseFirestoreSwift
 
 struct SearchView: View {
+    @State var businessList : [Business] = []
     @State var searchTerms = ""
+    
+    var filteredBusinessList : [Business] {
+        guard !searchTerms.isEmpty else { return businessList }
+        return businessList.filter { $0.name.localizedStandardContains(searchTerms) || $0.category.localizedStandardContains(searchTerms) }
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                // TODO: - Featured Search Items
+            ScrollView {
+                ForEach(filteredBusinessList) { business in
+                    
+                    NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
+                        BusinessCellView(business: business)
+                    }
+                    .foregroundStyle(.primary)
+
+                }
+                Spacer()
             }
-            .searchable(text: $searchTerms, prompt: Text("İletmelerde Arama Yapın..."))
+            .padding()
+            .task {
+                do {
+                    businessList =  try await BusinessService.shared.fetchBusinesses()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            .searchable(text: $searchTerms, prompt: Text("İşletmelerde Arama Yapın..."))
             .navigationTitle("Ara")
             .navigationBarTitleDisplayMode(.large)
         }
