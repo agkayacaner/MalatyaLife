@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct PharmacyDetailView: View {
+    @State var pharmacy: Pharmacy
+    
     var body: some View {
         VStack(alignment:.leading) {
             VStack(alignment:.leading) {
 
-                Text("Eczane Adı")
+                Text(pharmacy.name.capitalized)
                         .font(.title2).bold().foregroundStyle(.red)
                         .padding(.bottom, 10)
 
                 
                 HStack {
 
-                    Text("İlçe")
+                    Text(pharmacy.state.capitalized)
                             .font(.subheadline).bold().foregroundStyle(.secondary)
                     
    
@@ -29,14 +31,14 @@ struct PharmacyDetailView: View {
             Divider()
                 .padding(.vertical, 10)
             VStack( alignment:.leading) {
-                Text("Açıklama")
+                Text(pharmacy.description)
                     .font(.subheadline).foregroundStyle(.red)
                     .padding(.bottom, 10)
             
                 Text("Adres")
-                Text("Adres Buraya Gelecek")
+                Text(pharmacy.address)
                     .font(.subheadline).foregroundStyle(.secondary)
-                    .padding(.bottom, 30)
+                    .padding(.vertical)
                 
                 Spacer()
                 
@@ -45,7 +47,7 @@ struct PharmacyDetailView: View {
                 } label: {
                     HStack{
                         Image(systemName: "phone")
-                        Link(destination: URL(string: "tel:\("1111")")!, label: {
+                        Link(destination: URL(string: "tel:\(pharmacy.phone)")!, label: {
                             Text("Eczaneyi Ara")
                         })
                     }
@@ -62,5 +64,5 @@ struct PharmacyDetailView: View {
 }
 
 #Preview {
-    PharmacyDetailView()
+    PharmacyDetailView(pharmacy: PharmacyMockData.samplePharmacy01)
 }

@@ -15,6 +15,12 @@
 		F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */; };
 		F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */; };
 		F7DCBA8A2B56C3F50001B60B /* BusinessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA892B56C3F50001B60B /* BusinessRequest.swift */; };
+		F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */; };
+		F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA8D2B56CE9B0001B60B /* PharmacyViewModel.swift */; };
+		F7DCBA902B56CEEC0001B60B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA8F2B56CEEC0001B60B /* Alert.swift */; };
+		F7DCBA922B56CEF30001B60B /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA912B56CEF30001B60B /* APError.swift */; };
+		F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA932B56D1040001B60B /* PharmacyService.swift */; };
+		F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA952B56D2A40001B60B /* LoadingView.swift */; };
 		F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */; };
 		F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE97B2B568F5500A379E5 /* ContentView.swift */; };
 		F7EAE97E2B568F5600A379E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE97D2B568F5600A379E5 /* Assets.xcassets */; };
@@ -35,6 +41,12 @@
 		F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellView.swift; sourceTree = "<group>"; };
 		F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyNumberListView.swift; sourceTree = "<group>"; };
 		F7DCBA892B56C3F50001B60B /* BusinessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequest.swift; sourceTree = "<group>"; };
+		F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
+		F7DCBA8D2B56CE9B0001B60B /* PharmacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyViewModel.swift; sourceTree = "<group>"; };
+		F7DCBA8F2B56CEEC0001B60B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		F7DCBA912B56CEF30001B60B /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
+		F7DCBA932B56D1040001B60B /* PharmacyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyService.swift; sourceTree = "<group>"; };
+		F7DCBA952B56D2A40001B60B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F7EAE9762B568F5500A379E5 /* MalatyaLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalatyaLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalatyaLifeApp.swift; sourceTree = "<group>"; };
 		F7EAE97B2B568F5500A379E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,9 +73,8 @@
 		F7DCBA772B56B74D0001B60B /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
-				F7DCBA7E2B56BAE60001B60B /* PharmacyDetailView.swift */,
-				F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */,
-				F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */,
+				F7DCBA982B56D35A0001B60B /* ViewModel */,
+				F7DCBA972B56D3570001B60B /* View */,
 			);
 			path = Pharmacy;
 			sourceTree = "<group>";
@@ -93,6 +104,24 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
+		F7DCBA972B56D3570001B60B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA7E2B56BAE60001B60B /* PharmacyDetailView.swift */,
+				F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */,
+				F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F7DCBA982B56D35A0001B60B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA8D2B56CE9B0001B60B /* PharmacyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F7EAE96D2B568F5400A379E5 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +149,9 @@
 				F7EAE98C2B5690F000A379E5 /* Utils */,
 				F7EAE97D2B568F5600A379E5 /* Assets.xcassets */,
 				F7EAE97F2B568F5600A379E5 /* Preview Content */,
+				F7DCBA8F2B56CEEC0001B60B /* Alert.swift */,
+				F7DCBA912B56CEF30001B60B /* APError.swift */,
+				F7DCBA952B56D2A40001B60B /* LoadingView.swift */,
 			);
 			path = MalatyaLife;
 			sourceTree = "<group>";
@@ -135,6 +167,7 @@
 		F7EAE9872B56909500A379E5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F7DCBA932B56D1040001B60B /* PharmacyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -150,6 +183,7 @@
 		F7EAE9892B56909900A379E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,20 +338,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7DCBA902B56CEEC0001B60B /* Alert.swift in Sources */,
 				F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */,
 				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
+				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
+				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
 				F7EAE99C2B56990200A379E5 /* EventsView.swift in Sources */,
 				F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */,
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
 				F7EAE9972B56953F00A379E5 /* MoreView.swift in Sources */,
+				F7DCBA922B56CEF30001B60B /* APError.swift in Sources */,
 				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
 				F7DCBA8A2B56C3F50001B60B /* BusinessRequest.swift in Sources */,
+				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
+				F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */,
 				F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PharmacyCellView: View {
+    @State var pharmacy: Pharmacy
+    
     var body: some View {
         HStack(alignment:.center, spacing:16) {
             Image(systemName: "asterisk.circle")
@@ -16,13 +18,13 @@ struct PharmacyCellView: View {
         
             VStack(alignment:.leading){
         
-                Text("Eczane Adı")
+                Text(pharmacy.name.capitalized)
                         .font(.headline)
                         .foregroundStyle(.primary)
                         .padding(.bottom,2)
                 
 
-                Text("İlçe")
+                Text(pharmacy.state.capitalized)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
@@ -35,5 +37,5 @@ struct PharmacyCellView: View {
 }
 
 #Preview {
-    PharmacyCellView()
+    PharmacyCellView(pharmacy: PharmacyMockData.samplePharmacy01)
 }
