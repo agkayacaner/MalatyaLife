@@ -14,9 +14,9 @@ struct SearchView: View {
             VStack {
                 // TODO: - Featured Search Items
             }
-            .searchable(text: $searchTerms, prompt: Text("Ara"))
+            .searchable(text: $searchTerms, prompt: Text("İletmelerde Arama Yapın..."))
             .navigationTitle("Ara")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

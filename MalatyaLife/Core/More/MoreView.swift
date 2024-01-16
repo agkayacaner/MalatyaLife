@@ -13,7 +13,6 @@ struct MoreView: View {
     
     var body: some View {
         NavigationStack {
-            
             List {
                 // TODO: - Login version
                 
@@ -41,6 +40,7 @@ struct MoreView: View {
                     }
                 }
             }
+            .navigationTitle("Daha Fazla")
         }
     }
 }
