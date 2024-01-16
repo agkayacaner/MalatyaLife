@@ -23,7 +23,7 @@ struct MoreView: View {
                 }
                 
                 Section {
-                    NavigationLink("Yeni İşletme Talebi", destination: BusinessRequest())
+                    NavigationLink("Yeni İşletme Talebi", destination: BusinessRequestView())
                 }
                 Section {
                     HStack {

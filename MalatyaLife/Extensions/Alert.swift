@@ -34,5 +34,8 @@ struct AlertContext {
                                             message: Text("Şu anda isteğinizi tamamlayamıyoruz. Lütfen internet bağlantınızı kontrol edin."),
                                             dismissButton: .default(Text("Tamam")))
 
+    static let requiredArea = AlertItem(title: Text("Alanları Doldurun"), message: Text("Devam edebilmek için gerekli alanları doldurun!"), dismissButton: .default(Text("Tamam")))
+    
+    static let businessDidntCreated = AlertItem(title: Text("Hata Oluştu"), message: Text("İşletme oluşturulurken bir hata meydana geldi! Lütfen destek ekibine bildirin."), dismissButton: .default(Text("Tamam")))
 }
 
