@@ -11,24 +11,8 @@ import Firebase
 import FirebaseFirestore
 
 final class BusinessRequestViewModel: ObservableObject {
-    @Published var name = ""
-    @Published var address = ""
-    @Published var state : Business.State = .battalgazi
-    @Published var owner = ""
-    @Published var phone = ""
-    @Published var email = ""
-    @Published var website = ""
-    @Published var description = ""
-    @Published var facebook = ""
-    @Published var instagram = ""
-    @Published var twitter = ""
-    @Published var workingHours = ""
-    @Published var offDay : Business.WeekDay = .sunday
-    @Published var latitude = 0.0
-    @Published var longitude = 0.0
-    @Published var category : Business.Category = .cafe
+    @Published var form = BusinessForm()
     @Published var image : Image?
-    
     @Published var alertItem: AlertItem?
     @Published var isLoadingImage = false
     @Published var imageURL = ""
@@ -47,21 +31,21 @@ final class BusinessRequestViewModel: ObservableObject {
         
         let business = Business(
             id: ref.documentID,
-            name: name,
-            owner: owner,
-            address: address,
-            state: state.rawValue,
-            phone: phone,
-            email: email,
-            website: website,
-            description: description,
-            facebook: facebook,
-            instagram: instagram,
-            twitter: twitter,
-            workingHours: workingHours,
-            offDay: offDay.rawValue,
+            name: form.name,
+            owner: form.owner,
+            address: form.address,
+            district: form.district.rawValue,
+            phone: form.phone,
+            email: form.email,
+            website: form.website,
+            description: form.description,
+            facebook: form.facebook,
+            instagram: form.instagram,
+            twitter: form.twitter,
+            workingHours: form.workingHours,
+            offDay: form.offDay.rawValue,
             image: imageURL,
-            category: category.rawValue,
+            category: form.category.rawValue,
             created_at: Date().timeIntervalSince1970
         )
         
@@ -75,20 +59,24 @@ final class BusinessRequestViewModel: ObservableObject {
         
         isLoadingImage = true
         
-        guard let imageData = try? await item.loadTransferable(type: Data.self) else { return }
-        guard let uiImage = UIImage(data:imageData) else { return }
-        self.image = Image(uiImage: uiImage)
-        
-        
-        if let imageUrl = try? await ImageUploader.uploadImage(uiImage) {
-            self.imageURL = imageUrl
+        do {
+            guard let imageData = try await item.loadTransferable(type: Data.self) else { return }
+            guard let uiImage = UIImage(data:imageData) else { return }
+            self.image = Image(uiImage: uiImage)
+            
+            if let imageUrl = try await ImageUploader.uploadImage(uiImage) {
+                self.imageURL = imageUrl
+            }
+        } catch {
+            // Handle error
+            print(error.localizedDescription)
         }
         
         isLoadingImage = false
     }
     
     var isValidForm: Bool {
-        guard !name.isEmpty, !address.isEmpty, !owner.isEmpty, !phone.isEmpty, !email.isEmpty, !description.isEmpty, !workingHours.isEmpty else {
+        guard !form.name.isEmpty, !form.address.isEmpty, !form.owner.isEmpty, !form.phone.isEmpty, !form.email.isEmpty, !form.description.isEmpty, !form.workingHours.isEmpty else {
             alertItem = AlertContext.requiredArea
             return false
         }
@@ -103,4 +91,21 @@ final class BusinessRequestViewModel: ObservableObject {
             alertItem = AlertContext.businessDidntCreated
         }
     }
+}
+
+struct BusinessForm {
+    var name = ""
+    var address = ""
+    var district : Business.District = .battalgazi
+    var owner = ""
+    var phone = ""
+    var email = ""
+    var website = ""
+    var description = ""
+    var facebook = ""
+    var instagram = ""
+    var twitter = ""
+    var workingHours = ""
+    var offDay : Business.WeekDay = .sunday
+    var category : Business.Category = .cafe
 }

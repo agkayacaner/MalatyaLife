@@ -14,6 +14,7 @@
 		F70B5D6F2B56EF1B00E624F5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D6E2B56EF1B00E624F5 /* FirebaseFirestore */; };
 		F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D702B56EF1B00E624F5 /* FirebaseFirestoreSwift */; };
 		F70B5D732B56EF1B00E624F5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D722B56EF1B00E624F5 /* FirebaseStorage */; };
+		F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D772B570A5500E624F5 /* CustomTextField.swift */; };
 		F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */; };
 		F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */; };
 		F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7C2B56B9350001B60B /* GetDate.swift */; };
@@ -47,6 +48,7 @@
 		F70B5D652B56DDC000E624F5 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequestViewModel.swift; sourceTree = "<group>"; };
 		F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageService.swift; sourceTree = "<group>"; };
+		F70B5D772B570A5500E624F5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyListView.swift; sourceTree = "<group>"; };
 		F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyCellView.swift; sourceTree = "<group>"; };
 		F7DCBA7C2B56B9350001B60B /* GetDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F70B5D762B570A4800E624F5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F70B5D772B570A5500E624F5 /* CustomTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F7DCBA772B56B74D0001B60B /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 		F7DCBA882B56C3DE0001B60B /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				F70B5D762B570A4800E624F5 /* Components */,
 				F70B5D682B56E01C00E624F5 /* ViewModel */,
 				F70B5D672B56E01800E624F5 /* View */,
 			);
@@ -424,6 +435,7 @@
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
+				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
 				F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */,
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,

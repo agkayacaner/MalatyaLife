@@ -24,7 +24,7 @@ struct PharmacyCellView: View {
                         .padding(.bottom,2)
                 
 
-                Text(pharmacy.state.capitalized)
+                Text(pharmacy.district.capitalized)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)

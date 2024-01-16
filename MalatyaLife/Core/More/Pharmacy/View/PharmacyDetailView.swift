@@ -21,7 +21,7 @@ struct PharmacyDetailView: View {
                 
                 HStack {
 
-                    Text(pharmacy.state.capitalized)
+                    Text(pharmacy.district.capitalized)
                             .font(.subheadline).bold().foregroundStyle(.secondary)
                     
    

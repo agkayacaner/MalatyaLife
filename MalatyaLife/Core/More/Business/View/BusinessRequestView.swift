@@ -16,77 +16,86 @@ struct BusinessRequestView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("İşletme Bilgileri") {
-                    TextField("İşletmenin Adı *", text: $viewModel.name)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.words)
+                Section {
+                    CustomTextField(title: "İşletmenin Adı *", text: $viewModel.form.name)
                         
-                    TextField("Başvuran / İşetme Sahibi *", text: $viewModel.owner)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.words)
+                    CustomTextField(title: "İşletmenin Sahibi *", text: $viewModel.form.owner)
                     
-                    TextField("Açık Adres *", text: $viewModel.address, axis: .vertical)
+                    TextField("Açık Adres *", text: $viewModel.form.address, axis: .vertical)
                         .autocorrectionDisabled()
                     
-                    TextField("Web Sitesi", text: $viewModel.website, axis: .vertical)
+                    TextField("Web Sitesi", text: $viewModel.form.website, axis: .vertical)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                         .keyboardType(.URL)
-                    // Category Picker
-                    Picker("Kategori",selection: $viewModel.category){
+                    
+                    Picker("Kategori",selection: $viewModel.form.category){
                         ForEach(Business.Category.allCases, id: \.self) { category in
                             Text(category.rawValue).tag(category.rawValue)
                         }
                     }
-                    // State Picker
-                    Picker("İlçe",selection: $viewModel.state){
-                        ForEach(Business.State.allCases, id: \.self) { state in
-                            Text(state.rawValue).tag(state.rawValue)
+                    
+                    Picker("İlçe",selection: $viewModel.form.district){
+                        ForEach(Business.District.allCases, id: \.self) { district in
+                            Text(district.rawValue).tag(district.rawValue)
                         }
                     }
+                } header: {
+                    Text("İşletme Bilgileri")
                 }
                 
-                Section("İletişim Bilgileri") {
-                    TextField("Telefon Numarası *", text: $viewModel.phone)
+                
+                Section {
+                    TextField("Telefon Numarası *", text: $viewModel.form.phone)
                         .keyboardType(.phonePad)
-                    TextField("E-Posta Adresi *", text: $viewModel.email)
+                    
+                    TextField("E-Posta Adresi *", text: $viewModel.form.email)
                         .textInputAutocapitalization(.never)
                         .keyboardType(.URL)
+                } header: {
+                    Text("İletişim Bilgileri")
                 }
                 
-                Section("İşletme Hakkında") {
-                    TextField("İşletme Hakkında *", text: $viewModel.description, axis: .vertical)
+                Section {
+                    TextField("İşletme Hakkında *", text: $viewModel.form.description, axis: .vertical)
                         .autocorrectionDisabled()
+                } header: {
+                    Text("İşletme Hakkında")
+                } footer: {
                     Text("* İşletme detayında gösterilecek")
                         .font(.footnote)
                         .foregroundStyle(.red)
                 }
                 
-                Section("İşletme Çalışma Saatleri") {
-                    TextField("Örneğin 08.00 - 22:00 *", text: $viewModel.workingHours, axis: .vertical)
+                Section{
+                    TextField("Örneğin 08.00 - 22:00 *", text: $viewModel.form.workingHours, axis: .vertical)
                         .autocorrectionDisabled()
                         .keyboardType(.numbersAndPunctuation)
-                    // Off Day Picker
-                    Picker("Tatil Günü",selection: $viewModel.offDay){
+                    
+                    Picker("Tatil Günü",selection: $viewModel.form.offDay){
                         ForEach(Business.WeekDay.allCases, id: \.self) { offDay in
                             Text(offDay.rawValue).tag(offDay.rawValue)
                         }
                     }
+                } header: {
+                    Text("İşletme Çalışma Saatleri")
                 }
                 
-                Section("İşletme Sosyal Medya Hesapları") {
-                    TextField("Facebook", text: $viewModel.facebook)
-                    TextField("Instagram", text: $viewModel.instagram)
-                    TextField("Twitter", text: $viewModel.twitter)
-                    Text("* Sadece Kullanıcı adlarını yazın!")
+                Section {
+                    TextField("Facebook", text: $viewModel.form.facebook)
+                    TextField("Instagram", text: $viewModel.form.instagram)
+                    TextField("Twitter", text: $viewModel.form.twitter)
+                } header: {
+                    Text("İşletme Sosyal Medya Hesapları")
+                } footer: {
+                    Text("Sadece Kullanıcı adlarını yazın!")
                         .font(.footnote)
                         .foregroundStyle(.red)
-                     
                 }
                 .autocorrectionDisabled()
                 .textInputAutocapitalization(.never)
                 
-                Section("Görsel Seçiniz") {
+                Section {
                     PhotosPicker(selection: $viewModel.selectedImage) {
                         if let image = viewModel.image {
                             ZStack {
@@ -109,6 +118,8 @@ struct BusinessRequestView: View {
                             .frame(height: 220)
                         }
                     }
+                } header: {
+                    Text("İşletme Fotoğrafı")
                 }
                 
             }

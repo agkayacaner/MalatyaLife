@@ -12,7 +12,7 @@ struct Business: Codable, Identifiable {
     var name: String
     var owner: String
     var address: String
-    var state: String
+    var district: String
     var phone: String
     var email: String
     var website: String?
@@ -40,7 +40,7 @@ struct Business: Codable, Identifiable {
     }
     
     // Malatyanın ilçeleri
-    enum State: String, CaseIterable {
+    enum District: String, CaseIterable {
         case akcadag = "Akçadağ"
         case arguvan = "Arguvan"
         case battalgazi = "Battalgazi"
@@ -69,6 +69,6 @@ struct Business: Codable, Identifiable {
 }
 
 struct BusinessMockData {
-    static let sampleBusiness01 = Business(id: "1", name: "Sample Business 01", owner: "Sample Owner" ,address: "Sample Address", state: "Sample State", phone: "Sample Phone", email: "Sample Email", website: "Sample Website", description: "Sample Description", facebook: "Sample Facebook", instagram: "Sample Instagram", twitter: "Sample Twitter", workingHours: "Sample Working Hours", offDay: "Sample Off Day", image: "Sample Image" ,latitude: 0.0, longitude: 0.0, category: "Sample Category", created_at: 0.0)
+    static let sampleBusiness01 = Business(id: "1", name: "Sample Business 01", owner: "Sample Owner" ,address: "Sample Address", district: "Sample State", phone: "Sample Phone", email: "Sample Email", website: "Sample Website", description: "Sample Description", facebook: "Sample Facebook", instagram: "Sample Instagram", twitter: "Sample Twitter", workingHours: "Sample Working Hours", offDay: "Sample Off Day", image: "Sample Image" ,latitude: 0.0, longitude: 0.0, category: "Sample Category", created_at: 0.0)
 }
 
