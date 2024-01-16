@@ -7,20 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */; };
+		F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */; };
+		F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7C2B56B9350001B60B /* GetDate.swift */; };
+		F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7E2B56BAE60001B60B /* PharmacyDetailView.swift */; };
+		F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */; };
+		F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */; };
+		F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */; };
+		F7DCBA8A2B56C3F50001B60B /* BusinessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA892B56C3F50001B60B /* BusinessRequest.swift */; };
 		F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */; };
 		F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE97B2B568F5500A379E5 /* ContentView.swift */; };
 		F7EAE97E2B568F5600A379E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE97D2B568F5600A379E5 /* Assets.xcassets */; };
 		F7EAE9812B568F5600A379E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE9802B568F5600A379E5 /* Preview Assets.xcassets */; };
 		F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9942B5691EB00A379E5 /* MainTabView.swift */; };
+		F7EAE9972B56953F00A379E5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9962B56953F00A379E5 /* MoreView.swift */; };
+		F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9982B5697C200A379E5 /* SearchView.swift */; };
+		F7EAE99C2B56990200A379E5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE99B2B56990200A379E5 /* EventsView.swift */; };
+		F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE99D2B569AD300A379E5 /* ExploreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyListView.swift; sourceTree = "<group>"; };
+		F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyCellView.swift; sourceTree = "<group>"; };
+		F7DCBA7C2B56B9350001B60B /* GetDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDate.swift; sourceTree = "<group>"; };
+		F7DCBA7E2B56BAE60001B60B /* PharmacyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyDetailView.swift; sourceTree = "<group>"; };
+		F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeListView.swift; sourceTree = "<group>"; };
+		F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellView.swift; sourceTree = "<group>"; };
+		F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyNumberListView.swift; sourceTree = "<group>"; };
+		F7DCBA892B56C3F50001B60B /* BusinessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequest.swift; sourceTree = "<group>"; };
 		F7EAE9762B568F5500A379E5 /* MalatyaLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalatyaLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalatyaLifeApp.swift; sourceTree = "<group>"; };
 		F7EAE97B2B568F5500A379E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F7EAE97D2B568F5600A379E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7EAE9802B568F5600A379E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F7EAE9942B5691EB00A379E5 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		F7EAE9962B56953F00A379E5 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		F7EAE9982B5697C200A379E5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F7EAE99B2B56990200A379E5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		F7EAE99D2B569AD300A379E5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +58,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7DCBA772B56B74D0001B60B /* Pharmacy */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA7E2B56BAE60001B60B /* PharmacyDetailView.swift */,
+				F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */,
+				F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */,
+			);
+			path = Pharmacy;
+			sourceTree = "<group>";
+		};
+		F7DCBA802B56BF7F0001B60B /* Earhquake */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */,
+				F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */,
+			);
+			path = Earhquake;
+			sourceTree = "<group>";
+		};
+		F7DCBA852B56C2710001B60B /* Emergency */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */,
+			);
+			path = Emergency;
+			sourceTree = "<group>";
+		};
+		F7DCBA882B56C3DE0001B60B /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				F7DCBA892B56C3F50001B60B /* BusinessRequest.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
 		F7EAE96D2B568F5400A379E5 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +142,7 @@
 		F7EAE9882B56909800A379E5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F7DCBA7C2B56B9350001B60B /* GetDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -105,10 +165,9 @@
 		F7EAE98B2B56909F00A379E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F7EAE98D2B56911200A379E5 /* Authentication */,
+				F7EAE99A2B5698F800A379E5 /* Event */,
 				F7EAE9902B56913900A379E5 /* Explore */,
 				F7EAE9922B56918B00A379E5 /* More */,
-				F7EAE98F2B56912300A379E5 /* Profile */,
 				F7EAE9912B56916C00A379E5 /* Root */,
 				F7EAE98E2B56911B00A379E5 /* Search */,
 				F7EAE9932B5691BC00A379E5 /* TabBar */,
@@ -123,30 +182,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		F7EAE98D2B56911200A379E5 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
 		F7EAE98E2B56911B00A379E5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				F7EAE9982B5697C200A379E5 /* SearchView.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		F7EAE98F2B56912300A379E5 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		F7EAE9902B56913900A379E5 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F7EAE99D2B569AD300A379E5 /* ExploreView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -162,6 +209,11 @@
 		F7EAE9922B56918B00A379E5 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				F7DCBA882B56C3DE0001B60B /* Business */,
+				F7DCBA852B56C2710001B60B /* Emergency */,
+				F7DCBA802B56BF7F0001B60B /* Earhquake */,
+				F7DCBA772B56B74D0001B60B /* Pharmacy */,
+				F7EAE9962B56953F00A379E5 /* MoreView.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -172,6 +224,14 @@
 				F7EAE9942B5691EB00A379E5 /* MainTabView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		F7EAE99A2B5698F800A379E5 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE99B2B56990200A379E5 /* EventsView.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +304,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */,
+				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
+				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
+				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
+				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
+				F7EAE99C2B56990200A379E5 /* EventsView.swift in Sources */,
+				F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */,
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
+				F7EAE9972B56953F00A379E5 /* MoreView.swift in Sources */,
+				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
+				F7DCBA8A2B56C3F50001B60B /* BusinessRequest.swift in Sources */,
+				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
+				F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,12 +455,14 @@
 				DEVELOPMENT_TEAM = W566XABWZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Malatya Life";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,12 +491,14 @@
 				DEVELOPMENT_TEAM = W566XABWZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Malatya Life";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
