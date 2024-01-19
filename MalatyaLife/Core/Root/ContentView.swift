@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var appState = AppState()
+    
     var body: some View {
-        MainTabView()
+        Group {
+            if !appState.isOnboardingDone {
+                OnboardingView()
+                    .environmentObject(appState)
+            } else {
+                MainTabView()
+            }
+        }
     }
 }
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainTabView: View {
     @State var selectedTab = 0
+    @ObservedObject private var appState = AppState()
+    
     var body: some View {
         TabView {
             ExploreView()
@@ -35,7 +37,10 @@ struct MainTabView: View {
                 .tag(2)
             
             
-            MoreView()
+            NavigationStack {
+                MoreView()
+                    .environmentObject(appState)
+            }
                 .tabItem {
                     Label("Daha Fazla", systemImage: selectedTab == 3 ? "bolt.horizontal.fill" : "bolt.horizontal")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
