@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F70B5D622B56DD5100E624F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F70B5D612B56DD5100E624F5 /* GoogleService-Info.plist */; };
 		F70B5D662B56DDC000E624F5 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D652B56DDC000E624F5 /* Business.swift */; };
 		F70B5D6A2B56E02700E624F5 /* BusinessRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */; };
 		F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */; };
@@ -19,6 +18,10 @@
 		F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */; };
 		F70B5D812B57141C00E624F5 /* BusinessCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D802B57141C00E624F5 /* BusinessCellView.swift */; };
 		F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D822B5723B200E624F5 /* BusinessService.swift */; };
+		F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DAF2B5A83D4007912D9 /* Emergency.swift */; };
+		F7605DB22B5A87A9007912D9 /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB12B5A87A9007912D9 /* EmergencyService.swift */; };
+		F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */; };
+		F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */; };
 		F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */; };
 		F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */; };
 		F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7C2B56B9350001B60B /* GetDate.swift */; };
@@ -48,7 +51,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F70B5D612B56DD5100E624F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F70B5D652B56DDC000E624F5 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequestViewModel.swift; sourceTree = "<group>"; };
 		F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageService.swift; sourceTree = "<group>"; };
@@ -56,6 +58,10 @@
 		F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailView.swift; sourceTree = "<group>"; };
 		F70B5D802B57141C00E624F5 /* BusinessCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCellView.swift; sourceTree = "<group>"; };
 		F70B5D822B5723B200E624F5 /* BusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessService.swift; sourceTree = "<group>"; };
+		F7605DAF2B5A83D4007912D9 /* Emergency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
+		F7605DB12B5A87A9007912D9 /* EmergencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
+		F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewModel.swift; sourceTree = "<group>"; };
+		F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyListView.swift; sourceTree = "<group>"; };
 		F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyCellView.swift; sourceTree = "<group>"; };
 		F7DCBA7C2B56B9350001B60B /* GetDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDate.swift; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */,
+				F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */,
 			);
 			path = Emergency;
 			sourceTree = "<group>";
@@ -224,7 +231,7 @@
 		F7EAE9782B568F5500A379E5 /* MalatyaLife */ = {
 			isa = PBXGroup;
 			children = (
-				F70B5D612B56DD5100E624F5 /* GoogleService-Info.plist */,
+				F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */,
 				F7EAE98A2B56909B00A379E5 /* App */,
 				F7EAE98B2B56909F00A379E5 /* Core */,
 				F7EAE9882B56909800A379E5 /* Extensions */,
@@ -252,6 +259,7 @@
 				F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */,
 				F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */,
 				F70B5D822B5723B200E624F5 /* BusinessService.swift */,
+				F7605DB12B5A87A9007912D9 /* EmergencyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */,
 				F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */,
 				F70B5D652B56DDC000E624F5 /* Business.swift */,
+				F7605DAF2B5A83D4007912D9 /* Emergency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,7 +436,7 @@
 			files = (
 				F7EAE9812B568F5600A379E5 /* Preview Assets.xcassets in Resources */,
 				F7EAE97E2B568F5600A379E5 /* Assets.xcassets in Resources */,
-				F70B5D622B56DD5100E624F5 /* GoogleService-Info.plist in Resources */,
+				F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7DCBA902B56CEEC0001B60B /* Alert.swift in Sources */,
+				F7605DB22B5A87A9007912D9 /* EmergencyService.swift in Sources */,
 				F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */,
 				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
 				F70B5D662B56DDC000E624F5 /* Business.swift in Sources */,
@@ -447,6 +457,7 @@
 				F70B5D6A2B56E02700E624F5 /* BusinessRequestViewModel.swift in Sources */,
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
+				F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
 				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
 				F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */,
@@ -464,6 +475,7 @@
 				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
 				F7DCBA8A2B56C3F50001B60B /* BusinessRequestView.swift in Sources */,
 				F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */,
+				F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */,
 				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
 				F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Business: Codable, Identifiable {
-    var id: String?
+    let id: String?
     var name: String
     var owner: String
     var address: String
