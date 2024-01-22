@@ -9,39 +9,16 @@ import SwiftUI
 
 struct MoreView: View {
     @State var appVersion = Bundle.main.infoDictionary? ["CFBundleShortVersionString"] as? String ?? ""
-    @State var isLogin = false
+    
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var appState: AppState
     
     var body: some View {
         NavigationStack {
             List {
                 
-                if !appState.isUserLoggedIn {
-                    Section {
-                        NavigationLink(destination: LoginView().toolbar(.hidden, for: .tabBar)) {
-                            VStack(alignment:.leading,spacing: 5) {
-                                Text("Giriş Yap / Kayıt Ol")
-                                    .font(.headline)
-                                Text("Giriş yaparak tüm özellikleri kullanabilirsiniz.")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .padding(10)    
-                        }
-                        
-                        
-                        Button(action: {
-                            appState.isUserLoggedIn = true
-                        }, label: {
-                            Text("Giriş Yap")
-                                .font(.headline)
-                                .foregroundColor(.blue)
-                        })
-                    }
-                    
-                } else {
+                if appState.userSession != nil {
                     HStack {
-                        
                         Circle()
                             .frame(width: 50, height: 50)
                             .foregroundColor(.black)
@@ -59,8 +36,18 @@ struct MoreView: View {
                         }
                         .padding(10)
                     }
+                } else {
+                    NavigationLink(destination: LoginView().toolbar(.hidden, for: .tabBar)) {
+                        VStack(alignment:.leading,spacing: 5) {
+                            Text("Giriş Yap / Kayıt Ol")
+                                .font(.headline)
+                            Text("Giriş yaparak tüm özellikleri kullanabilirsiniz.")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(10)
+                    }
                 }
-
                 
                 Section {
                     NavigationLink("Nöbetçi Eczaneler", destination: PharmacyListView())
@@ -69,14 +56,12 @@ struct MoreView: View {
                 }
                 
                 Section {
-                    if !appState.isUserLoggedIn {
-                        NavigationLink("Yeni İşletme Talebi", destination: LoginView().toolbar(.hidden, for: .tabBar))
-                    } else {
-                        NavigationLink("Yeni İşletme Talebi", destination: BusinessRequestView())
-                    }
+                    NavigationLink("Yeni İşletme Talebi", destination: BusinessRequestView())
                 }
                 
                 Section {
+                    NavigationLink("Hakkında", destination: AboutView(url: "https://www.malatyalife.lamamedya.com/about.php").navigationTitle("").navigationBarTitleDisplayMode(.inline))
+ 
                     HStack {
                         Text("Uygulama Versiyonu")
                         Spacer()
@@ -91,15 +76,17 @@ struct MoreView: View {
                     }
                 }
                 
-                if appState.isUserLoggedIn {
+                if appState.userSession != nil {
                     Button(action: {
-                        appState.isUserLoggedIn = false
+                        AuthService.shared.signOut()
+                        dismiss()
                     }, label: {
                         Text("Çıkış Yap")
                             .font(.headline)
                             .foregroundColor(.red)
                     })
                 }
+                
             }
             .navigationTitle("Daha Fazla")
             .tabItem {

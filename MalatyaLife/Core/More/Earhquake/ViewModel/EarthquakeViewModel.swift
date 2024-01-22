@@ -9,16 +9,33 @@ import Foundation
 
 final class EarthquakeViewModel: ObservableObject {
     
-    @Published var earthquakes: [EarthquakeResponse.Earthquake] = []
+//    @Published var earthquakes: [EarthquakeResponse.Earthquake] = []
+    @Published var earthquakes: [EarthquakeResponse] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
+    @Published var showDetail = false
+    @Published var selectedEarthquake: Earthquake?
+    
+//    @MainActor
+//    func fetchEarthquakes() async {
+//        isLoading = true
+//        do {
+//            let response = try await EarthquakeService.shared.getEarthquakes()
+//            earthquakes = response.result
+//            isLoading = false
+//        } catch let error as APError {
+//            handleAPIError(error)
+//        } catch {
+//            print("Unknown error: \(error)")
+//        }
+//    }
     
     @MainActor
     func fetchEarthquakes() async {
         isLoading = true
         do {
             let response = try await EarthquakeService.shared.getEarthquakes()
-            earthquakes = response.result
+            earthquakes = [response]
             isLoading = false
         } catch let error as APError {
             handleAPIError(error)
@@ -45,8 +62,20 @@ final class EarthquakeViewModel: ObservableObject {
         self.alertItem = alertItem
     }
     
+    func getDate(dateTime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        guard let date = dateFormatter.date(from: dateTime) else {
+            return "Geçersiz tarih formatı"
+        }
+        
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
     //  Text(earthquake.dateTime) ı 16:26 şeklinde döndürür
-    func getDateTime(dateTime: String) -> String {
+    func getTime(dateTime: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         

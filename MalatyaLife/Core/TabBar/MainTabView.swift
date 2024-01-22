@@ -36,11 +36,8 @@ struct MainTabView: View {
                 .onAppear { selectedTab = 2 }
                 .tag(2)
             
-            
-            NavigationStack {
                 MoreView()
                     .environmentObject(appState)
-            }
                 .tabItem {
                     Label("Daha Fazla", systemImage: selectedTab == 3 ? "bolt.horizontal.fill" : "bolt.horizontal")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
