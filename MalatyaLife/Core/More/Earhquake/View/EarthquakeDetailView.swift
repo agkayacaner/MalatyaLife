@@ -69,7 +69,7 @@ struct EarthquakeDetailView: View {
                 
                 Spacer()
                 
-                    Text(viewModel.showMagnitude(earthquake: earthquake))
+                    Text(viewModel.showMagnitudeWithType(earthquake: earthquake))
                     .bold()
                 
             }

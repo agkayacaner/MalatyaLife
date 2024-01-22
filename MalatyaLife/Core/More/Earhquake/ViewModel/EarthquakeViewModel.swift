@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class EarthquakeViewModel: ObservableObject {
     @Published var earthquakes: [EarthquakeResponse] = []
@@ -30,7 +31,7 @@ final class EarthquakeViewModel: ObservableObject {
     
     func handleAPIError(_ error: APError) {
         var alertItem: AlertItem
-
+        
         switch error {
         case .invalidURL:
             alertItem = AlertContext.invalidURL
@@ -71,13 +72,13 @@ final class EarthquakeViewModel: ObservableObject {
     func getHourAgo(dateTime: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
+        
         guard let date = dateFormatter.date(from: dateTime) else {
             return "Geçersiz tarih formatı"
         }
-
+        
         let components = Calendar.current.dateComponents([.hour,.minute,.day], from: date, to: Date())
-
+        
         if let hours = components.hour, hours > 0 {
             return "\(hours) sa önce"
         } else if let minutes = components.minute, minutes > 0 {
@@ -90,18 +91,32 @@ final class EarthquakeViewModel: ObservableObject {
     }
     
     func getMagnitude(earthquake: Earthquake) -> Double {
-            if earthquake.magnitude.Mw > 0 {
-                return earthquake.magnitude.Mw
-            } else {
-                let magnitudes = [earthquake.magnitude.MD, earthquake.magnitude.ML]
-                let sortedMagnitudes = magnitudes.sorted(by: { $0 > $1 })
-                return sortedMagnitudes.first ?? 0
-            }
+        if earthquake.magnitude.Mw > 0 {
+            return earthquake.magnitude.Mw
+        } else {
+            let magnitudes = [earthquake.magnitude.MD, earthquake.magnitude.ML]
+            let sortedMagnitudes = magnitudes.sorted(by: { $0 > $1 })
+            return sortedMagnitudes.first ?? 0
+        }
+    }
+    
+    func showMagnitude(earthquake: Earthquake) -> String {
+        let magnitude = getMagnitude(earthquake: earthquake)
+        return String(format: "%.1f", magnitude)
+    }
+    
+    func showMagnitudeWithType(earthquake: Earthquake) -> String {
+        let magnitude = getMagnitude(earthquake: earthquake)
+        var magnitudeType = "Mw"
+        
+        if earthquake.magnitude.Mw > 0 {
+            magnitudeType = "Mw"
+        } else if earthquake.magnitude.MD > earthquake.magnitude.ML {
+            magnitudeType = "MD"
+        } else {
+            magnitudeType = "ML"
         }
         
-        func showMagnitude(earthquake: Earthquake) -> String {
-            let magnitude = getMagnitude(earthquake: earthquake)
-            return String(format: "%.1f", magnitude)
-        }
-    
+        return String(format: "%.1f %@", magnitude, magnitudeType)
+    }
 }
