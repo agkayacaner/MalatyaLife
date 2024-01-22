@@ -46,43 +46,11 @@ struct EarthquakeCellView: View {
                 .foregroundStyle(.secondary)
                 .padding(.trailing,10)
 
-                showMagnitude()
+                Text(viewModel.showMagnitude(earthquake: earthquake))
                     .font(.title)
-                    .foregroundColor(getMagnitudeColor(magnitude: Double(getMagnitude())!))
+                    .foregroundColor(getMagnitudeColor(magnitude: viewModel.getMagnitude(earthquake: earthquake)))
             }
         }
-    }
-    
-    func getMagnitude() -> String {
-        if earthquake.magnitude.Mw > 0 {
-            return String(format: "%.1f", earthquake.magnitude.Mw)
-        } else {
-            let magnitudes = [earthquake.magnitude.MD, earthquake.magnitude.ML]
-            
-            let sortedMagnitudes = magnitudes.sorted(by: { $0 > $1 })
-            
-            for magnitude in sortedMagnitudes {
-                return String(format: "%.1f", magnitude)
-            }
-        }
-        return "0"
-    }
-    
-    func showMagnitude() -> some View {
-        if earthquake.magnitude.Mw > 0 {
-            return Text(String(format: "%.1f", earthquake.magnitude.Mw))
-        } else {
-            let magnitudes = [earthquake.magnitude.MD, earthquake.magnitude.ML]
-            
-            let sortedMagnitudes = magnitudes.sorted(by: { $0 > $1 })
-            
-            for magnitude in sortedMagnitudes {
-                return Text(String(format: "%.1f", magnitude))
-            }
-            
-        }
-        
-        return Text("0")
     }
 }
 

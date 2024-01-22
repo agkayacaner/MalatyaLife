@@ -8,27 +8,11 @@
 import Foundation
 
 final class EarthquakeViewModel: ObservableObject {
-    
-//    @Published var earthquakes: [EarthquakeResponse.Earthquake] = []
     @Published var earthquakes: [EarthquakeResponse] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
     @Published var showDetail = false
     @Published var selectedEarthquake: Earthquake?
-    
-//    @MainActor
-//    func fetchEarthquakes() async {
-//        isLoading = true
-//        do {
-//            let response = try await EarthquakeService.shared.getEarthquakes()
-//            earthquakes = response.result
-//            isLoading = false
-//        } catch let error as APError {
-//            handleAPIError(error)
-//        } catch {
-//            print("Unknown error: \(error)")
-//        }
-//    }
     
     @MainActor
     func fetchEarthquakes() async {
@@ -57,8 +41,6 @@ final class EarthquakeViewModel: ObservableObject {
         case .unableToComplete:
             alertItem = AlertContext.unableToComplete
         }
-
-        // Set the alertItem property to trigger the alert in the view
         self.alertItem = alertItem
     }
     
@@ -74,7 +56,6 @@ final class EarthquakeViewModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
     
-    //  Text(earthquake.dateTime) ı 16:26 şeklinde döndürür
     func getTime(dateTime: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -87,7 +68,6 @@ final class EarthquakeViewModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
     
-    // Saati ... saat önce şeklinde döndürür
     func getHourAgo(dateTime: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -108,5 +88,20 @@ final class EarthquakeViewModel: ObservableObject {
             return "Şimdi"
         }
     }
+    
+    func getMagnitude(earthquake: Earthquake) -> Double {
+            if earthquake.magnitude.Mw > 0 {
+                return earthquake.magnitude.Mw
+            } else {
+                let magnitudes = [earthquake.magnitude.MD, earthquake.magnitude.ML]
+                let sortedMagnitudes = magnitudes.sorted(by: { $0 > $1 })
+                return sortedMagnitudes.first ?? 0
+            }
+        }
+        
+        func showMagnitude(earthquake: Earthquake) -> String {
+            let magnitude = getMagnitude(earthquake: earthquake)
+            return String(format: "%.1f", magnitude)
+        }
     
 }
