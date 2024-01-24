@@ -88,7 +88,8 @@ struct MoreView: View {
                 }
                 
             }
-            .navigationTitle("Daha Fazla")
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .tabItem {
                 Label("Home", systemImage: "house")
             }

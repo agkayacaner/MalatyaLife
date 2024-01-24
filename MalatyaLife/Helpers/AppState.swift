@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Combine
+import FirebaseAuth
 
 enum AppStorageKey: String {
     case isOnboardingDone
@@ -14,5 +16,20 @@ enum AppStorageKey: String {
 
 final class AppState: ObservableObject {
     @AppStorage(AppStorageKey.isOnboardingDone.rawValue) var isOnboardingDone: Bool = false
-    @AppStorage(AppStorageKey.isUserLoggedIn.rawValue) var isUserLoggedIn: Bool = false
+    @Published var userSession: FirebaseAuth.User?
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    
+    init() {
+        setupSubscriptions()
+    }
+    
+    private func setupSubscriptions() {
+        AuthService.shared.$userSession.sink { [weak self] userSession in
+            self?.userSession = userSession
+        }
+        .store(in: &cancellables)
+    }
+    
 }

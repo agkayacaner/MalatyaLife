@@ -69,6 +69,6 @@ struct Business: Codable, Identifiable {
 }
 
 struct BusinessMockData {
-    static let sampleBusiness01 = Business(id: "1", name: "Sample Business 01", owner: "Sample Owner" ,address: "Sample Address", district: "Sample State", phone: "Sample Phone", email: "Sample Email", website: "Sample Website", description: "Sample Description", facebook: "Sample Facebook", instagram: "Sample Instagram", twitter: "Sample Twitter", workingHours: "Sample Working Hours", offDay: "Sample Off Day", image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,latitude: 0.0, longitude: 0.0, category: "Sample Category", created_at: 0.0)
+    static let sampleBusiness01 = Business(id: "1", name: "Havuç Kafe", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynıgün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", twitter: "havuc_kafe", workingHours: "08.00-23.00", offDay: "Pazar", image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,latitude: 0.0, longitude: 0.0, category: "Kafe", created_at: 0.0)
 }
 
