@@ -15,6 +15,8 @@ struct ContentView: View {
             if !appState.isOnboardingDone {
                 OnboardingView()
                     .environmentObject(appState)
+            } else if !appState.isLoggedIn {
+                MainTabView()
             } else {
                 MainTabView()
             }

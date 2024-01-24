@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State var appIcon = UIImage(named: "AppIcon") ?? UIImage()
     @Environment(\.dismiss) var dismiss
-    
-    @State var name: String = ""
-    @State var lastname: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject private var viewModel = RegisterViewModel()
     
     var body: some View {
         NavigationStack {
@@ -27,25 +22,31 @@ struct RegisterView: View {
                         .fontWeight(.bold)
                         .padding(.bottom,20)
                     
-                    TextField("Ad", text: $name)
+                    TextField("Ad", text: $viewModel.name)
+                        .textInputAutocapitalization(.words)
+                        .autocorrectionDisabled()
                         .font(.subheadline)
                         .padding(12)
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                     
-                    TextField("Soyad", text: $lastname)
+                    TextField("Soyad", text: $viewModel.lastname)
+                        .autocorrectionDisabled()
                         .font(.subheadline)
                         .padding(12)
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                     
-                    TextField("Eposta", text: $email)
+                    TextField("Eposta", text: $viewModel.email)
+                        .autocorrectionDisabled()
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
                         .font(.subheadline)
                         .padding(12)
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                     
-                    SecureField("Şifre", text: $password)
+                    SecureField("Şifre", text: $viewModel.password)
                         .font(.subheadline)
                         .padding(12)
                         .background(Color(.systemGray6))
@@ -55,7 +56,7 @@ struct RegisterView: View {
                 }
 
                 Button(action: {
-                    print("Kayıt Yapıldı")
+                    Task { try await viewModel.createUser() }
                 }) {
                     Text("Kayıt Ol")
                         .foregroundStyle(.white)
@@ -86,6 +87,10 @@ struct RegisterView: View {
 
             }
             .padding(.horizontal)
+            
+            .alert(item: $viewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            }
         }
     }
 }

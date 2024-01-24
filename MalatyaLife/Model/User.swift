@@ -8,10 +8,10 @@
 import Foundation
 
 struct User: Identifiable, Codable {
-    let id: Int
+    let id: String
     var name: String
     var lastname: String
     var email: String
-    var password: String
+    var profileImage: String?
     var createdAt: TimeInterval
 }

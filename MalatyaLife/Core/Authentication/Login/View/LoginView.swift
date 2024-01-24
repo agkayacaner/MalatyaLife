@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @Environment(\.dismiss) var dismiss
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationStack {
@@ -22,13 +22,18 @@ struct LoginView: View {
                         .fontWeight(.bold)
                         .padding(.bottom,20)
                     
-                    TextField("Eposta", text: $email)
+                    TextField("Eposta", text: $viewModel.email)
+                        .autocorrectionDisabled()
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
                         .font(.subheadline)
                         .padding(12)
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                     
-                    SecureField("Şifre", text: $password)
+                    SecureField("Şifre", text: $viewModel.password)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
                         .font(.subheadline)
                         .padding(12)
                         .background(Color(.systemGray6))
@@ -45,7 +50,8 @@ struct LoginView: View {
                 }
 
                 Button(action: {
-                    print("Giriş Yapıldı")
+                    Task { try await viewModel.login() }
+                    
                 }) {
                     Text("Giriş Yap")
                         .foregroundStyle(.white)
@@ -73,7 +79,11 @@ struct LoginView: View {
             }
             .padding(.horizontal)
         }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        }
     }
+    
 }
 
 #Preview {

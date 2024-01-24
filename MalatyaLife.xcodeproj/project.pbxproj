@@ -27,7 +27,17 @@
 		F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */; };
 		F7605DB72B5A9674007912D9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB62B5A9674007912D9 /* OnboardingView.swift */; };
 		F7605DBA2B5A9BBA007912D9 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB92B5A9BBA007912D9 /* AppState.swift */; };
+		F766DFED2B5D8F640006B7CD /* EarthquakeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F766DFEC2B5D8F640006B7CD /* EarthquakeDetailView.swift */; };
+		F76E83B92B5FE70800C974A0 /* FeaturedBusinessItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83B82B5FE70800C974A0 /* FeaturedBusinessItem.swift */; };
+		F76E83BB2B5FE7CA00C974A0 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */; };
+		F76E83BD2B5FE7F100C974A0 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */; };
+		F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */; };
+		F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */; };
+		F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */; };
 		F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */; };
+		F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F7D358012B5AF8F100C98419 /* FirebaseAuth */; };
+		F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D358032B5AF93900C98419 /* RegisterViewModel.swift */; };
+		F7D358062B5B03A900C98419 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D358052B5B03A900C98419 /* LoginViewModel.swift */; };
 		F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */; };
 		F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */; };
 		F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA7C2B56B9350001B60B /* GetDate.swift */; };
@@ -45,6 +55,8 @@
 		F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */; };
 		F7DCBA9C2B56D5DB0001B60B /* Earthquake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */; };
 		F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA9D2B56D5F30001B60B /* EarthquakeViewModel.swift */; };
+		F7E05F6F2B5AF7A500928424 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E05F6E2B5AF7A500928424 /* AuthService.swift */; };
+		F7E3E7F82B5C3BFE00EFEB29 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E3E7F72B5C3BFE00EFEB29 /* AboutView.swift */; };
 		F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */; };
 		F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE97B2B568F5500A379E5 /* ContentView.swift */; };
 		F7EAE97E2B568F5600A379E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE97D2B568F5600A379E5 /* Assets.xcassets */; };
@@ -73,7 +85,16 @@
 		F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewModel.swift; sourceTree = "<group>"; };
 		F7605DB62B5A9674007912D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F7605DB92B5A9BBA007912D9 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		F766DFEC2B5D8F640006B7CD /* EarthquakeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeDetailView.swift; sourceTree = "<group>"; };
+		F76E83B82B5FE70800C974A0 /* FeaturedBusinessItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedBusinessItem.swift; sourceTree = "<group>"; };
+		F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardItem.swift; sourceTree = "<group>"; };
+		F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardItem.swift; sourceTree = "<group>"; };
+		F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7D358032B5AF93900C98419 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		F7D358052B5B03A900C98419 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyListView.swift; sourceTree = "<group>"; };
 		F7DCBA7A2B56B83A0001B60B /* PharmacyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyCellView.swift; sourceTree = "<group>"; };
 		F7DCBA7C2B56B9350001B60B /* GetDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDate.swift; sourceTree = "<group>"; };
@@ -91,6 +112,8 @@
 		F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeService.swift; sourceTree = "<group>"; };
 		F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earthquake.swift; sourceTree = "<group>"; };
 		F7DCBA9D2B56D5F30001B60B /* EarthquakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeViewModel.swift; sourceTree = "<group>"; };
+		F7E05F6E2B5AF7A500928424 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		F7E3E7F72B5C3BFE00EFEB29 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F7EAE9762B568F5500A379E5 /* MalatyaLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalatyaLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE9792B568F5500A379E5 /* MalatyaLifeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalatyaLifeApp.swift; sourceTree = "<group>"; };
 		F7EAE97B2B568F5500A379E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70B5D7B2B570E0800E624F5 /* Kingfisher in Frameworks */,
+				F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */,
 				F70B5D6F2B56EF1B00E624F5 /* FirebaseFirestore in Frameworks */,
 				F70B5D732B56EF1B00E624F5 /* FirebaseStorage in Frameworks */,
 				F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */,
@@ -181,6 +205,7 @@
 		F71DAC372B5AC16000FE3BF2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F7D358052B5B03A900C98419 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -205,6 +230,7 @@
 		F71DAC3A2B5AC17100FE3BF2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F7D358032B5AF93900C98419 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -293,6 +319,7 @@
 			children = (
 				F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */,
 				F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */,
+				F766DFEC2B5D8F640006B7CD /* EarthquakeDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,6 +330,14 @@
 				F7DCBA9D2B56D5F30001B60B /* EarthquakeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7E3E7F62B5C3BF300EFEB29 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				F7E3E7F72B5C3BFE00EFEB29 /* AboutView.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		F7EAE96D2B568F5400A379E5 = {
@@ -325,11 +360,11 @@
 		F7EAE9782B568F5500A379E5 /* MalatyaLife */ = {
 			isa = PBXGroup;
 			children = (
-				F7605DB82B5A9BAF007912D9 /* Helpers */,
 				F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */,
 				F7EAE98A2B56909B00A379E5 /* App */,
 				F7EAE98B2B56909F00A379E5 /* Core */,
 				F7EAE9882B56909800A379E5 /* Extensions */,
+				F7605DB82B5A9BAF007912D9 /* Helpers */,
 				F7EAE9892B56909900A379E5 /* Model */,
 				F7EAE9872B56909500A379E5 /* Services */,
 				F7EAE98C2B5690F000A379E5 /* Utils */,
@@ -355,6 +390,7 @@
 				F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */,
 				F70B5D822B5723B200E624F5 /* BusinessService.swift */,
 				F7605DB12B5A87A9007912D9 /* EmergencyService.swift */,
+				F7E05F6E2B5AF7A500928424 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -394,10 +430,11 @@
 			isa = PBXGroup;
 			children = (
 				F71DAC342B5AC14900FE3BF2 /* Authentication */,
-				F7605DB52B5A965E007912D9 /* Onboard */,
+				F7DCBA882B56C3DE0001B60B /* Business */,
 				F7EAE99A2B5698F800A379E5 /* Event */,
 				F7EAE9902B56913900A379E5 /* Explore */,
 				F7EAE9922B56918B00A379E5 /* More */,
+				F7605DB52B5A965E007912D9 /* Onboard */,
 				F7EAE9912B56916C00A379E5 /* Root */,
 				F7EAE98E2B56911B00A379E5 /* Search */,
 				F7EAE9932B5691BC00A379E5 /* TabBar */,
@@ -424,6 +461,12 @@
 			isa = PBXGroup;
 			children = (
 				F7EAE99D2B569AD300A379E5 /* ExploreView.swift */,
+				F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */,
+				F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */,
+				F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */,
+				F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */,
+				F76E83B82B5FE70800C974A0 /* FeaturedBusinessItem.swift */,
+				F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -439,7 +482,7 @@
 		F7EAE9922B56918B00A379E5 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				F7DCBA882B56C3DE0001B60B /* Business */,
+				F7E3E7F62B5C3BF300EFEB29 /* About */,
 				F7DCBA852B56C2710001B60B /* Emergency */,
 				F7DCBA802B56BF7F0001B60B /* Earhquake */,
 				F7DCBA772B56B74D0001B60B /* Pharmacy */,
@@ -485,6 +528,7 @@
 				F70B5D702B56EF1B00E624F5 /* FirebaseFirestoreSwift */,
 				F70B5D722B56EF1B00E624F5 /* FirebaseStorage */,
 				F70B5D7A2B570E0800E624F5 /* Kingfisher */,
+				F7D358012B5AF8F100C98419 /* FirebaseAuth */,
 			);
 			productName = MalatyaLife;
 			productReference = F7EAE9762B568F5500A379E5 /* MalatyaLife.app */;
@@ -546,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7DCBA902B56CEEC0001B60B /* Alert.swift in Sources */,
+				F766DFED2B5D8F640006B7CD /* EarthquakeDetailView.swift in Sources */,
 				F7605DB22B5A87A9007912D9 /* EmergencyService.swift in Sources */,
 				F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */,
 				F7605DBA2B5A9BBA007912D9 /* AppState.swift in Sources */,
@@ -553,27 +598,33 @@
 				F70B5D662B56DDC000E624F5 /* Business.swift in Sources */,
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
+				F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */,
 				F70B5D6A2B56E02700E624F5 /* BusinessRequestViewModel.swift in Sources */,
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
 				F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
+				F76E83B92B5FE70800C974A0 /* FeaturedBusinessItem.swift in Sources */,
 				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
 				F7605DB72B5A9674007912D9 /* OnboardingView.swift in Sources */,
 				F71DAC402B5AC87500FE3BF2 /* RegisterView.swift in Sources */,
 				F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */,
 				F71DAC3E2B5AC2D900FE3BF2 /* LoginView.swift in Sources */,
 				F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */,
+				F76E83BB2B5FE7CA00C974A0 /* CategoryCell.swift in Sources */,
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
+				F7D358062B5B03A900C98419 /* LoginViewModel.swift in Sources */,
 				F70B5D812B57141C00E624F5 /* BusinessCellView.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
+				F7E3E7F82B5C3BFE00EFEB29 /* AboutView.swift in Sources */,
 				F7DCBA9C2B56D5DB0001B60B /* Earthquake.swift in Sources */,
 				F7EAE99C2B56990200A379E5 /* EventsView.swift in Sources */,
 				F71DAC3C2B5AC18100FE3BF2 /* User.swift in Sources */,
 				F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */,
 				F71DAC432B5AD78A00FE3BF2 /* ResetPasswordView.swift in Sources */,
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
+				F76E83BD2B5FE7F100C974A0 /* BusinessCell.swift in Sources */,
 				F7EAE9972B56953F00A379E5 /* MoreView.swift in Sources */,
 				F7DCBA922B56CEF30001B60B /* APError.swift in Sources */,
 				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
@@ -581,7 +632,11 @@
 				F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */,
 				F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */,
 				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
+				F7E05F6F2B5AF7A500928424 /* AuthService.swift in Sources */,
+				F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
+				F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */,
+				F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */,
 				F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */,
 				F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */,
 				F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */,
@@ -844,6 +899,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F7D358012B5AF8F100C98419 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F70B5D562B56DD4300E624F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
