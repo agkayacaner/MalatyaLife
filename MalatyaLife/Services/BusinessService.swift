@@ -19,9 +19,11 @@ struct BusinessService {
 
     func fetchBusinesses() async throws -> [Business] {
         let querySnapshot = try await db.collection("businesses").whereField("isApproved", isEqualTo: true).getDocuments()
-        return querySnapshot.documents.compactMap { document in
+        var businesses = querySnapshot.documents.compactMap { document in
             try? document.data(as: Business.self)
         }
+        businesses.sort(by: { $0.created_at > $1.created_at })
+        return businesses
     }
     
     func fetchFeaturedBusinesses() async throws -> [Business] {
