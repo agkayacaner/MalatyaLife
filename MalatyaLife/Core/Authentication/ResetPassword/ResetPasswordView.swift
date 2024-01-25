@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ResetPasswordView: View {
-    @State var email: String = ""
-    
+    @StateObject var viewModel = ResetPasswordViewModel()
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
             Spacer()
@@ -20,23 +20,21 @@ struct ResetPasswordView: View {
                     .fontWeight(.bold)
                     .padding(.bottom,20)
                 
-                TextField("Eposta", text: $email)
+                TextField("Sisteme kayıtlı Eposta adresinizi giriniz", text: $viewModel.email)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
                     .font(.subheadline)
                     .padding(12)
                     .background(Color(.systemGray6))
                     .clipShape(RoundedRectangle(cornerRadius: 14))
-                
-                
-                    Text("Sisteme kayıtlı Eposta adresinizi giriniz.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.vertical)
-                        .padding(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom)
             }
 
             Button(action: {
-                print("Giriş Yapıldı")
+                Task {
+                    try await viewModel.resetPassword()
+                    dismiss()
+                }
             }) {
                 Text("Şifremi Sıfırla")
                     .foregroundStyle(.white)
@@ -50,6 +48,22 @@ struct ResetPasswordView: View {
             
         }
         .padding(.horizontal)
+        .alert(item: $viewModel.alertItem) { alertItem in
+            if let secondaryButton = alertItem.secondaryButton {
+                return Alert(
+                    title: alertItem.title,
+                    message: alertItem.message,
+                    primaryButton: alertItem.primaryButton,
+                    secondaryButton: secondaryButton
+                )
+            } else {
+                return Alert(
+                    title: alertItem.title,
+                    message: alertItem.message,
+                    dismissButton: alertItem.primaryButton
+                )
+            }
+        }
     }
 }
 

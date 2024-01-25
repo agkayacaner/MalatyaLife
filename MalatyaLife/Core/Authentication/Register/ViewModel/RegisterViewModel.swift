@@ -22,10 +22,10 @@ final class RegisterViewModel: ObservableObject {
     func createUser() async throws {
         do {
             try await AuthService.shared.createUser(withEmail: email, name: name, lastname: lastname, password: password)
-            alertItem = AlertItem(title: Text("Success"), message: Text("User created!"), dismissButton: .default(Text("OK")))
+            alertItem = AlertItem(title: Text("Success"), message: Text("User created!"), primaryButton: .default(Text("OK")),secondaryButton: nil)
             isCreationSuccess = true
         } catch {
-            alertItem = AlertItem(title: Text("Error"), message: Text("\(error.localizedDescription)"), dismissButton: .default(Text("OK")))
+            alertItem = AlertItem(title: Text("Error"), message: Text("\(error.localizedDescription)"), primaryButton: .default(Text("OK")),secondaryButton: nil)
             print(error.localizedDescription)
         }
     }

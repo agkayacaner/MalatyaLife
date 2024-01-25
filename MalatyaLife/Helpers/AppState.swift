@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Firebase
 import FirebaseAuth
 
 enum AppStorageKey: String {

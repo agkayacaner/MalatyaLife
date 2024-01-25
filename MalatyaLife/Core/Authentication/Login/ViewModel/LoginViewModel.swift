@@ -26,9 +26,53 @@ final class LoginViewModel: ObservableObject {
             }
             
         } catch {
-            alertItem = AlertItem(title: Text("Error"), message: Text("\(error.localizedDescription)"), dismissButton: .default(Text("OK")))
-            print(error.localizedDescription)
+            let nsError = error as NSError
+                   let errorMessage = nsError.userInfo[NSLocalizedDescriptionKey] as? String ?? "Bilinmeyen hata"
+                   
+                   if errorMessage == "E-posta adresi doğrulanmamış. Lütfen e-posta adresinizi doğrulayın." {
+                       alertItem = AlertItem(
+                           title: Text("Hata"),
+                           message: Text(errorMessage),
+                           primaryButton: .default(Text("Tamam")),
+                           secondaryButton: .default(Text("E-postayı Yeniden Gönder"), action: {
+                               Task {
+                                   try await self.resendEmail()
+                               }
+                           } )
+                       )
+                   } else {
+                       alertItem = AlertItem(
+                           title: Text("Hata"),
+                           message: Text(errorMessage),
+                           primaryButton: .default(Text("Tamam")), secondaryButton: nil
+                       )
+                   }
+                   
+                   print(errorMessage)
         }
     }
     
+    @MainActor
+    func resendEmail() async throws {
+        do {
+            try await AuthService.shared.resendVerifyEmail()
+            alertItem = AlertItem(
+                title: Text("Başarılı"),
+                message: Text("E-posta adresinize doğrulama e-postası gönderildi."),
+                primaryButton: .default(Text("Tamam")), secondaryButton: nil
+            )
+            
+        } catch {
+            let nsError = error as NSError
+            let errorMessage = nsError.userInfo[NSLocalizedDescriptionKey] as? String ?? "Bilinmeyen hata"
+            
+            alertItem = AlertItem(
+                title: Text("Hata"),
+                message: Text(errorMessage),
+                primaryButton: .default(Text("Tamam")), secondaryButton: nil
+            )
+            
+            print(errorMessage)
+        }
+    }
 }

@@ -80,7 +80,20 @@ struct LoginView: View {
             .padding(.horizontal)
         }
         .alert(item: $viewModel.alertItem) { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            if let secondaryButton = alertItem.secondaryButton {
+                return Alert(
+                    title: alertItem.title,
+                    message: alertItem.message,
+                    primaryButton: alertItem.primaryButton,
+                    secondaryButton: secondaryButton
+                )
+            } else {
+                return Alert(
+                    title: alertItem.title,
+                    message: alertItem.message,
+                    dismissButton: alertItem.primaryButton
+                )
+            }
         }
     }
     

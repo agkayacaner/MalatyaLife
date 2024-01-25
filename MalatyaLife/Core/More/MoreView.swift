@@ -12,6 +12,11 @@ struct MoreView: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var appState: AppState
+    @StateObject var profileViewModel = ProfileViewModel()
+    
+    private var currentUser: User? {
+        return profileViewModel.currentUser
+    }
     
     var body: some View {
         NavigationStack {
@@ -28,9 +33,8 @@ struct MoreView: View {
                             )
                         
                         VStack(alignment:.leading,spacing: 5) {
-                            Text("Caner Ağkaya")
-                                .font(.headline)
-                            Text("\("agkayacaner@gmail.com")")
+                            currentUserFullname()
+                            Text("\(currentUser?.email ?? "")")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -94,6 +98,15 @@ struct MoreView: View {
                 Label("Home", systemImage: "house")
             }
         }
+    }
+    
+    @ViewBuilder
+    func currentUserFullname() -> some View {
+        HStack(spacing:2) {
+            Text("\(currentUser?.name ?? "")")
+            Text("\(currentUser?.lastname ?? "")")
+        }
+        .font(.headline)
     }
 }
 

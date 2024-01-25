@@ -22,6 +22,8 @@
 		F71DAC3E2B5AC2D900FE3BF2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DAC3D2B5AC2D900FE3BF2 /* LoginView.swift */; };
 		F71DAC402B5AC87500FE3BF2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DAC3F2B5AC87500FE3BF2 /* RegisterView.swift */; };
 		F71DAC432B5AD78A00FE3BF2 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */; };
+		F73F761D2B61C82000BA9F73 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F761C2B61C82000BA9F73 /* UserService.swift */; };
+		F73F761F2B61C9F900BA9F73 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */; };
 		F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DAF2B5A83D4007912D9 /* Emergency.swift */; };
 		F7605DB22B5A87A9007912D9 /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB12B5A87A9007912D9 /* EmergencyService.swift */; };
 		F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */; };
@@ -34,6 +36,7 @@
 		F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */; };
 		F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */; };
 		F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */; };
+		F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */; };
 		F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */; };
 		F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F7D358012B5AF8F100C98419 /* FirebaseAuth */; };
 		F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D358032B5AF93900C98419 /* RegisterViewModel.swift */; };
@@ -80,6 +83,8 @@
 		F71DAC3D2B5AC2D900FE3BF2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F71DAC3F2B5AC87500FE3BF2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		F73F761C2B61C82000BA9F73 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F7605DAF2B5A83D4007912D9 /* Emergency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
 		F7605DB12B5A87A9007912D9 /* EmergencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
 		F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 		F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardItem.swift; sourceTree = "<group>"; };
 		F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardItem.swift; sourceTree = "<group>"; };
 		F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7D358032B5AF93900C98419 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F7D358052B5B03A900C98419 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -239,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */,
+				F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */,
 			);
 			path = ResetPassword;
 			sourceTree = "<group>";
@@ -391,6 +398,7 @@
 				F70B5D822B5723B200E624F5 /* BusinessService.swift */,
 				F7605DB12B5A87A9007912D9 /* EmergencyService.swift */,
 				F7E05F6E2B5AF7A500928424 /* AuthService.swift */,
+				F73F761C2B61C82000BA9F73 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -487,6 +495,7 @@
 				F7DCBA802B56BF7F0001B60B /* Earhquake */,
 				F7DCBA772B56B74D0001B60B /* Pharmacy */,
 				F7EAE9962B56953F00A379E5 /* MoreView.swift */,
+				F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -600,8 +609,10 @@
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
 				F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */,
 				F70B5D6A2B56E02700E624F5 /* BusinessRequestViewModel.swift in Sources */,
+				F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */,
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
+				F73F761F2B61C9F900BA9F73 /* ProfileViewModel.swift in Sources */,
 				F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
 				F76E83B92B5FE70800C974A0 /* FeaturedBusinessItem.swift in Sources */,
@@ -621,6 +632,7 @@
 				F7DCBA9C2B56D5DB0001B60B /* Earthquake.swift in Sources */,
 				F7EAE99C2B56990200A379E5 /* EventsView.swift in Sources */,
 				F71DAC3C2B5AC18100FE3BF2 /* User.swift in Sources */,
+				F73F761D2B61C82000BA9F73 /* UserService.swift in Sources */,
 				F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */,
 				F71DAC432B5AD78A00FE3BF2 /* ResetPasswordView.swift in Sources */,
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,

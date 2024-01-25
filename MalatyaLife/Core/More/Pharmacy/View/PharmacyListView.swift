@@ -44,7 +44,7 @@ struct PharmacyListView: View {
                 .presentationDetents([.medium])
         })
         .alert(item: $viewModel.alertItem) { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.primaryButton)
         }
     }
 }
