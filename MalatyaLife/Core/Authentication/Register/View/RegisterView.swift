@@ -52,11 +52,14 @@ struct RegisterView: View {
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                     
-
+                    
                 }
-
+                
                 Button(action: {
-                    Task { try await viewModel.createUser() }
+                    Task {
+                        try await viewModel.createUser()
+                        dismiss()
+                    }
                 }) {
                     Text("Kayıt Ol")
                         .foregroundStyle(.white)
@@ -84,7 +87,7 @@ struct RegisterView: View {
                     }
                 }
                 .padding(.vertical,16)
-
+                
             }
             .padding(.horizontal)
             

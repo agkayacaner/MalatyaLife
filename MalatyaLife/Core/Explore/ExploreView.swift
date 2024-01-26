@@ -14,7 +14,7 @@ struct ExploreView: View {
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(){
+                LazyVStack(){
                     // Header
                     HStack {
                         VStack(alignment:.leading,spacing: 10){

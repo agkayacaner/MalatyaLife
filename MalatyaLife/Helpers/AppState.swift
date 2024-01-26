@@ -19,7 +19,7 @@ enum AppStorageKey: String {
 final class AppState: ObservableObject {
     @AppStorage(AppStorageKey.isOnboardingDone.rawValue) var isOnboardingDone: Bool = false
     @AppStorage(AppStorageKey.isLoggedIn.rawValue) var isLoggedIn: Bool = false
-    @Published var userSession: FirebaseAuth.User?
+    @Published var userSession: Firebase.User?
     
     private var cancellables = Set<AnyCancellable>()
     

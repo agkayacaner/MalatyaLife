@@ -10,7 +10,7 @@ import PhotosUI
 import Firebase
 import FirebaseFirestore
 
-final class BusinessRequestViewModel: ObservableObject {
+final class BusinessViewModel: ObservableObject {
     @Published var form = BusinessForm()
     @Published var image : Image?
     @Published var alertItem: AlertItem?
@@ -21,17 +21,14 @@ final class BusinessRequestViewModel: ObservableObject {
             Task { await loadImage() }
         }
     }
+    @Published var isLiked = false
+    @Published var likes = 0
     
-    @MainActor
-    func submitBusiness() async throws {
-        guard isValidForm else { return }
-        
-        let db = Firestore.firestore()
-        let ref = db.collection("businesses").document()
-        
+    func uploadBusiness() async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         let business = Business(
-            id: ref.documentID,
             name: form.name,
+            ownerUID: uid,
             owner: form.owner,
             address: form.address,
             district: form.district.rawValue,
@@ -46,11 +43,11 @@ final class BusinessRequestViewModel: ObservableObject {
             offDay: form.offDay.rawValue,
             image: imageURL,
             category: form.category.rawValue,
-            created_at: Date().timeIntervalSince1970
+            likes: 0,
+            timestamp: Timestamp()
         )
         
-        try ref.setData(from: business)
-        
+        try await BusinessService.shared.createBusiness(business)
     }
     
     @MainActor
@@ -84,28 +81,22 @@ final class BusinessRequestViewModel: ObservableObject {
         return true
     }
     
-    func saveForm() async throws {
-        do {
-            try await submitBusiness()
-        } catch {
-            alertItem = AlertContext.businessDidntCreated
-        }
+    struct BusinessForm {
+        var name = ""
+        var address = ""
+        var district : Business.District = .battalgazi
+        var owner = ""
+        var phone = ""
+        var email = ""
+        var website = ""
+        var description = ""
+        var facebook = ""
+        var instagram = ""
+        var twitter = ""
+        var workingHours = ""
+        var offDay : Business.WeekDay = .sunday
+        var category : Business.Category = .cafe
     }
 }
 
-struct BusinessForm {
-    var name = ""
-    var address = ""
-    var district : Business.District = .battalgazi
-    var owner = ""
-    var phone = ""
-    var email = ""
-    var website = ""
-    var description = ""
-    var facebook = ""
-    var instagram = ""
-    var twitter = ""
-    var workingHours = ""
-    var offDay : Business.WeekDay = .sunday
-    var category : Business.Category = .cafe
-}
+

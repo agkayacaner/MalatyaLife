@@ -12,6 +12,7 @@ import FirebaseAuth
 final class ProfileViewModel: ObservableObject {
     
     @Published var currentUser: User?
+    @Published var businesses =  [Business]()
     
     private var cancellables = Set<AnyCancellable>()
     

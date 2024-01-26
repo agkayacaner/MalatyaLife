@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 class AuthService {
     
-    @Published var userSession: FirebaseAuth.User?
+    @Published var userSession: Firebase.User?
     
     static let shared = AuthService()
     
@@ -52,7 +52,7 @@ class AuthService {
     
     @MainActor
     func uploadUserData(withEmail email:String, name:String, lastname:String, id:String) async throws {
-        let user = User(id: id, name: name, lastname: lastname, email: email, createdAt: Date().timeIntervalSince1970)
+        let user = User(id: id, name: name, lastname: lastname, email: email, likedBusinesses: [], createdAt: Date().timeIntervalSince1970)
         guard let userData = try? Firestore.Encoder().encode(user) else { return }
         try await Firestore.firestore().collection("users").document(id).setData(userData)
         UserService.shared.currentUser = user

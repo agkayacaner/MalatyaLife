@@ -10,7 +10,7 @@ import PhotosUI
 
 struct BusinessRequestView: View {
     
-    @StateObject var viewModel = BusinessRequestViewModel()
+    @StateObject var viewModel = BusinessViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -134,7 +134,7 @@ struct BusinessRequestView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Kaydet") {
                     Task {
-                        try await viewModel.saveForm()
+                        try await viewModel.uploadBusiness()
                         dismiss()
                     }
                 }

@@ -9,8 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct BusinessDetailView: View {
-    @State var business : Business
     @Environment(\.dismiss) var dismiss
+    @State var business : Business
+    @StateObject var viewModel = BusinessViewModel()
     
     let screenWidth = UIScreen.main.bounds.width
     
@@ -19,7 +20,8 @@ struct BusinessDetailView: View {
             VStack(alignment:.leading, spacing: 0) {
                 BusinessImage()
                     .overlay {
-                        BackButton()
+                        HeaderActions()
+                        LikeCount()
                     }
                 
                 HStack {
@@ -152,24 +154,52 @@ struct BusinessDetailView: View {
             
             Spacer()
             
-//            Button {
-//                
-//            } label: {
-//                Image(systemName: "map")
-//                    .resizable()
-//                    .frame(width: 24, height: 24)
-//                
-//                Text("Göster")
-//                    .font(.subheadline)
-//            }
-//            .foregroundStyle(Color.brown)
+            //            Button {
+            //
+            //            } label: {
+            //                Image(systemName: "map")
+            //                    .resizable()
+            //                    .frame(width: 24, height: 24)
+            //
+            //                Text("Göster")
+            //                    .font(.subheadline)
+            //            }
+            //            .foregroundStyle(Color.brown)
             
         }
         .padding(.top,20)
     }
     
     @ViewBuilder
-    func BackButton() -> some View {
+    func LikeCount() -> some View {
+
+        VStack {
+            Spacer()
+            
+            HStack {
+                HStack {
+                    Image(systemName: "heart")
+                        .font(.title3)
+                        .foregroundColor(.accent)
+                    
+                    Text("\(viewModel.likes)")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                }
+                .padding(.horizontal)
+                .padding(.vertical,10)
+                .background(.regularMaterial)
+                .clipShape(Capsule())
+            }
+            .padding()
+
+        }
+        .frame(maxWidth: .infinity,alignment: .leading)
+    }
+    
+    
+    @ViewBuilder
+    func HeaderActions() -> some View {
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let edgeInsets = scene?.windows.first?.safeAreaInsets ?? .zero
         VStack {
@@ -181,11 +211,24 @@ struct BusinessDetailView: View {
                         .font(.title3)
                         .padding()
                 }
-                .foregroundColor(.white)
-                .background(.accent)
+                .foregroundColor(.primary)
+                .background(.regularMaterial)
                 .clipShape(Circle())
                 
                 Spacer()
+                
+                Button {
+                    print("DEBUG: Like pressed")
+                } label: {
+                    Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
+                        .font(.title3)
+                        .padding()
+                }
+                .foregroundColor(viewModel.isLiked ? .accent : .primary)
+                .background(.regularMaterial)
+                .clipShape(Circle())
+                
+                
             }
             .padding(.horizontal,20)
             

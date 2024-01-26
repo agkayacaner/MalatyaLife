@@ -5,11 +5,16 @@
 //  Created by Caner Ağkaya on 16.01.2024.
 //
 
-import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 struct Business: Codable, Identifiable {
-    let id: String?
+    @DocumentID var businessId: String?
+    var id: String? {
+        return businessId ?? NSUUID().uuidString
+    }
     var name: String
+    var ownerUID: String
     var owner: String
     var address: String
     var district: String
@@ -26,9 +31,12 @@ struct Business: Codable, Identifiable {
     var latitude: Double?
     var longitude: Double?
     var category: String
-    var created_at: TimeInterval
+    var likes : Int
+    var timestamp: Timestamp
     var isFeatured: Bool = false
     var isApproved: Bool = false
+    
+    var user: User?
     
     enum Category: String, CaseIterable {
         case restaurant = "Restoran"
@@ -69,6 +77,6 @@ struct Business: Codable, Identifiable {
 }
 
 struct BusinessMockData {
-    static let sampleBusiness01 = Business(id: "1", name: "Havuç Kafe", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynıgün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", twitter: "havuc_kafe", workingHours: "08.00-23.00", offDay: "Pazar", image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,latitude: 0.0, longitude: 0.0, category: "Kafe", created_at: 0.0)
+    static let sampleBusiness01 = Business(name: "Havuç Kafe", ownerUID:"s", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynıgün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", twitter: "havuc_kafe", workingHours: "08.00-23.00", offDay: "Pazar", image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,latitude: 0.0, longitude: 0.0, category: "Kafe", likes: 123, timestamp: Timestamp())
 }
 

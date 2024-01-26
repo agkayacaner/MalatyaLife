@@ -26,12 +26,7 @@ final class ExploreViewModel: ObservableObject {
     
     @MainActor
     func fetchLatestBusinesses() async throws {
-        do {
-            latestBusinesses = try await BusinessService.shared.fetchBusinesses()
-        } catch {
-            print("Hata")
-            throw error
-        }
+        self.latestBusinesses = try await BusinessService.shared.fetchBusinesses()
     }
     
     

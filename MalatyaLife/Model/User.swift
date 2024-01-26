@@ -13,5 +13,6 @@ struct User: Identifiable, Codable {
     var lastname: String
     var email: String
     var profileImage: String?
+    var likedBusinesses: [String]
     var createdAt: TimeInterval
 }

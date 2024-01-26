@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F70B5D662B56DDC000E624F5 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D652B56DDC000E624F5 /* Business.swift */; };
-		F70B5D6A2B56E02700E624F5 /* BusinessRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */; };
+		F70B5D6A2B56E02700E624F5 /* BusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D692B56E02700E624F5 /* BusinessViewModel.swift */; };
 		F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */; };
 		F70B5D6F2B56EF1B00E624F5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D6E2B56EF1B00E624F5 /* FirebaseFirestore */; };
 		F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F70B5D702B56EF1B00E624F5 /* FirebaseFirestoreSwift */; };
@@ -37,6 +37,7 @@
 		F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */; };
 		F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */; };
 		F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */; };
+		F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */; };
 		F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */; };
 		F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F7D358012B5AF8F100C98419 /* FirebaseAuth */; };
 		F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D358032B5AF93900C98419 /* RegisterViewModel.swift */; };
@@ -73,7 +74,7 @@
 
 /* Begin PBXFileReference section */
 		F70B5D652B56DDC000E624F5 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
-		F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequestViewModel.swift; sourceTree = "<group>"; };
+		F70B5D692B56E02700E624F5 /* BusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewModel.swift; sourceTree = "<group>"; };
 		F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageService.swift; sourceTree = "<group>"; };
 		F70B5D772B570A5500E624F5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailView.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardItem.swift; sourceTree = "<group>"; };
 		F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessesView.swift; sourceTree = "<group>"; };
 		F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7D358032B5AF93900C98419 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F7D358052B5B03A900C98419 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 		F70B5D682B56E01C00E624F5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F70B5D692B56E02700E624F5 /* BusinessRequestViewModel.swift */,
+				F70B5D692B56E02700E624F5 /* BusinessViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -244,10 +246,35 @@
 		F71DAC412B5AD77500FE3BF2 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
-				F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */,
-				F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */,
+				F7B927EB2B62909A001C63AC /* ViewModel */,
+				F7B927EC2B62909F001C63AC /* View */,
 			);
 			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		F73D435B2B63FB6100199B1E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F73D435C2B63FB6C00199B1E /* ViewModel */,
+				F73D435D2B63FB8200199B1E /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F73D435C2B63FB6C00199B1E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F73D435D2B63FB8200199B1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F7605DB52B5A965E007912D9 /* Onboard */ = {
@@ -264,6 +291,22 @@
 				F7605DB92B5A9BBA007912D9 /* AppState.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F7B927EB2B62909A001C63AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7B927EC2B62909F001C63AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F7DCBA772B56B74D0001B60B /* Pharmacy */ = {
@@ -437,6 +480,7 @@
 		F7EAE98B2B56909F00A379E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F73D435B2B63FB6100199B1E /* Profile */,
 				F71DAC342B5AC14900FE3BF2 /* Authentication */,
 				F7DCBA882B56C3DE0001B60B /* Business */,
 				F7EAE99A2B5698F800A379E5 /* Event */,
@@ -495,7 +539,6 @@
 				F7DCBA802B56BF7F0001B60B /* Earhquake */,
 				F7DCBA772B56B74D0001B60B /* Pharmacy */,
 				F7EAE9962B56953F00A379E5 /* MoreView.swift */,
-				F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -608,7 +651,7 @@
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
 				F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */,
-				F70B5D6A2B56E02700E624F5 /* BusinessRequestViewModel.swift in Sources */,
+				F70B5D6A2B56E02700E624F5 /* BusinessViewModel.swift in Sources */,
 				F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */,
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
@@ -626,6 +669,7 @@
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
 				F7D358062B5B03A900C98419 /* LoginViewModel.swift in Sources */,
 				F70B5D812B57141C00E624F5 /* BusinessCellView.swift in Sources */,
+				F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
 				F7E3E7F82B5C3BFE00EFEB29 /* AboutView.swift in Sources */,
