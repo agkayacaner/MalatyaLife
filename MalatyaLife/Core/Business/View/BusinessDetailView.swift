@@ -21,7 +21,6 @@ struct BusinessDetailView: View {
                 BusinessImage()
                     .overlay {
                         HeaderActions()
-                        LikeCount()
                     }
                 
                 HStack {
@@ -31,7 +30,7 @@ struct BusinessDetailView: View {
                             .fontWeight(.bold)
                             .padding(.top, 10)
                         
-                        Text("\(business.district)\(districtSuffix(district: business.district)) bir \(business.category)")
+                        Text("\(business.district)\(viewModel.districtSuffix(district: business.district)) bir \(business.category)")
                         
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
@@ -52,7 +51,7 @@ struct BusinessDetailView: View {
                         
                         Spacer()
                         
-                        Text(getOffDay())
+                        Text(viewModel.getOffDay(business: business))
                     }
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -169,35 +168,7 @@ struct BusinessDetailView: View {
         }
         .padding(.top,20)
     }
-    
-    @ViewBuilder
-    func LikeCount() -> some View {
-
-        VStack {
-            Spacer()
-            
-            HStack {
-                HStack {
-                    Image(systemName: "heart")
-                        .font(.title3)
-                        .foregroundColor(.accent)
-                    
-                    Text("\(viewModel.likes)")
-                        .font(.subheadline)
-                        .foregroundColor(.primary)
-                }
-                .padding(.horizontal)
-                .padding(.vertical,10)
-                .background(.regularMaterial)
-                .clipShape(Capsule())
-            }
-            .padding()
-
-        }
-        .frame(maxWidth: .infinity,alignment: .leading)
-    }
-    
-    
+ 
     @ViewBuilder
     func HeaderActions() -> some View {
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -216,19 +187,6 @@ struct BusinessDetailView: View {
                 .clipShape(Circle())
                 
                 Spacer()
-                
-                Button {
-                    print("DEBUG: Like pressed")
-                } label: {
-                    Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
-                        .font(.title3)
-                        .padding()
-                }
-                .foregroundColor(viewModel.isLiked ? .accent : .primary)
-                .background(.regularMaterial)
-                .clipShape(Circle())
-                
-                
             }
             .padding(.horizontal,20)
             
@@ -237,31 +195,7 @@ struct BusinessDetailView: View {
         .padding(.top, edgeInsets.top)
     }
     
-    private func districtSuffix(district: String) -> String {
-        let lastVowel = district.last(where: { "aeıioöuü".contains($0) }) ?? "a"
-        let lastConsonant = district.last(where: { "bcçdfgğhjklmnpqrsştwxyz".contains($0) }) ?? "b"
-        
-        switch (lastVowel, lastConsonant) {
-        case ("a", "f"), ("a", "s"), ("a", "t"), ("a", "k"), ("a", "ç"), ("a", "ş"), ("a", "h"), ("a", "p"),
-            ("ı", "f"), ("ı", "s"), ("ı", "t"), ("ı", "k"), ("ı", "ç"), ("ı", "ş"), ("ı", "h"), ("ı", "p"):
-            return "ta"
-        case ("e", "f"), ("e", "s"), ("e", "t"), ("e", "k"), ("e", "ç"), ("e", "ş"), ("e", "h"), ("e", "p"),
-            ("i", "f"), ("i", "s"), ("i", "t"), ("i", "k"), ("i", "ç"), ("i", "ş"), ("i", "h"), ("i", "p"):
-            return "te"
-        case (_, "f"), (_, "s"), (_, "t"), (_, "k"), (_, "ç"), (_, "ş"), (_, "h"), (_, "p"):
-            return "ta"
-        default:
-            return "da"
-        }
-    }
     
-    private func getOffDay() -> String {
-        if business.offDay == Business.WeekDay.noOffDay.rawValue {
-            return ""
-        } else {
-            return "\(business.offDay) günü kapalı"
-        }
-    }
 }
 
 #Preview {

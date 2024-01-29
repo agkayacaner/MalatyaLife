@@ -5,7 +5,8 @@
 //  Created by Caner Ağkaya on 23.01.2024.
 //
 
-import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 final class ExploreViewModel: ObservableObject {
     
@@ -15,28 +16,39 @@ final class ExploreViewModel: ObservableObject {
     
     init() {
         Task {
-            do {
-                try await fetchLatestBusinesses()
-                try await fetchFeaturedItems()
-            } catch {
-                print("Hata: \(error)")
+            fetchFeaturedBusinessesListen()
+            fetchLatestBusinessesListen()
+        }
+    }
+    
+    let db = Firestore.firestore()
+    
+    func fetchFeaturedBusinessesListen() {
+        listenToCollection(collection: "businesses", field: "isFeatured", isEqualTo: true) { businesses in
+            self.featuredBusinesses = businesses
+        }
+    }
+    
+    func fetchLatestBusinessesListen() {
+        listenToCollection(collection: "businesses", field: "isApproved", isEqualTo: true) { businesses in
+            self.latestBusinesses = businesses
+        }
+    }
+    
+    func listenToCollection(collection: String, field: String, isEqualTo: Bool, completion: @escaping ([Business]) -> Void) {
+        db.collection(collection)
+            .whereField("isApproved", isEqualTo: true)
+            .whereField(field, isEqualTo: isEqualTo)
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+                let businesses = documents.compactMap { queryDocumentSnapshot in
+                    try? queryDocumentSnapshot.data(as: Business.self)
+                }
+                completion(businesses)
             }
-        }
-    }
-    
-    @MainActor
-    func fetchLatestBusinesses() async throws {
-        self.latestBusinesses = try await BusinessService.shared.fetchBusinesses()
-    }
-    
-    
-    @MainActor
-    func fetchFeaturedItems() async throws {
-        do {
-            featuredBusinesses = try await BusinessService.shared.fetchFeaturedBusinesses()
-        } catch {
-            print("Hata")
-            throw error
-        }
     }
 }

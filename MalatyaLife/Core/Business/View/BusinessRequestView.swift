@@ -18,7 +18,7 @@ struct BusinessRequestView: View {
             Form {
                 Section {
                     CustomTextField(title: "İşletmenin Adı *", text: $viewModel.form.name)
-                        
+                    
                     CustomTextField(title: "İşletmenin Sahibi *", text: $viewModel.form.owner)
                     
                     TextField("Açık Adres *", text: $viewModel.form.address, axis: .vertical)
@@ -68,9 +68,8 @@ struct BusinessRequestView: View {
                 }
                 
                 Section{
-                    TextField("Örneğin 08.00 - 22:00 *", text: $viewModel.form.workingHours, axis: .vertical)
-                        .autocorrectionDisabled()
-                        .keyboardType(.numbersAndPunctuation)
+                    viewModel.timePicker(selection: $viewModel.form.openingHour, label: "Açılış Saati")
+                    viewModel.timePicker(selection: $viewModel.form.closingHour, label: "Kapanış Saati")
                     
                     Picker("Tatil Günü",selection: $viewModel.form.offDay){
                         ForEach(Business.WeekDay.allCases, id: \.self) { offDay in

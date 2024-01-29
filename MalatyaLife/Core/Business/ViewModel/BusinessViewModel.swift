@@ -39,11 +39,10 @@ final class BusinessViewModel: ObservableObject {
             facebook: form.facebook,
             instagram: form.instagram,
             twitter: form.twitter,
-            workingHours: form.workingHours,
+            workingHours: form.openingHour + " - " + form.closingHour,
             offDay: form.offDay.rawValue,
             image: imageURL,
             category: form.category.rawValue,
-            likes: 0,
             timestamp: Timestamp()
         )
         
@@ -73,12 +72,46 @@ final class BusinessViewModel: ObservableObject {
     }
     
     var isValidForm: Bool {
-        guard !form.name.isEmpty, !form.address.isEmpty, !form.owner.isEmpty, !form.phone.isEmpty, !form.email.isEmpty, !form.description.isEmpty, !form.workingHours.isEmpty else {
+        guard !form.name.isEmpty, !form.address.isEmpty, !form.owner.isEmpty, !form.phone.isEmpty, !form.email.isEmpty, !form.description.isEmpty  else {
             alertItem = AlertContext.requiredArea
             return false
         }
         
         return true
+    }
+    
+    func districtSuffix(district: String) -> String {
+        let lastVowel = district.last(where: { "aeıioöuü".contains($0) }) ?? "a"
+        let lastConsonant = district.last(where: { "bcçdfgğhjklmnpqrsştwxyz".contains($0) }) ?? "b"
+        
+        switch (lastVowel, lastConsonant) {
+        case ("a", "f"), ("a", "s"), ("a", "t"), ("a", "k"), ("a", "ç"), ("a", "ş"), ("a", "h"), ("a", "p"),
+            ("ı", "f"), ("ı", "s"), ("ı", "t"), ("ı", "k"), ("ı", "ç"), ("ı", "ş"), ("ı", "h"), ("ı", "p"):
+            return "ta"
+        case ("e", "f"), ("e", "s"), ("e", "t"), ("e", "k"), ("e", "ç"), ("e", "ş"), ("e", "h"), ("e", "p"),
+            ("i", "f"), ("i", "s"), ("i", "t"), ("i", "k"), ("i", "ç"), ("i", "ş"), ("i", "h"), ("i", "p"):
+            return "te"
+        case (_, "f"), (_, "s"), (_, "t"), (_, "k"), (_, "ç"), (_, "ş"), (_, "h"), (_, "p"):
+            return "ta"
+        default:
+            return "da"
+        }
+    }
+    
+    func getOffDay(business:Business) -> String {
+        if business.offDay == Business.WeekDay.noOffDay.rawValue {
+            return ""
+        } else {
+            return "\(business.offDay) günü kapalı"
+        }
+    }
+    
+    func timePicker(selection: Binding<String>, label: String) -> some View {
+        Picker(label, selection: selection) {
+            ForEach(0..<24) { hour in
+                Text("\(hour):00").tag("\(hour):00")
+            }
+        }
     }
     
     struct BusinessForm {
@@ -93,7 +126,8 @@ final class BusinessViewModel: ObservableObject {
         var facebook = ""
         var instagram = ""
         var twitter = ""
-        var workingHours = ""
+        var openingHour = "8:00"
+        var closingHour = "17:00"
         var offDay : Business.WeekDay = .sunday
         var category : Business.Category = .cafe
     }
