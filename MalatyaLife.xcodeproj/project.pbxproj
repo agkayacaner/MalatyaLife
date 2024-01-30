@@ -39,6 +39,8 @@
 		F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */; };
 		F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */; };
 		F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */; };
+		F7D0644E2B69183A00759780 /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D0644D2B69183A00759780 /* NewsListView.swift */; };
+		F7D064502B69185400759780 /* NewsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D0644F2B69185400759780 /* NewsCellView.swift */; };
 		F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F7D358012B5AF8F100C98419 /* FirebaseAuth */; };
 		F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D358032B5AF93900C98419 /* RegisterViewModel.swift */; };
 		F7D358062B5B03A900C98419 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D358052B5B03A900C98419 /* LoginViewModel.swift */; };
@@ -101,6 +103,8 @@
 		F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessesView.swift; sourceTree = "<group>"; };
 		F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7D0644D2B69183A00759780 /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
+		F7D0644F2B69185400759780 /* NewsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellView.swift; sourceTree = "<group>"; };
 		F7D358032B5AF93900C98419 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F7D358052B5B03A900C98419 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F7DCBA782B56B75D0001B60B /* PharmacyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyListView.swift; sourceTree = "<group>"; };
@@ -309,6 +313,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F7D0644C2B69182A00759780 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				F7D0644D2B69183A00759780 /* NewsListView.swift */,
+				F7D0644F2B69185400759780 /* NewsCellView.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		F7DCBA772B56B74D0001B60B /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +493,7 @@
 		F7EAE98B2B56909F00A379E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F7D0644C2B69182A00759780 /* News */,
 				F73D435B2B63FB6100199B1E /* Profile */,
 				F71DAC342B5AC14900FE3BF2 /* Authentication */,
 				F7DCBA882B56C3DE0001B60B /* Business */,
@@ -647,6 +661,7 @@
 				F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */,
 				F7605DBA2B5A9BBA007912D9 /* AppState.swift in Sources */,
 				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
+				F7D064502B69185400759780 /* NewsCellView.swift in Sources */,
 				F70B5D662B56DDC000E624F5 /* Business.swift in Sources */,
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
@@ -661,6 +676,7 @@
 				F76E83B92B5FE70800C974A0 /* FeaturedBusinessItem.swift in Sources */,
 				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
 				F7605DB72B5A9674007912D9 /* OnboardingView.swift in Sources */,
+				F7D0644E2B69183A00759780 /* NewsListView.swift in Sources */,
 				F71DAC402B5AC87500FE3BF2 /* RegisterView.swift in Sources */,
 				F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */,
 				F71DAC3E2B5AC2D900FE3BF2 /* LoginView.swift in Sources */,

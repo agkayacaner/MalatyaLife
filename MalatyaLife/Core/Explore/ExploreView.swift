@@ -17,7 +17,7 @@ struct ExploreView: View {
                 LazyVStack(){
                     // Header
                     HStack {
-                        VStack(alignment:.leading,spacing: 10){
+                        VStack(alignment:.leading,spacing: 4){
                             Text("Merhaba")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
@@ -27,9 +27,22 @@ struct ExploreView: View {
                                 .fontWeight(.light)
                                 .foregroundColor(.gray)
                         }
-                        
-                        
                         Spacer()
+                        
+                        
+                        NavigationLink(destination: Text("Bildirimler")) {
+                            ZStack{
+                                Image(systemName: "bell")
+                                    .font(.title2)
+                                    .foregroundColor(.primary)
+                                
+                                Circle()
+                                    .fill(Color.accent)
+                                    .frame(width: 10, height: 10)
+                                    .offset(x: 10, y: -10)
+                            }
+                        }
+                        
                     }
                     .padding(.horizontal)
                     
@@ -52,6 +65,21 @@ struct ExploreView: View {
                                 .contentMargins(20, for: .scrollContent)
                                 .listRowInsets(EdgeInsets())
                             }
+                        }else{
+                            Section {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing:10) {
+                                        ForEach(viewModel.featuredBusinesses) { business in
+                                            NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
+                                                FeaturedBusinessItem(business: business)
+                                            }
+                                            .foregroundStyle(.primary)
+                                        }
+                                    }
+                                    .padding(.horizontal, 20)
+                                }
+                                .listRowInsets(EdgeInsets())
+                            }
                         }
                         
                         // Categories
@@ -70,6 +98,18 @@ struct ExploreView: View {
                                 .listRowInsets(EdgeInsets())
                             }
                             .padding(.vertical,-50)
+                        } else {
+                            Section {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing:10) {
+                                        ForEach(Business.Category.allCases, id:\.self) { category in
+                                            CategoryCell(category: category)
+                                        }
+                                    }
+                                    .padding(.horizontal, 20)
+                                }
+                                .listRowInsets(EdgeInsets())
+                            }
                         }
                         
                         // Latest 5 Business
@@ -108,7 +148,7 @@ struct ExploreView: View {
                                         .padding(.bottom,-20)
                                     
                                     ScrollView(.horizontal, showsIndicators: false) {
-                                        HStack() {
+                                        HStack(spacing:20) {
                                             ForEach(0..<4) { _ in
                                                 EventCardItem()
                                             }
@@ -117,6 +157,26 @@ struct ExploreView: View {
                                     }
                                     .scrollTargetBehavior(.viewAligned)
                                     .contentMargins(20, for: .scrollContent)
+                                    .listRowInsets(EdgeInsets())
+                                }
+                            }
+                        } else {
+                            Section {
+                                VStack(alignment:.leading) {
+                                    Text("Yaklaşan Etkinlikler")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                        .padding(.horizontal,20)
+                                        .padding(.bottom,10)
+                                    
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack(spacing:10) {
+                                            ForEach(0..<4) { _ in
+                                                EventCardItem()
+                                            }
+                                        }
+                                        .padding(.horizontal, 20)
+                                    }
                                     .listRowInsets(EdgeInsets())
                                 }
                             }
@@ -144,9 +204,28 @@ struct ExploreView: View {
                                     .listRowInsets(EdgeInsets())
                                 }
                             }
+                        } else {
+                            Section {
+                                VStack(alignment:.leading) {
+                                    Text("Vizyondaki Filmler")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                        .padding(.horizontal,20)
+                                        .padding(.bottom,10)
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack() {
+                                            ForEach(0..<4) { _ in
+                                                MovieCardItem()
+                                            }
+                                        }
+                                        .padding(.horizontal, 20)
+                                    }
+                                    .listRowInsets(EdgeInsets())
+                                }
+                            }
                         }
                     }
-                   
+                    
                     Spacer()
                     
                     // Main View

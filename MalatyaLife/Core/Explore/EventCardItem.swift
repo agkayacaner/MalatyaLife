@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EventCardItem: View {
+    var width = UIScreen.main.bounds.width - 32
+    
     var body: some View {
         VStack(alignment:.leading) {
             
@@ -17,6 +19,10 @@ struct EventCardItem: View {
                         .foregroundColor(Color(.secondarySystemBackground))
                         .frame(height: 200)
                         .containerRelativeFrame(.horizontal)
+                } else {
+                    RoundedRectangle(cornerRadius: 14)
+                        .foregroundColor(Color(.secondarySystemBackground))
+                        .frame(width: width,height: 200)
                 }
                 
                 Text("10 Aralık")

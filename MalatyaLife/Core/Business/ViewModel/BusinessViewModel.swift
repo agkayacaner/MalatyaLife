@@ -81,18 +81,18 @@ final class BusinessViewModel: ObservableObject {
     }
     
     func districtSuffix(district: String) -> String {
-        let lastVowel = district.last(where: { "aeıioöuü".contains($0) }) ?? "a"
-        let lastConsonant = district.last(where: { "bcçdfgğhjklmnpqrsştwxyz".contains($0) }) ?? "b"
+        let vowels = "aeıioöuü"
+        let lastVowel = district.last(where: { vowels.contains($0) }) ?? "a"
         
-        switch (lastVowel, lastConsonant) {
-        case ("a", "f"), ("a", "s"), ("a", "t"), ("a", "k"), ("a", "ç"), ("a", "ş"), ("a", "h"), ("a", "p"),
-            ("ı", "f"), ("ı", "s"), ("ı", "t"), ("ı", "k"), ("ı", "ç"), ("ı", "ş"), ("ı", "h"), ("ı", "p"):
+        switch lastVowel {
+        case "a", "ı":
+            return "da"
+        case "e", "i":
+            return "de"
+        case "o", "u":
             return "ta"
-        case ("e", "f"), ("e", "s"), ("e", "t"), ("e", "k"), ("e", "ç"), ("e", "ş"), ("e", "h"), ("e", "p"),
-            ("i", "f"), ("i", "s"), ("i", "t"), ("i", "k"), ("i", "ç"), ("i", "ş"), ("i", "h"), ("i", "p"):
+        case "ö", "ü":
             return "te"
-        case (_, "f"), (_, "s"), (_, "t"), (_, "k"), (_, "ç"), (_, "ş"), (_, "h"), (_, "p"):
-            return "ta"
         default:
             return "da"
         }

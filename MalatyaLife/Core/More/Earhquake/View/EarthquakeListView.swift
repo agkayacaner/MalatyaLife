@@ -14,7 +14,7 @@ struct EarthquakeListView: View {
         ZStack {
             VStack {
                 List {
-                    ForEach(viewModel.earthquakes.flatMap(\.data)) { earthquake in
+                    ForEach(viewModel.earthquakes.flatMap(\.data).prefix(50)) { earthquake in
                         
                         Button(action: {
                             viewModel.selectedEarthquake = earthquake

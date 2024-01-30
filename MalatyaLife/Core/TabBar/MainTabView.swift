@@ -21,29 +21,38 @@ struct MainTabView: View {
                 .onAppear { selectedTab = 0 }
                 .tag(0)
             
-            EventsView()
+            NewsListView()
                 .tabItem {
-                    Label("Etkinlikler", systemImage: selectedTab == 1 ? "theatermasks.fill" : "theatermasks")
+                    Label("Gündem", systemImage: selectedTab == 1 ? "newspaper.fill" : "newspaper")
                         .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
                 }
                 .onAppear { selectedTab = 1 }
                 .tag(1)
             
-            SearchView()
+            EventsView()
                 .tabItem {
-                    Label("Ara", systemImage: "magnifyingglass")
+                    Label("Etkinlikler", systemImage: selectedTab == 2 ? "theatermasks.fill" : "theatermasks")
+                        .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
                 }
                 .onAppear { selectedTab = 2 }
                 .tag(2)
             
-                MoreView()
-                    .environmentObject(appState)
+            
+            SearchView()
                 .tabItem {
-                    Label("Daha Fazla", systemImage: selectedTab == 3 ? "bolt.horizontal.fill" : "bolt.horizontal")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
+                    Label("Ara", systemImage: "magnifyingglass")
                 }
                 .onAppear { selectedTab = 3 }
                 .tag(3)
+            
+            MoreView()
+                .environmentObject(appState)
+                .tabItem {
+                    Label("Daha Fazla", systemImage: selectedTab == 4 ? "bolt.horizontal.fill" : "bolt.horizontal")
+                        .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
+                }
+                .onAppear { selectedTab = 4 }
+                .tag(4)
         }
     }
 }
