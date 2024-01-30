@@ -41,6 +41,7 @@ struct Business: Codable, Identifiable {
         case market = "Market"
         case bar = "Bar"
         case other = "Diğer"
+        case all = "Hepsi"
     }
     
     // Malatyanın ilçeleri
@@ -57,6 +58,7 @@ struct Business: Codable, Identifiable {
         case pütürge = "Pütürge"
         case yesilyurt = "Yeşilyurt"
         case yazihan = "Yazıhan"
+        case all = "Hepsi"
     }
     
     // Haftanın 7 Günü

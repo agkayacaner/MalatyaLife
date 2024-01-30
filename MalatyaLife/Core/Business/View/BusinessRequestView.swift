@@ -30,13 +30,13 @@ struct BusinessRequestView: View {
                         .keyboardType(.URL)
                     
                     Picker("Kategori",selection: $viewModel.form.category){
-                        ForEach(Business.Category.allCases, id: \.self) { category in
+                        ForEach(Business.Category.allCases.filter { $0 != .all}, id: \.self) { category in
                             Text(category.rawValue).tag(category.rawValue)
                         }
                     }
                     
                     Picker("İlçe",selection: $viewModel.form.district){
-                        ForEach(Business.District.allCases, id: \.self) { district in
+                        ForEach(Business.District.allCases.filter { $0 != .all}, id: \.self) { district in
                             Text(district.rawValue).tag(district.rawValue)
                         }
                     }
