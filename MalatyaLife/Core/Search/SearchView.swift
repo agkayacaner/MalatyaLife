@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 struct SearchView: View {
     @State var businessList : [Business] = []
     @State var searchTerms = ""
+    @State var categoryName = ""
     
     var filteredBusinessList : [Business] {
         guard !searchTerms.isEmpty else { return businessList }
@@ -41,7 +42,7 @@ struct SearchView: View {
                 }
             }
             .searchable(text: $searchTerms, prompt: Text("İşletmelerde Arama Yapın..."))
-            .navigationTitle("Ara")
+            .navigationTitle(categoryName.isEmpty ? "Ara" : "\(categoryName) Kategorisi")
             .navigationBarTitleDisplayMode(.large)
         }
     }

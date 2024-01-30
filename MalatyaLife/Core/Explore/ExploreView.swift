@@ -10,7 +10,6 @@ import SwiftUI
 struct ExploreView: View {
     @StateObject var viewModel = ExploreViewModel()
     
-    
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
@@ -22,7 +21,7 @@ struct ExploreView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                             
-                            Text("Bugün \(getDate())")
+                            Text("Bugün \(Date.getCurrentDate())")
                                 .font(.subheadline)
                                 .fontWeight(.light)
                                 .foregroundColor(.gray)
@@ -46,10 +45,10 @@ struct ExploreView: View {
                     }
                     .padding(.horizontal)
                     
-                    VStack(spacing:30) {
+                    VStack(spacing:20) {
                         // Featured Businesses
-                        if #available(iOS 17.0, *) {
-                            Section {
+                        Section {
+                            if #available(iOS 17.0, *) {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing:10) {
                                         ForEach(viewModel.featuredBusinesses) { business in
@@ -64,9 +63,9 @@ struct ExploreView: View {
                                 .scrollTargetBehavior(.viewAligned)
                                 .contentMargins(20, for: .scrollContent)
                                 .listRowInsets(EdgeInsets())
+                                .padding(.bottom, -20)
                             }
-                        }else{
-                            Section {
+                            else{
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing:10) {
                                         ForEach(viewModel.featuredBusinesses) { business in
@@ -81,14 +80,16 @@ struct ExploreView: View {
                                 .listRowInsets(EdgeInsets())
                             }
                         }
-                        
                         // Categories
-                        if #available(iOS 17.0, *) {
-                            Section {
+                        Section {
+                            if #available(iOS 17.0, *) {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack() {
                                         ForEach(Business.Category.allCases, id:\.self) { category in
-                                            CategoryCell(category: category)
+                                            NavigationLink(destination: SearchView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
+                                                CategoryCell(category: category)
+                                            }
+                                            .foregroundStyle(.primary)
                                         }
                                     }
                                     .scrollTargetLayout()
@@ -97,13 +98,14 @@ struct ExploreView: View {
                                 .contentMargins(20, for: .scrollContent)
                                 .listRowInsets(EdgeInsets())
                             }
-                            .padding(.vertical,-50)
-                        } else {
-                            Section {
+                            else {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing:10) {
                                         ForEach(Business.Category.allCases, id:\.self) { category in
-                                            CategoryCell(category: category)
+                                            NavigationLink(destination: SearchView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
+                                                CategoryCell(category: category)
+                                            }
+                                            .foregroundStyle(.primary)
                                         }
                                     }
                                     .padding(.horizontal, 20)
@@ -111,7 +113,6 @@ struct ExploreView: View {
                                 .listRowInsets(EdgeInsets())
                             }
                         }
-                        
                         // Latest 5 Business
                         Section {
                             VStack(alignment:.leading) {
@@ -136,10 +137,9 @@ struct ExploreView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 14))
                             .padding(.horizontal)
                         }
-                        
                         // Latest 5 Events
-                        if #available(iOS 17.0, *) {
-                            Section {
+                        Section {
+                            if #available(iOS 17.0, *) {
                                 VStack(alignment:.leading) {
                                     Text("Yaklaşan Etkinlikler")
                                         .font(.subheadline)
@@ -148,9 +148,12 @@ struct ExploreView: View {
                                         .padding(.bottom,-20)
                                     
                                     ScrollView(.horizontal, showsIndicators: false) {
-                                        HStack(spacing:20) {
+                                        HStack {
                                             ForEach(0..<4) { _ in
-                                                EventCardItem()
+                                                NavigationLink(destination: Text("Etkinlik Detayı")) {
+                                                    EventCardItem()
+                                                }
+                                                .foregroundStyle(.primary)
                                             }
                                         }
                                         .scrollTargetLayout()
@@ -159,9 +162,8 @@ struct ExploreView: View {
                                     .contentMargins(20, for: .scrollContent)
                                     .listRowInsets(EdgeInsets())
                                 }
-                            }
-                        } else {
-                            Section {
+                                
+                            } else {
                                 VStack(alignment:.leading) {
                                     Text("Yaklaşan Etkinlikler")
                                         .font(.subheadline)
@@ -172,7 +174,10 @@ struct ExploreView: View {
                                     ScrollView(.horizontal, showsIndicators: false) {
                                         HStack(spacing:10) {
                                             ForEach(0..<4) { _ in
-                                                EventCardItem()
+                                                NavigationLink(destination: Text("Etkinlik Detayı")) {
+                                                    EventCardItem()
+                                                }
+                                                .foregroundStyle(.primary)
                                             }
                                         }
                                         .padding(.horizontal, 20)
@@ -181,10 +186,9 @@ struct ExploreView: View {
                                 }
                             }
                         }
-                        
                         // Movies on Theaters
-                        if #available(iOS 17.0, *) {
-                            Section {
+                        Section {
+                            if #available(iOS 17.0, *) {
                                 VStack(alignment:.leading) {
                                     Text("Vizyondaki Filmler")
                                         .font(.subheadline)
@@ -194,7 +198,10 @@ struct ExploreView: View {
                                     ScrollView(.horizontal, showsIndicators: false) {
                                         HStack() {
                                             ForEach(0..<4) { _ in
-                                                MovieCardItem()
+                                                NavigationLink(destination: Text("Film Detayı")) {
+                                                    MovieCardItem()
+                                                }
+                                                .foregroundStyle(.primary)
                                             }
                                         }
                                         .scrollTargetLayout()
@@ -203,9 +210,9 @@ struct ExploreView: View {
                                     .contentMargins(20, for: .scrollContent)
                                     .listRowInsets(EdgeInsets())
                                 }
-                            }
-                        } else {
-                            Section {
+                                
+                            } else {
+                                
                                 VStack(alignment:.leading) {
                                     Text("Vizyondaki Filmler")
                                         .font(.subheadline)
@@ -225,23 +232,10 @@ struct ExploreView: View {
                             }
                         }
                     }
-                    
                     Spacer()
-                    
-                    // Main View
                 }
             }
-            
         }
-    }
-}
-
-extension ExploreView {
-    func getDate() -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMMM yyyy"
-        return formatter.string(from: date)
     }
 }
 
