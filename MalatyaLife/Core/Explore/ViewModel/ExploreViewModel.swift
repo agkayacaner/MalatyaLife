@@ -9,7 +9,6 @@ import Firebase
 import FirebaseFirestoreSwift
 
 final class ExploreViewModel: ObservableObject {
-    
     @Published var featuredBusinesses : [Business] = []
     @Published var latestBusinesses : [Business] = []
     @Published var selectedBusiness : Business?
@@ -39,6 +38,7 @@ final class ExploreViewModel: ObservableObject {
         db.collection(collection)
             .whereField("isApproved", isEqualTo: true)
             .whereField(field, isEqualTo: isEqualTo)
+            .order(by: "timestamp",descending: true)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")

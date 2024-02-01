@@ -10,11 +10,12 @@ import Kingfisher
 
 struct FeaturedBusinessItem: View {
     @State var business : Business
+    var width = UIScreen.main.bounds.width - 40
     
     var body: some View {
         VStack(alignment:.leading) {
             if #available(iOS 17.0, *) {
-                if let imageUrl = business.image {
+                if let imageUrl = business.images?.first {
                     KFImage(URL(string: imageUrl))
                         .resizable()
                         .scaledToFill()
@@ -28,11 +29,11 @@ struct FeaturedBusinessItem: View {
                         .containerRelativeFrame(.horizontal)
                 }
             } else {
-                if let imageUrl = business.image {
+                if let imageUrl = business.images?.first {
                     KFImage(URL(string: imageUrl))
                         .resizable()
                         .scaledToFill()
-                        .frame(height: 240)
+                        .frame(width: width, height: 240)
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                 } else {
                     RoundedRectangle(cornerRadius: 14)

@@ -14,7 +14,7 @@ struct BusinessCell: View {
     var body: some View {
         HStack(spacing:10) {
             
-            if let imageUrl = business.image {
+            if let imageUrl = business.images?.first {
                 KFImage(URL(string: imageUrl))
                     .resizable()
                     .scaledToFill()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EventCardItem: View {
-    var width = UIScreen.main.bounds.width - 32
+    var width = UIScreen.main.bounds.width - 40
     
     var body: some View {
         VStack(alignment:.leading) {

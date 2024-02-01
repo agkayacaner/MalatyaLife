@@ -24,6 +24,7 @@
 		F71DAC432B5AD78A00FE3BF2 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */; };
 		F73F761D2B61C82000BA9F73 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F761C2B61C82000BA9F73 /* UserService.swift */; };
 		F73F761F2B61C9F900BA9F73 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */; };
+		F748D2DA2B69BC5700710E53 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748D2D92B69BC5700710E53 /* CategoryView.swift */; };
 		F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DAF2B5A83D4007912D9 /* Emergency.swift */; };
 		F7605DB22B5A87A9007912D9 /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB12B5A87A9007912D9 /* EmergencyService.swift */; };
 		F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */; };
@@ -37,6 +38,11 @@
 		F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */; };
 		F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */; };
 		F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */; };
+		F78FAE7A2B6AAAAF007F3D40 /* CreateBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */; };
+		F7AA7D802B6AE40800FB00E4 /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = F7AA7D7F2B6AE40800FB00E4 /* Vortex */; };
+		F7AA7D822B6AE42400FB00E4 /* VortexConfetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA7D812B6AE42400FB00E4 /* VortexConfetti.swift */; };
+		F7B323AC2B6A927B00C93AEB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B323AB2B6A927B00C93AEB /* Category.swift */; };
+		F7B8B74F2B6BACEC00CF8E87 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */; };
 		F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */; };
 		F7CEB7F82B57290A006C9E7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */; };
 		F7D0644E2B69183A00759780 /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D0644D2B69183A00759780 /* NewsListView.swift */; };
@@ -51,7 +57,6 @@
 		F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */; };
 		F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */; };
 		F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */; };
-		F7DCBA8A2B56C3F50001B60B /* BusinessRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA892B56C3F50001B60B /* BusinessRequestView.swift */; };
 		F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */; };
 		F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA8D2B56CE9B0001B60B /* PharmacyViewModel.swift */; };
 		F7DCBA902B56CEEC0001B60B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBA8F2B56CEEC0001B60B /* Alert.swift */; };
@@ -88,6 +93,7 @@
 		F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		F73F761C2B61C82000BA9F73 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F748D2D92B69BC5700710E53 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		F7605DAF2B5A83D4007912D9 /* Emergency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
 		F7605DB12B5A87A9007912D9 /* EmergencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
 		F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewModel.swift; sourceTree = "<group>"; };
@@ -101,6 +107,10 @@
 		F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardItem.swift; sourceTree = "<group>"; };
 		F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessView.swift; sourceTree = "<group>"; };
+		F7AA7D812B6AE42400FB00E4 /* VortexConfetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VortexConfetti.swift; sourceTree = "<group>"; };
+		F7B323AB2B6A927B00C93AEB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessesView.swift; sourceTree = "<group>"; };
 		F7CEB7F72B57290A006C9E7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7D0644D2B69183A00759780 /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
@@ -114,7 +124,6 @@
 		F7DCBA812B56BFB20001B60B /* EarthquakeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeListView.swift; sourceTree = "<group>"; };
 		F7DCBA832B56C04B0001B60B /* EarthquakeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellView.swift; sourceTree = "<group>"; };
 		F7DCBA862B56C2940001B60B /* EmergencyNumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyNumberListView.swift; sourceTree = "<group>"; };
-		F7DCBA892B56C3F50001B60B /* BusinessRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRequestView.swift; sourceTree = "<group>"; };
 		F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		F7DCBA8D2B56CE9B0001B60B /* PharmacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyViewModel.swift; sourceTree = "<group>"; };
 		F7DCBA8F2B56CEEC0001B60B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -145,6 +154,7 @@
 			files = (
 				F70B5D7B2B570E0800E624F5 /* Kingfisher in Frameworks */,
 				F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */,
+				F7AA7D802B6AE40800FB00E4 /* Vortex in Frameworks */,
 				F70B5D6F2B56EF1B00E624F5 /* FirebaseFirestore in Frameworks */,
 				F70B5D732B56EF1B00E624F5 /* FirebaseStorage in Frameworks */,
 				F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */,
@@ -154,11 +164,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F700F86A2B6AA8F100CF69CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE99D2B569AD300A379E5 /* ExploreView.swift */,
+				F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */,
+				F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */,
+				F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F700F86B2B6AA8F500CF69CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F700F86C2B6AA90A00CF69CF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F700F86E2B6AA95800CF69CF /* ViewModel */,
+				F700F86D2B6AA95300CF69CF /* View */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F700F86D2B6AA95300CF69CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */,
+				F748D2D92B69BC5700710E53 /* CategoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F700F86E2B6AA95800CF69CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F70B5D672B56E01800E624F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */,
-				F7DCBA892B56C3F50001B60B /* BusinessRequestView.swift */,
+				F76E83B82B5FE70800C974A0 /* FeaturedBusinessItem.swift */,
+				F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */,
 				F70B5D802B57141C00E624F5 /* BusinessCellView.swift */,
 			);
 			path = View;
@@ -466,6 +521,8 @@
 				F7DCBA912B56CEF30001B60B /* APError.swift */,
 				F7DCBA952B56D2A40001B60B /* LoadingView.swift */,
 				F7DCBA7C2B56B9350001B60B /* GetDate.swift */,
+				F7AA7D812B6AE42400FB00E4 /* VortexConfetti.swift */,
+				F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,6 +532,7 @@
 			children = (
 				F7DCBA8B2B56CDA60001B60B /* Pharmacy.swift */,
 				F7DCBA9B2B56D5DB0001B60B /* Earthquake.swift */,
+				F7B323AB2B6A927B00C93AEB /* Category.swift */,
 				F70B5D652B56DDC000E624F5 /* Business.swift */,
 				F7605DAF2B5A83D4007912D9 /* Emergency.swift */,
 				F71DAC3B2B5AC18100FE3BF2 /* User.swift */,
@@ -493,13 +551,14 @@
 		F7EAE98B2B56909F00A379E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F7D0644C2B69182A00759780 /* News */,
-				F73D435B2B63FB6100199B1E /* Profile */,
 				F71DAC342B5AC14900FE3BF2 /* Authentication */,
 				F7DCBA882B56C3DE0001B60B /* Business */,
+				F700F86C2B6AA90A00CF69CF /* Category */,
 				F7EAE99A2B5698F800A379E5 /* Event */,
 				F7EAE9902B56913900A379E5 /* Explore */,
+				F73D435B2B63FB6100199B1E /* Profile */,
 				F7EAE9922B56918B00A379E5 /* More */,
+				F7D0644C2B69182A00759780 /* News */,
 				F7605DB52B5A965E007912D9 /* Onboard */,
 				F7EAE9912B56916C00A379E5 /* Root */,
 				F7EAE98E2B56911B00A379E5 /* Search */,
@@ -526,13 +585,8 @@
 		F7EAE9902B56913900A379E5 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				F7EAE99D2B569AD300A379E5 /* ExploreView.swift */,
-				F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */,
-				F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */,
-				F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */,
-				F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */,
-				F76E83B82B5FE70800C974A0 /* FeaturedBusinessItem.swift */,
-				F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */,
+				F700F86B2B6AA8F500CF69CF /* ViewModel */,
+				F700F86A2B6AA8F100CF69CF /* View */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -595,6 +649,7 @@
 				F70B5D722B56EF1B00E624F5 /* FirebaseStorage */,
 				F70B5D7A2B570E0800E624F5 /* Kingfisher */,
 				F7D358012B5AF8F100C98419 /* FirebaseAuth */,
+				F7AA7D7F2B6AE40800FB00E4 /* Vortex */,
 			);
 			productName = MalatyaLife;
 			productReference = F7EAE9762B568F5500A379E5 /* MalatyaLife.app */;
@@ -627,6 +682,7 @@
 			packageReferences = (
 				F70B5D562B56DD4300E624F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F7AA7D7E2B6AE40800FB00E4 /* XCRemoteSwiftPackageReference "Vortex" */,
 			);
 			productRefGroup = F7EAE9772B568F5500A379E5 /* Products */;
 			projectDirPath = "";
@@ -662,6 +718,7 @@
 				F7605DBA2B5A9BBA007912D9 /* AppState.swift in Sources */,
 				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
 				F7D064502B69185400759780 /* NewsCellView.swift in Sources */,
+				F7AA7D822B6AE42400FB00E4 /* VortexConfetti.swift in Sources */,
 				F70B5D662B56DDC000E624F5 /* Business.swift in Sources */,
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
@@ -677,10 +734,12 @@
 				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
 				F7605DB72B5A9674007912D9 /* OnboardingView.swift in Sources */,
 				F7D0644E2B69183A00759780 /* NewsListView.swift in Sources */,
+				F748D2DA2B69BC5700710E53 /* CategoryView.swift in Sources */,
 				F71DAC402B5AC87500FE3BF2 /* RegisterView.swift in Sources */,
 				F70B5D7F2B5713A500E624F5 /* BusinessDetailView.swift in Sources */,
 				F71DAC3E2B5AC2D900FE3BF2 /* LoginView.swift in Sources */,
 				F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */,
+				F7B8B74F2B6BACEC00CF8E87 /* String+Ext.swift in Sources */,
 				F76E83BB2B5FE7CA00C974A0 /* CategoryCell.swift in Sources */,
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
 				F7D358062B5B03A900C98419 /* LoginViewModel.swift in Sources */,
@@ -694,13 +753,13 @@
 				F71DAC3C2B5AC18100FE3BF2 /* User.swift in Sources */,
 				F73F761D2B61C82000BA9F73 /* UserService.swift in Sources */,
 				F7DCBA792B56B75D0001B60B /* PharmacyListView.swift in Sources */,
+				F7B323AC2B6A927B00C93AEB /* Category.swift in Sources */,
 				F71DAC432B5AD78A00FE3BF2 /* ResetPasswordView.swift in Sources */,
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
 				F76E83BD2B5FE7F100C974A0 /* BusinessCell.swift in Sources */,
 				F7EAE9972B56953F00A379E5 /* MoreView.swift in Sources */,
 				F7DCBA922B56CEF30001B60B /* APError.swift in Sources */,
 				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
-				F7DCBA8A2B56C3F50001B60B /* BusinessRequestView.swift in Sources */,
 				F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */,
 				F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */,
 				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
@@ -708,6 +767,7 @@
 				F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
 				F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */,
+				F78FAE7A2B6AAAAF007F3D40 /* CreateBusinessView.swift in Sources */,
 				F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */,
 				F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */,
 				F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */,
@@ -949,6 +1009,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		F7AA7D7E2B6AE40800FB00E4 /* XCRemoteSwiftPackageReference "Vortex" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Vortex";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -971,6 +1039,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F7AA7D7F2B6AE40800FB00E4 /* Vortex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7AA7D7E2B6AE40800FB00E4 /* XCRemoteSwiftPackageReference "Vortex" */;
+			productName = Vortex;
 		};
 		F7D358012B5AF8F100C98419 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

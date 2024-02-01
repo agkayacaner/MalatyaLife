@@ -63,7 +63,7 @@ struct ExploreView: View {
                                 .scrollTargetBehavior(.viewAligned)
                                 .contentMargins(20, for: .scrollContent)
                                 .listRowInsets(EdgeInsets())
-                                .padding(.bottom, -20)
+                                .padding(.bottom, -30)
                             }
                             else{
                                 ScrollView(.horizontal, showsIndicators: false) {
@@ -85,8 +85,8 @@ struct ExploreView: View {
                             if #available(iOS 17.0, *) {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack() {
-                                        ForEach(Business.Category.allCases, id:\.self) { category in
-                                            NavigationLink(destination: SearchView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
+                                        ForEach(Business.Category.allCases.filter { $0 != .select && $0 != .all && $0 != .other }, id:\.self) { category in
+                                            NavigationLink(destination: CategoryView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
                                                 CategoryCell(category: category)
                                             }
                                             .foregroundStyle(.primary)
@@ -101,8 +101,8 @@ struct ExploreView: View {
                             else {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing:10) {
-                                        ForEach(Business.Category.allCases, id:\.self) { category in
-                                            NavigationLink(destination: SearchView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
+                                        ForEach(Business.Category.allCases.filter { $0 != .select && $0 != .all && $0 != .other }, id:\.self) { category in
+                                            NavigationLink(destination: CategoryView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
                                                 CategoryCell(category: category)
                                             }
                                             .foregroundStyle(.primary)

@@ -21,7 +21,29 @@ struct BusinessService {
         guard let businessData = try? Firestore.Encoder().encode(business) else { return }
         try await db.collection("businesses").addDocument(data: businessData)
     }
-
+    
+    func createBusinessAndAddToCategory(_ business: Business) async throws {
+        guard let businessData = try? Firestore.Encoder().encode(business) else { return }
+        let documentRef = try await db.collection("businesses").addDocument(data: businessData)
+        
+        let categoryRef = db.collection("categories").document(business.category)
+        /// Check if the category already exists
+        let docSnapshot = try await categoryRef.getDocument()
+        if docSnapshot.exists {
+            /// If the category exists, just add the business to the businesses collection
+            try await categoryRef.updateData([
+                "businesses": FieldValue.arrayUnion(["\(documentRef.documentID)"])
+            ])
+        } else {
+            /// If the category does not exist, create a new document with the business
+            try await categoryRef.setData([
+                "name": business.category,
+                "businesses": ["\(documentRef.documentID)"]
+            ])
+        }
+    }
+    
+    
     func fetchBusinesses() async throws -> [Business] {
         let querySnapshot = try await db.collection("businesses").whereField("isApproved", isEqualTo: true).getDocuments()
         var businesses = querySnapshot.documents.compactMap { document in

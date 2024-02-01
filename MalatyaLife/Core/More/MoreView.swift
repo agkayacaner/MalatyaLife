@@ -61,7 +61,7 @@ struct MoreView: View {
                 
                 Section {
                     if appState.userSession != nil {
-                        NavigationLink("Yeni İşletme Talebi", destination: BusinessRequestView())
+                        NavigationLink("Yeni İşletme Talebi", destination: CreateBusinessView())
                     } else {
                         NavigationLink("Yeni İşletme Talebi", destination: LoginView().toolbar(.hidden, for: .tabBar))
                     }

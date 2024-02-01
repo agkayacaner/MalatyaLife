@@ -16,37 +16,51 @@ public enum BusinessSorter: Hashable {
 }
 
 struct SearchView: View {
-    @State var businessList : [Business] = []
+    @State private var businessList : [Business] = []
     @State var searchTerms = ""
     @State var categoryName = ""
-    @State var category : Business.Category = .all
-    @State var district : Business.District = .all
+    @State private var category : Business.Category = .all
+    @State private var district : Business.District = .all
     @State private var sort = BusinessSorter.district
     
-    var filteredBusinessList : [Business] {
+    private var filteredBusinessList : [Business] {
         return businessList.filter {
             (district == .all || $0.district == district.rawValue) &&
             (category == .all || $0.category == category.rawValue) &&
             ($0.name.contains(searchTerms) || searchTerms.isEmpty)
         }
     }
-
-
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ForEach(filteredBusinessList) { business in
-                    
-                    NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
-                        BusinessCellView(business: business)
+            List {
+                if searchTerms.isEmpty {
+                    ForEach(filteredBusinessList.prefix(5)) { business in
+                        NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
+                            BusinessCellView(business: business)
+                        }
+                        .foregroundStyle(.primary)
                     }
-                    .foregroundStyle(.primary)
-                    
+                    .listRowSeparator(.hidden)
+                } else {
+                    ForEach(filteredBusinessList) { business in
+                        NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
+                            BusinessCellView(business: business)
+                        }
+                        .foregroundStyle(.primary)
+                    }
+                    .listRowSeparator(.hidden)
                 }
-                Spacer()
             }
-            .padding()
+            .listStyle(.plain)
+            .searchable(text: $searchTerms, prompt: Text("İşletmelerde Arama Yapın..."))
+            .overlay {
+                if #available(iOS 17, *){
+                    if filteredBusinessList.isEmpty {
+                        ContentUnavailableView.search(text: searchTerms)
+                    }
+                }
+            }
             .task {
                 do {
                     businessList =  try await BusinessService.shared.fetchBusinesses()
@@ -54,7 +68,6 @@ struct SearchView: View {
                     print(error.localizedDescription)
                 }
             }
-            .searchable(text: $searchTerms, prompt: Text("İşletmelerde Arama Yapın..."))
             .navigationTitle(categoryName.isEmpty ? "Ara" : "\(categoryName) Kategorisi")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -63,11 +76,10 @@ struct SearchView: View {
                 }
             }
         }
-        
     }
     
     @ViewBuilder
-    var toolbarItems: some View {
+    private var toolbarItems: some View {
         Menu {
             
             Picker("Sort", selection: $sort) {
@@ -76,11 +88,10 @@ struct SearchView: View {
                 Label("Kategori", systemImage: "tag")
                     .tag(BusinessSorter.category)
             }
-            .pickerStyle(.inline)
             
             if case .district = sort {
                 Picker("İlçe",selection: $district){
-                    ForEach(Business.District.allCases, id: \.self) { district in
+                    ForEach(Business.District.allCases.filter { $0 != .select }, id: \.self) { district in
                         Button(action: {
                             self.district = district
                             self.searchTerms = district.rawValue
@@ -89,12 +100,11 @@ struct SearchView: View {
                         }
                     }
                 }
-                .pickerStyle(.inline)
             }
             
             if case .category = sort {
                 Picker("Kategori",selection: $category){
-                    ForEach(Business.Category.allCases, id: \.self) { category in
+                    ForEach(Business.Category.allCases.filter { $0 != .select && $0 != .other }, id: \.self) { category in
                         Button(action: {
                             self.category = category
                             self.searchTerms = category.rawValue
@@ -110,7 +120,6 @@ struct SearchView: View {
             Label("Kategoriler", systemImage: "line.3.horizontal.decrease.circle")
         }
     }
-    
 }
 
 #Preview {

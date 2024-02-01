@@ -18,7 +18,7 @@ struct BusinessDetailView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment:.leading, spacing: 0) {
-                BusinessImage()
+                BusinessImages()
                     .overlay {
                         HeaderActions()
                     }
@@ -98,18 +98,23 @@ struct BusinessDetailView: View {
     }
     
     @ViewBuilder
-    func BusinessImage() -> some View {
-        VStack {
-            if let imageUrl = business.image {
-                KFImage(URL(string: imageUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: screenWidth, height: 320)
-            } else {
-                LoadingView()
+    func BusinessImages() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                if let imageUrls = business.images {
+                    ForEach(imageUrls, id: \.self) { imageUrl in
+                        KFImage(URL(string: imageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: screenWidth, height: 320)
+                    }
+                } else {
+                    LoadingView()
+                }
             }
         }
     }
+
     
     @ViewBuilder
     func BusinessSocialLinks() -> some View {
