@@ -41,8 +41,8 @@ struct AlertContext {
     
     static let invalidPhone = AlertItem(title: Text("Geçersiz Telefon Numarası"), message: Text("Lütfen geçerli bir telefon numarası girin!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
     
-    static let uploadSuccess = AlertItem(title: Text("Başarılı"), message: Text("İşletme başvurunuz alındı, onay sürecinden sonra aktif olacaktır!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+    static let selectImage = AlertItem(title: Text("Resim Seçin"), message: Text("İşletmenin resmini seçin!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
     
-    static let businessDidntCreated = AlertItem(title: Text("Hata Oluştu"), message: Text("İşletme oluşturulurken bir hata meydana geldi! Lütfen destek ekibine bildirin."), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+    static let uploadSuccess = AlertItem(title: Text("Başarılı"), message: Text("İşletme başvurunuz alındı, onay sürecinden sonra aktif olacaktır!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
 }
 

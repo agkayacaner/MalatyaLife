@@ -19,6 +19,7 @@ struct PharmacyListView: View {
                         Button {
                             viewModel.selectedPharmacy = pharmacy
                             isPresented.toggle()
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
                         } label: {
                             PharmacyCellView(pharmacy: pharmacy)
                         }

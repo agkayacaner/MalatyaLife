@@ -100,13 +100,14 @@ struct BusinessDetailView: View {
     @ViewBuilder
     func BusinessImages() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            HStack(spacing:0) {
                 if let imageUrls = business.images {
                     ForEach(imageUrls, id: \.self) { imageUrl in
                         KFImage(URL(string: imageUrl))
                             .resizable()
                             .scaledToFill()
                             .frame(width: screenWidth, height: 320)
+                            .clipped()
                     }
                 } else {
                     LoadingView()
@@ -114,15 +115,14 @@ struct BusinessDetailView: View {
             }
         }
     }
-
-    
+ 
     @ViewBuilder
     func BusinessSocialLinks() -> some View {
         HStack {
             HStack(spacing:20) {
                 if (business.website != "") {
                     Button {
-                        guard let url = URL(string: "\(business.facebook!)") else { return }
+                        guard let url = URL(string: "\(business.website!)") else { return }
                         UIApplication.shared.open(url)
                     } label: {
                         Image(systemName: "globe")
@@ -157,19 +157,6 @@ struct BusinessDetailView: View {
             }
             
             Spacer()
-            
-            //            Button {
-            //
-            //            } label: {
-            //                Image(systemName: "map")
-            //                    .resizable()
-            //                    .frame(width: 24, height: 24)
-            //
-            //                Text("Göster")
-            //                    .font(.subheadline)
-            //            }
-            //            .foregroundStyle(Color.brown)
-            
         }
         .padding(.top,20)
     }
@@ -199,8 +186,6 @@ struct BusinessDetailView: View {
         }
         .padding(.top, edgeInsets.top)
     }
-    
-    
 }
 
 #Preview {

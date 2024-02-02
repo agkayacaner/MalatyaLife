@@ -21,7 +21,6 @@ struct MoreView: View {
     var body: some View {
         NavigationStack {
             List {
-                
                 if appState.userSession != nil {
                     HStack {
                         Circle()

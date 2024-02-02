@@ -17,17 +17,18 @@ final class BusinessViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isLoadingImage = false
     @Published var selectedItems = [PhotosPickerItem]()
-    @Published var selectedImages = [UIImage]() {
-        didSet {
-            Task { await loadImages() }
-        }
-    }
+    @Published var selectedImages = [UIImage]()
     @Published var imageURLs = [String]()
+    @Published var isUploading = false
     
     @MainActor
     func uploadBusiness() async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard isValidForm else { return }
+        
+        isLoadingImage = true
+        await loadImages()
+        
         let business = Business(
             name: form.name,
             ownerUID: uid,
@@ -50,7 +51,8 @@ final class BusinessViewModel: ObservableObject {
         
         try await BusinessService.shared.createBusinessAndAddToCategory(business)
         alertItem = AlertContext.uploadSuccess
-        
+        isUploading = true
+        isLoadingImage = false
     }
     
     var isValidForm: Bool {
@@ -74,6 +76,12 @@ final class BusinessViewModel: ObservableObject {
         
         guard form.phone.isPhoneValid else {
             alertItem = AlertContext.invalidPhone
+            return false
+        }
+        
+        // Check if images are selected
+        guard !selectedImages.isEmpty else {
+            alertItem = AlertContext.selectImage
             return false
         }
         

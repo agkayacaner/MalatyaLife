@@ -25,12 +25,27 @@ final class AppState: ObservableObject {
     
     init() {
         setupSubscriptions()
+        Task {
+            await logoutUserFirstRun()
+        }
+    }
+    
+    @MainActor
+    func logoutUserFirstRun() {
+        if !isOnboardingDone {
+            AuthService.shared.signOut()
+        }
     }
     
     private func setupSubscriptions() {
         AuthService.shared.$userSession.sink { [weak self] userSession in
-            self?.userSession = userSession
-            self?.isLoggedIn = userSession != nil
+            if userSession == nil {
+                self?.userSession = nil
+                self?.isLoggedIn = false
+            } else {
+                self?.userSession = userSession
+                self?.isLoggedIn = true
+            }
         }
         .store(in: &cancellables)
     }
