@@ -154,7 +154,7 @@ struct CreateBusinessView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
-
+                
                 Button {
                     if viewModel.isValidForm {
                         Task {

@@ -29,7 +29,7 @@ struct ExploreView: View {
                         Spacer()
                         
                         
-                        NavigationLink(destination: Text("Bildirimler")) {
+                        NavigationLink(destination: NotificationView()) {
                             ZStack{
                                 Image(systemName: "bell")
                                     .font(.title2)

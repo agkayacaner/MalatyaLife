@@ -37,10 +37,10 @@
 		F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */; };
 		F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */; };
 		F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */; };
+		F77EE07D2B6D2CBD00765A41 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EE07C2B6D2CBD00765A41 /* NotificationView.swift */; };
+		F77EE07F2B6D2CC600765A41 /* NotificationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EE07E2B6D2CC600765A41 /* NotificationCellView.swift */; };
 		F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */; };
 		F78FAE7A2B6AAAAF007F3D40 /* CreateBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */; };
-		F7AA7D802B6AE40800FB00E4 /* Vortex in Frameworks */ = {isa = PBXBuildFile; productRef = F7AA7D7F2B6AE40800FB00E4 /* Vortex */; };
-		F7AA7D822B6AE42400FB00E4 /* VortexConfetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA7D812B6AE42400FB00E4 /* VortexConfetti.swift */; };
 		F7B323AC2B6A927B00C93AEB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B323AB2B6A927B00C93AEB /* Category.swift */; };
 		F7B8B74F2B6BACEC00CF8E87 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */; };
 		F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */; };
@@ -106,9 +106,10 @@
 		F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardItem.swift; sourceTree = "<group>"; };
 		F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardItem.swift; sourceTree = "<group>"; };
 		F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		F77EE07C2B6D2CBD00765A41 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		F77EE07E2B6D2CC600765A41 /* NotificationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellView.swift; sourceTree = "<group>"; };
 		F78DBDD92B6289C70074B316 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessView.swift; sourceTree = "<group>"; };
-		F7AA7D812B6AE42400FB00E4 /* VortexConfetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VortexConfetti.swift; sourceTree = "<group>"; };
 		F7B323AB2B6A927B00C93AEB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessesView.swift; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 			files = (
 				F70B5D7B2B570E0800E624F5 /* Kingfisher in Frameworks */,
 				F7D358022B5AF8F100C98419 /* FirebaseAuth in Frameworks */,
-				F7AA7D802B6AE40800FB00E4 /* Vortex in Frameworks */,
 				F70B5D6F2B56EF1B00E624F5 /* FirebaseFirestore in Frameworks */,
 				F70B5D732B56EF1B00E624F5 /* FirebaseStorage in Frameworks */,
 				F70B5D712B56EF1B00E624F5 /* FirebaseFirestoreSwift in Frameworks */,
@@ -213,7 +213,6 @@
 			children = (
 				F70B5D7E2B5713A500E624F5 /* BusinessDetailView.swift */,
 				F76E83B82B5FE70800C974A0 /* FeaturedBusinessItem.swift */,
-				F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */,
 				F70B5D802B57141C00E624F5 /* BusinessCellView.swift */,
 			);
 			path = View;
@@ -350,6 +349,39 @@
 				F7605DB92B5A9BBA007912D9 /* AppState.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F77EE0792B6D2C9900765A41 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F77EE07B2B6D2CAC00765A41 /* ViewModel */,
+				F77EE07A2B6D2CA800765A41 /* View */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		F77EE07A2B6D2CA800765A41 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F77EE07C2B6D2CBD00765A41 /* NotificationView.swift */,
+				F77EE07E2B6D2CC600765A41 /* NotificationCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F77EE07B2B6D2CAC00765A41 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7921B402B6FAE42004F66D0 /* CreateBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */,
+			);
+			path = CreateBusiness;
 			sourceTree = "<group>";
 		};
 		F7B927EB2B62909A001C63AC /* ViewModel */ = {
@@ -521,7 +553,6 @@
 				F7DCBA912B56CEF30001B60B /* APError.swift */,
 				F7DCBA952B56D2A40001B60B /* LoadingView.swift */,
 				F7DCBA7C2B56B9350001B60B /* GetDate.swift */,
-				F7AA7D812B6AE42400FB00E4 /* VortexConfetti.swift */,
 				F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */,
 			);
 			path = Extensions;
@@ -551,6 +582,7 @@
 		F7EAE98B2B56909F00A379E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F77EE0792B6D2C9900765A41 /* Notification */,
 				F71DAC342B5AC14900FE3BF2 /* Authentication */,
 				F7DCBA882B56C3DE0001B60B /* Business */,
 				F700F86C2B6AA90A00CF69CF /* Category */,
@@ -602,6 +634,7 @@
 		F7EAE9922B56918B00A379E5 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				F7921B402B6FAE42004F66D0 /* CreateBusiness */,
 				F7E3E7F62B5C3BF300EFEB29 /* About */,
 				F7DCBA852B56C2710001B60B /* Emergency */,
 				F7DCBA802B56BF7F0001B60B /* Earhquake */,
@@ -649,7 +682,6 @@
 				F70B5D722B56EF1B00E624F5 /* FirebaseStorage */,
 				F70B5D7A2B570E0800E624F5 /* Kingfisher */,
 				F7D358012B5AF8F100C98419 /* FirebaseAuth */,
-				F7AA7D7F2B6AE40800FB00E4 /* Vortex */,
 			);
 			productName = MalatyaLife;
 			productReference = F7EAE9762B568F5500A379E5 /* MalatyaLife.app */;
@@ -682,7 +714,6 @@
 			packageReferences = (
 				F70B5D562B56DD4300E624F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				F7AA7D7E2B6AE40800FB00E4 /* XCRemoteSwiftPackageReference "Vortex" */,
 			);
 			productRefGroup = F7EAE9772B568F5500A379E5 /* Products */;
 			projectDirPath = "";
@@ -718,7 +749,7 @@
 				F7605DBA2B5A9BBA007912D9 /* AppState.swift in Sources */,
 				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
 				F7D064502B69185400759780 /* NewsCellView.swift in Sources */,
-				F7AA7D822B6AE42400FB00E4 /* VortexConfetti.swift in Sources */,
+				F77EE07D2B6D2CBD00765A41 /* NotificationView.swift in Sources */,
 				F70B5D662B56DDC000E624F5 /* Business.swift in Sources */,
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
@@ -769,6 +800,7 @@
 				F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */,
 				F78FAE7A2B6AAAAF007F3D40 /* CreateBusinessView.swift in Sources */,
 				F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */,
+				F77EE07F2B6D2CC600765A41 /* NotificationCellView.swift in Sources */,
 				F70B5D832B5723B200E624F5 /* BusinessService.swift in Sources */,
 				F7DCBA8C2B56CDA60001B60B /* Pharmacy.swift in Sources */,
 				F7DCBA7B2B56B83A0001B60B /* PharmacyCellView.swift in Sources */,
@@ -997,7 +1029,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 10.19.1;
 			};
 		};
@@ -1005,16 +1037,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 7.10.2;
-			};
-		};
-		F7AA7D7E2B6AE40800FB00E4 /* XCRemoteSwiftPackageReference "Vortex" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/Vortex";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1039,11 +1063,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F70B5D792B570E0800E624F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		F7AA7D7F2B6AE40800FB00E4 /* Vortex */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F7AA7D7E2B6AE40800FB00E4 /* XCRemoteSwiftPackageReference "Vortex" */;
-			productName = Vortex;
 		};
 		F7D358012B5AF8F100C98419 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

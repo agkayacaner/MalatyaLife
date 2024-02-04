@@ -19,10 +19,11 @@ struct FeaturedBusinessItem: View {
                     KFImage(URL(string: imageUrl))
                         .resizable()
                         .scaledToFill()
-                        .frame(height: 240)
+                        .frame(width:width ,height: 240)
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                         .containerRelativeFrame(.horizontal)
                 } else {
+                // TODO: Shimmer animation
                     RoundedRectangle(cornerRadius: 14)
                         .foregroundColor(Color(.secondarySystemBackground))
                         .frame(height: 240)
@@ -36,6 +37,7 @@ struct FeaturedBusinessItem: View {
                         .frame(width: width, height: 240)
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                 } else {
+                    // TODO: Shimmer animation
                     RoundedRectangle(cornerRadius: 14)
                         .foregroundColor(Color(.secondarySystemBackground))
                         .frame(height: 240)
