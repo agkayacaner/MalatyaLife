@@ -83,9 +83,9 @@ struct SearchView: View {
         Menu {
             
             Picker("Sort", selection: $sort) {
-                Label("İlçe", systemImage: "location")
+                Label("İlçe", systemImage: "map")
                     .tag(BusinessSorter.district)
-                Label("Kategori", systemImage: "tag")
+                Label("Kategori", systemImage: "square.stack")
                     .tag(BusinessSorter.category)
             }
             
@@ -117,7 +117,7 @@ struct SearchView: View {
             }
             
         } label: {
-            Label("Kategoriler", systemImage: "line.3.horizontal.decrease.circle")
+            Label("Kategoriler", systemImage: "slider.horizontal.3")
         }
     }
 }

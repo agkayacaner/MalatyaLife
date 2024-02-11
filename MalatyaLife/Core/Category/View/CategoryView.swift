@@ -65,7 +65,7 @@ struct CategoryView: View {
         Menu {
             
             Picker("Sort", selection: $sort) {
-                Label("İlçe", systemImage: "location")
+                Label("İlçe", systemImage: "map")
                     .tag(CategoryViewSorter.district)
             }
             
@@ -83,7 +83,7 @@ struct CategoryView: View {
             }
             
         } label: {
-            Label("Kategoriler", systemImage: "line.3.horizontal.decrease.circle")
+            Label("Kategoriler", systemImage: "slider.horizontal.3")
         }
     }
     
