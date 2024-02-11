@@ -85,7 +85,7 @@ struct OnboardingView: View {
                                 appState.isOnboardingDone = true
                             }
                         }, label: {
-                            Text(currentPage < onBoardings.count - 1 ? "İleri" : "Başla")
+                            Text(currentPage < onBoardings.count - 1 ? "İleri" : "Başla >")
                         })
                         
                     }
@@ -98,7 +98,7 @@ struct OnboardingView: View {
 }
 
 struct OnboardingCardView: View {
-    
+
     var item: Onboarding
     
     var body: some View {
@@ -111,6 +111,7 @@ struct OnboardingCardView: View {
             Text(item.title)
                 .font(.title)
                 .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
             
             Text(item.description)
                 .foregroundStyle(.secondary)
@@ -125,22 +126,22 @@ struct OnboardingCardView: View {
 
 private let onBoardings = [
     Onboarding(
-        image: "onboarding",
-        title: "Keşfet",
-        description: "Malatya'da ki tüm mekanları keşfedebilir, depremden dolayı yerleri değişen mekanların yeni yerlerini bulabilirsiniz."
+        image: "explore",
+        title: "Malatya'yı Keşfet",
+        description: "Malatya'da ki tüm mekan ve işletmeleri keşfedebilir, yeni etkinliklerden haberdar olabilirsin."
     ),
     Onboarding(
-        image: "onboarding2",
-        title: "Paylaş",
-        description: "Aradığını yeri bulamayan arkadaşlarınıza mekanı paylaşarak yardımcı olabilir, yeni yerler keşfetmesini sağlayabilirsiniz."
+        image: "more",
+        title: "İhtiyacın olanlar burada",
+        description: "Nöbetçi eczaneler, önemli numaralar, kurumlar, son depremler ihtiyacın olan şeyler tek bir yerde."
     ),
     Onboarding(
-        image: "onboarding3",
+        image: "newbusiness",
         title: "İşletmeni Ekle",
         description: "Deprem sonrası işletmenizin yeri değişmiş olabilir, müşterilerinizin sizi kolayca bulması için işletmenizi ekleyin."
     ),
     Onboarding(
-        image: "onboarding4",
+        image: "login-screen",
         title: "Hesap Oluştur",
         description: "Malatya Life uygulamasının tüm özellikleriyle kullanmak için bir hesaba ihtiyacın var."
     )
