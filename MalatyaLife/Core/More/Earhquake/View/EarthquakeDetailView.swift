@@ -22,7 +22,7 @@ struct EarthquakeDetailView: View {
                 
                 Spacer()
                 
-                Text("Kandilli")
+                Text(viewModel.earthquakeFrom)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .padding(.vertical,5)
@@ -87,13 +87,13 @@ struct EarthquakeDetailView: View {
                     .bold()
             }
             .font(.footnote)
-            
         }
         .padding(.top,30)
         .padding(.horizontal)
     }
     
     var body: some View {
+        
         if #available(iOS 17.0, *) {
             VStack(alignment:.leading) {
                 extractedFunc()
@@ -154,7 +154,6 @@ struct EarthquakeDetailView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
             }
-            
         }
     }
 }

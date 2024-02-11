@@ -10,23 +10,23 @@ import SwiftUI
 struct EarthquakeCellView: View {
     @StateObject var viewModel = EarthquakeViewModel()
     @Environment(\.colorScheme) var colorScheme
-
+    
     @State var earthquake : Earthquake
     
     var body: some View {
         HStack {
             VStack(alignment:.leading) {
-                Text(earthquake.name)
+                Text(earthquake.name.capitalized)
                     .font(.footnote)
                     .bold()
-                .padding(.bottom,2)
+                    .padding(.bottom,2)
                 
                 if earthquake.epiCenter != "" {
-                    Text(earthquake.epiCenter)
+                    Text(earthquake.epiCenter.capitalized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else {
-                    Text(earthquake.name)
+                    Text(earthquake.name.capitalized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -45,7 +45,7 @@ struct EarthquakeCellView: View {
                 }
                 .foregroundStyle(.secondary)
                 .padding(.trailing,10)
-
+                
                 Text(viewModel.showMagnitude(earthquake: earthquake))
                     .font(.title)
                     .foregroundColor(getMagnitudeColor(magnitude: viewModel.getMagnitude(earthquake: earthquake)))

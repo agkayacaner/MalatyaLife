@@ -14,13 +14,21 @@ final class EarthquakeViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var showDetail = false
     @Published var selectedEarthquake: Earthquake?
+    @Published var earthquakeFrom : String = ""
+    @Published var source: String = "AFAD"
+    
+    func setEarthquakeFrom(response: EarthquakeResponse) {
+        self.earthquakeFrom = response.from
+    }
     
     @MainActor
-    func fetchEarthquakes() async {
+    func fetchFromKandilli() async {
         isLoading = true
         do {
-            let response = try await EarthquakeService.shared.getEarthquakes()
+            let response = try await EarthquakeService.shared.getEartquakeData(from: "https://www.depremapi.lamamedya.com/kandilli.php", responseType: EarthquakeResponse.self)
             earthquakes = [response]
+            setEarthquakeFrom(response: response) // Bu satırı ekleyin
+            objectWillChange.send()
             isLoading = false
         } catch let error as APError {
             handleAPIError(error)
@@ -28,6 +36,23 @@ final class EarthquakeViewModel: ObservableObject {
             print("Unknown error: \(error)")
         }
     }
+
+    @MainActor
+    func fetchFromAfad() async {
+        isLoading = true
+        do {
+            let response = try await EarthquakeService.shared.getEartquakeData(from: "https://www.depremapi.lamamedya.com/afad.php", responseType: EarthquakeResponse.self)
+            earthquakes = [response]
+            setEarthquakeFrom(response: response) // Bu satırı ekleyin
+            objectWillChange.send()
+            isLoading = false
+        } catch let error as APError {
+            handleAPIError(error)
+        } catch {
+            print("Unknown error: \(error)")
+        }
+    }
+
     
     func handleAPIError(_ error: APError) {
         var alertItem: AlertItem
@@ -99,7 +124,7 @@ final class EarthquakeViewModel: ObservableObject {
             return sortedMagnitudes.first ?? 0
         }
     }
-    
+     
     func showMagnitude(earthquake: Earthquake) -> String {
         let magnitude = getMagnitude(earthquake: earthquake)
         return String(format: "%.1f", magnitude)
