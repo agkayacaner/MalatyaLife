@@ -10,5 +10,5 @@ import FirebaseFirestoreSwift
 struct Category: Codable, Identifiable {
     @DocumentID var id: String?
     var name: String
-    var businesses: [String]?
+    var businesses: [String]
 }

@@ -23,7 +23,7 @@ struct BusinessCell: View {
             } else {
                 RoundedRectangle(cornerRadius: 14)
                     .frame(width: 64, height: 64)
-                    .foregroundColor(Color(.systemGray5))
+                    .foregroundColor(.red)
             }
             
             VStack(alignment:.leading,spacing: 4) {
@@ -42,4 +42,5 @@ struct BusinessCell: View {
 
 #Preview {
     BusinessCell(business: BusinessMockData.sampleBusiness01)
+        .padding()
 }

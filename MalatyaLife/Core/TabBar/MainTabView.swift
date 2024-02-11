@@ -8,54 +8,53 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selectedTab = 0
+    @State var activeTab: Tab = .explore
     @ObservedObject private var appState = AppState()
     
     var body: some View {
         TabView {
             ExploreView()
                 .tabItem {
-                    Label("Keşfet", systemImage: selectedTab == 0 ?  "doc.text.image.fill" : "doc.text.image")
-                        .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
+                    Label("Keşfet", systemImage: activeTab == .explore ?  "doc.text.image.fill" : "doc.text.image")
+                        .environment(\.symbolVariants, activeTab == .explore ? .fill : .none)
                 }
-                .onAppear { selectedTab = 0 }
-                .tag(0)
-            
-            NewsListView()
-                .tabItem {
-                    Label("Gündem", systemImage: selectedTab == 1 ? "newspaper.fill" : "newspaper")
-                        .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
-                }
-                .onAppear { selectedTab = 1 }
-                .tag(1)
+                .onAppear { activeTab = .explore }
+                .tag(Tab.explore)
             
             EventsView()
                 .tabItem {
-                    Label("Etkinlikler", systemImage: selectedTab == 2 ? "theatermasks.fill" : "theatermasks")
-                        .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
+                    Label("Etkinlikler", systemImage: activeTab == .events ? "theatermasks.fill" : "theatermasks")
+                        .environment(\.symbolVariants, activeTab == .events ? .fill : .none)
                 }
-                .onAppear { selectedTab = 2 }
-                .tag(2)
+                .onAppear { activeTab = .events }
+                .tag(Tab.events)
             
             
             SearchView()
                 .tabItem {
                     Label("Ara", systemImage: "magnifyingglass")
                 }
-                .onAppear { selectedTab = 3 }
-                .tag(3)
+                .onAppear { activeTab = .search }
+                .tag(Tab.search)
             
             MoreView()
                 .environmentObject(appState)
                 .tabItem {
-                    Label("Daha Fazla", systemImage: selectedTab == 4 ? "bolt.horizontal.fill" : "bolt.horizontal")
-                        .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
+                    Label("Daha Fazla", systemImage: activeTab == .more ? "bolt.horizontal.fill" : "bolt.horizontal")
+                        .environment(\.symbolVariants, activeTab == .more ? .fill : .none)
                 }
-                .onAppear { selectedTab = 4 }
-                .tag(4)
+                .onAppear { activeTab = .more }
+                .tag(Tab.more)
         }
         .background(.ultraThinMaterial)
     }
+}
+
+enum Tab {
+    case explore
+    case events
+    case search
+    case more
 }
 
 #Preview {

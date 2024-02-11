@@ -68,7 +68,7 @@ struct MoreView: View {
                 
                 Section {
                     NavigationLink("Hakkında", destination: AboutView(url: "https://www.malatyalife.lamamedya.com/about.php").navigationTitle("").navigationBarTitleDisplayMode(.inline))
- 
+                    
                     HStack {
                         Text("Uygulama Versiyonu")
                         Spacer()

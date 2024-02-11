@@ -43,6 +43,10 @@ struct AlertContext {
     
     static let selectImage = AlertItem(title: Text("Resim Seçin"), message: Text("İşletmenin resmini seçin!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
     
+    static let invalidWeekendHours = AlertItem(title: Text("Geçersiz Çalışma Saatleri"), message: Text("Hafta sonu çalışma saatleri geçersiz!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+    
+    static let uploadImageError = AlertItem(title: Text("Resim Yüklenemedi"), message: Text("Resim yüklenirken bir hata oluştu!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+    
     static let uploadSuccess = AlertItem(title: Text("Başarılı"), message: Text("İşletme başvurunuz alındı, onay sürecinden sonra aktif olacaktır!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
 }
 
