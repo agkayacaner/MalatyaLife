@@ -12,25 +12,32 @@ final class ExploreViewModel: ObservableObject {
     @Published var featuredBusinesses : [Business] = []
     @Published var latestBusinesses : [Business] = []
     @Published var selectedBusiness : Business?
+    @Published var isLoading : Bool = false
     
     init() {
         Task {
-            fetchFeaturedBusinessesListen()
-            fetchLatestBusinessesListen()
+            await fetchFeaturedBusinessesListen()
+            await fetchLatestBusinessesListen()
         }
     }
     
     let db = Firestore.firestore()
-    
+
+    @MainActor
     func fetchFeaturedBusinessesListen() {
+        isLoading = true
         listenToCollection(collection: "businesses", field: "isFeatured", isEqualTo: true) { businesses in
             self.featuredBusinesses = businesses
+            self.isLoading = false
         }
     }
     
+    @MainActor
     func fetchLatestBusinessesListen() {
+        isLoading = true
         listenToCollection(collection: "businesses", field: "isApproved", isEqualTo: true) { businesses in
             self.latestBusinesses = businesses
+            self.isLoading = false
         }
     }
     
