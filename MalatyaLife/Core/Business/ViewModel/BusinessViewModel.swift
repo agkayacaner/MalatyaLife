@@ -11,6 +11,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+@available(iOS 16.0, *)
 final class BusinessViewModel: ObservableObject {
     @Published var form = BusinessForm()
     @Published var image : Image?
@@ -29,6 +30,21 @@ final class BusinessViewModel: ObservableObject {
         isLoadingImage = true
         await loadImages()
         
+        var weekendWHSaturday: String = form.openingHourSaturday + " - " + form.closingHourSaturday
+        var weekendWHSunday: String = form.openingHourSunday + " - " + form.closingHourSunday
+        
+        switch form.offDay {
+        case .saturday:
+            weekendWHSaturday = ""
+        case .sunday:
+            weekendWHSunday = ""
+        case .weekend:
+            weekendWHSaturday = ""
+            weekendWHSunday = ""
+        default:
+            break
+        }
+        
         let business = Business(
             name: form.name,
             ownerUID: uid,
@@ -43,6 +59,8 @@ final class BusinessViewModel: ObservableObject {
             instagram: form.instagram,
             twitter: form.twitter,
             workingHours: form.openingHour + " - " + form.closingHour,
+            weekendWHSaturday: weekendWHSaturday,
+            weekendWHSunday: weekendWHSunday,
             offDay: form.offDay.rawValue,
             images: imageURLs,
             category: form.category.rawValue,
@@ -55,6 +73,29 @@ final class BusinessViewModel: ObservableObject {
         isLoadingImage = false
     }
     
+    struct BusinessForm {
+        var name = ""
+        var address = ""
+        var district : Business.District = .select
+        var owner = ""
+        var phone = ""
+        var email = ""
+        var website = ""
+        var description = ""
+        var facebook = ""
+        var instagram = ""
+        var twitter = ""
+        var openingHour = "8:00"
+        var closingHour = "17:00"
+        var offDay : Business.WeekDay = .sunday
+        var openingHourSaturday = "0:00"
+        var closingHourSaturday = "0:00"
+        var openingHourSunday = "0:00"
+        var closingHourSunday = "0:00"
+        var category : Business.Category = .select
+    }
+    
+    @MainActor
     var isValidForm: Bool {
         guard !form.name.isEmpty,
               !form.owner.isEmpty,
@@ -79,31 +120,26 @@ final class BusinessViewModel: ObservableObject {
             return false
         }
         
-        // Check if images are selected
         guard !selectedImages.isEmpty else {
             alertItem = AlertContext.selectImage
             return false
         }
         
-        return true
-    }
-    
-    struct BusinessForm {
-        var name = ""
-        var address = ""
-        var district : Business.District = .select
-        var owner = ""
-        var phone = ""
-        var email = ""
-        var website = ""
-        var description = ""
-        var facebook = ""
-        var instagram = ""
-        var twitter = ""
-        var openingHour = "8:00"
-        var closingHour = "17:00"
-        var offDay : Business.WeekDay = .sunday
-        var category : Business.Category = .select
+        switch form.offDay {
+        case .monday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
+             .tuesday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
+             .wednesday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
+             .thursday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
+             .friday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
+             .saturday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
+             .sunday where form.openingHourSunday == "0:00" || form.closingHourSunday == "0:00",
+             .noHoliday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00" || form.openingHourSunday == "0:00" || form.closingHourSunday == "0:00":
+            alertItem = AlertContext.invalidWeekendHours
+            return false
+        default:
+            return true
+        }
+
     }
     
     @MainActor
@@ -115,8 +151,7 @@ final class BusinessViewModel: ObservableObject {
         do {
             imageURLs = try await ImageUploader.uploadImages(selectedImages)
         } catch {
-            // Handle error
-            print(error.localizedDescription)
+            alertItem = AlertContext.uploadImageError
         }
         
         isLoadingImage = false
@@ -141,10 +176,38 @@ final class BusinessViewModel: ObservableObject {
     }
     
     func getOffDay(business:Business) -> String {
-        if business.offDay == Business.WeekDay.noOffDay.rawValue {
+        if business.offDay == Business.WeekDay.noHoliday.rawValue {
             return ""
         } else {
-            return "\(business.offDay) günü kapalı"
+            return "\(business.offDay) kapalı"
+        }
+    }
+    
+    func showWeekendWH(business:Business) -> String {
+        let getOffDay = business.offDay
+        let workingHours = business.workingHours
+        
+        if workingHours == business.weekendWHSaturday && workingHours == business.weekendWHSunday {
+            return ""
+        } else if workingHours == business.weekendWHSaturday {
+            return business.weekendWHSunday.isEmpty ? "" : "Pazar: \(String(describing: business.weekendWHSunday))"
+        } else if workingHours == business.weekendWHSunday {
+            return business.weekendWHSaturday.isEmpty ? "" : "Cumartesi: \(String(describing: business.weekendWHSaturday))"
+        } else if getOffDay == Business.WeekDay.saturday.rawValue {
+            return business.weekendWHSunday.isEmpty ? "" : "Pazar: \(String(describing: business.weekendWHSunday))"
+        } else if getOffDay == Business.WeekDay.sunday.rawValue {
+            return business.weekendWHSaturday.isEmpty ? "" : "Cumartesi: \(String(describing: business.weekendWHSaturday))"
+        } else if getOffDay == Business.WeekDay.weekend.rawValue {
+            return ""
+        } else {
+            var result = ""
+            if !business.weekendWHSaturday.isEmpty {
+                result += "Cumartesi: \(String(describing: business.weekendWHSaturday))\n"
+            }
+            if !business.weekendWHSunday.isEmpty {
+                result += "Pazar: \(String(describing: business.weekendWHSunday))"
+            }
+            return result
         }
     }
     

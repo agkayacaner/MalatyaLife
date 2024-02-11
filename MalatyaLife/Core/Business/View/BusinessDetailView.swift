@@ -39,14 +39,24 @@ struct BusinessDetailView: View {
                     
                     Spacer()
                 }
+                .padding(.bottom)
+                
+                Divider()
                 
                 VStack(alignment:.leading, spacing:10) {
-                    HStack {
-                        HStack {
-                            Text(business.workingHours)
-                                .foregroundStyle(.primary)
-                                .bold()
-                            Text("arası açık")
+                    HStack(alignment:.center) {
+                        VStack(alignment:.leading,spacing: 10){
+                            HStack {
+                                Text(business.workingHours)
+                                    .foregroundStyle(.primary)
+                                    .bold()
+                                Text("arası açık")
+                            }
+                            
+                            if viewModel.showWeekendWH(business: business) != "" {
+                                Text(viewModel.showWeekendWH(business: business))
+                                    .font(.subheadline)
+                            }
                         }
                         
                         Spacer()
@@ -55,8 +65,6 @@ struct BusinessDetailView: View {
                     }
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    
-                    Divider()
                     
                     Text(business.description)
                         .font(.subheadline)
@@ -73,9 +81,6 @@ struct BusinessDetailView: View {
                         .foregroundStyle(.secondary)
                     
                     BusinessSocialLinks()
-                    
-                    Spacer()
-                    
                     Button {
                         guard let url = URL(string: "tel://\(business.phone)") else { return }
                         UIApplication.shared.open(url)
@@ -88,7 +93,7 @@ struct BusinessDetailView: View {
                     .tint(.green)
                     .buttonStyle(.bordered)
                     .controlSize(.large)
-                    .padding(.top,50)
+                    .padding(.top,30)
                     .padding(.bottom,20)
                 }
                 .padding()
@@ -99,23 +104,22 @@ struct BusinessDetailView: View {
     
     @ViewBuilder
     func BusinessImages() -> some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing:0) {
-                if let imageUrls = business.images {
-                    ForEach(imageUrls, id: \.self) { imageUrl in
-                        KFImage(URL(string: imageUrl))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: screenWidth, height: 320)
-                            .clipped()
-                    }
-                } else {
-                    LoadingView()
+        if let imageUrls = business.images {
+            TabView() {
+                ForEach(imageUrls, id: \.self) { imageUrl in
+                    KFImage(URL(string: imageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: screenWidth, height: 320)
+                        .clipped()
                 }
             }
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            .frame(height: 320)
         }
     }
- 
+    
     @ViewBuilder
     func BusinessSocialLinks() -> some View {
         HStack {
@@ -160,25 +164,25 @@ struct BusinessDetailView: View {
         }
         .padding(.top,20)
     }
- 
+    
     @ViewBuilder
     func HeaderActions() -> some View {
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let edgeInsets = scene?.windows.first?.safeAreaInsets ?? .zero
         VStack {
             HStack {
+                Spacer()
+                
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "chevron.backward")
+                    Image(systemName: "xmark")
                         .font(.title3)
                         .padding()
                 }
                 .foregroundColor(.primary)
                 .background(.regularMaterial)
                 .clipShape(Circle())
-                
-                Spacer()
             }
             .padding(.horizontal,20)
             

@@ -23,6 +23,7 @@ struct CreateBusinessView: View {
                     
                     TextField("Açık Adres *", text: $viewModel.form.address, axis: .vertical)
                         .autocorrectionDisabled()
+                        .frame(minHeight: 54, alignment:.top)
                     
                     TextField("Web Sitesi", text: $viewModel.form.website, axis: .vertical)
                         .textInputAutocapitalization(.never)
@@ -65,6 +66,7 @@ struct CreateBusinessView: View {
                 Section {
                     TextField("İşletme Hakkında *", text: $viewModel.form.description, axis: .vertical)
                         .autocorrectionDisabled()
+                        .frame(minHeight: 54, alignment:.top)
                 } header: {
                     Text("İşletme Hakkında")
                         .textCase(.none)
@@ -77,21 +79,59 @@ struct CreateBusinessView: View {
                 Section{
                     viewModel.timePicker(selection: $viewModel.form.openingHour, label: "Açılış Saati *")
                     viewModel.timePicker(selection: $viewModel.form.closingHour, label: "Kapanış Saati *")
-                    
-                    Picker("Tatil Günü",selection: $viewModel.form.offDay){
-                        ForEach(Business.WeekDay.allCases, id: \.self) { offDay in
-                            Text(offDay.rawValue).tag(offDay.rawValue)
+                } header: {
+                    Text("Hafta İçi Çalışma Saatleri")
+                        .textCase(.none)
+                }
+                
+                Picker("Tatil Günü *",selection: $viewModel.form.offDay){
+                    ForEach(Business.WeekDay.allCases, id: \.self) { offDay in
+                        Text(offDay.rawValue).tag(offDay.rawValue)
+                    }
+                }
+                
+                Section{
+                    if viewModel.form.offDay.rawValue == "Pazar" {
+                        HStack {
+                            Text("Cumartesi *")
+                            Spacer(minLength: 20)
+                            viewModel.timePicker(selection: $viewModel.form.openingHourSaturday, label: "")
+                            viewModel.timePicker(selection: $viewModel.form.closingHourSaturday, label: "")
+                        }
+                    } else if viewModel.form.offDay.rawValue == "Cumartesi" {
+                        HStack {
+                            Text("Pazar *")
+                            Spacer(minLength: 55)
+                            viewModel.timePicker(selection: $viewModel.form.openingHourSunday, label: "")
+                            viewModel.timePicker(selection: $viewModel.form.closingHourSunday, label: "")
+                        }
+                    } else if viewModel.form.offDay.rawValue != "Hafta Sonu" {
+                        HStack {
+                            Text("Cumartesi *")
+                            Spacer(minLength: 20)
+                            viewModel.timePicker(selection: $viewModel.form.openingHourSaturday, label: "")
+                            viewModel.timePicker(selection: $viewModel.form.closingHourSaturday, label: "")
+                        }
+                        HStack {
+                            Text("Pazar *")
+                            Spacer(minLength: 55)
+                            viewModel.timePicker(selection: $viewModel.form.openingHourSunday, label: "")
+                            viewModel.timePicker(selection: $viewModel.form.closingHourSunday, label: "")
                         }
                     }
                 } header: {
-                    Text("İşletme Çalışma Saatleri")
-                        .textCase(.none)
+                    if viewModel.form.offDay.rawValue != "Hafta Sonu" {
+                        Text("Hafta Sonu Çalışma Saatleri")
+                            .textCase(.none)
+                    }
                 }
+
+                
+                
                 
                 Section {
                     TextField("Facebook", text: $viewModel.form.facebook)
                     TextField("Instagram", text: $viewModel.form.instagram)
-                    TextField("Twitter", text: $viewModel.form.twitter)
                 } header: {
                     Text("İşletme Sosyal Medya Hesapları")
                         .textCase(.none)
