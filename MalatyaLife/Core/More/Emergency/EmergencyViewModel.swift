@@ -9,19 +9,14 @@ import Foundation
 
 final class EmergencyViewModel: ObservableObject {
     @Published var emergencyList: [Emergency] = []
-
-    func fetchEmergencyNumbers() {
-        EmergencyService.shared.fetchEmergencyNumbers { [weak self] result in
-            switch result {
-            case.success(let response):
-                DispatchQueue.main.async {
-                    self?.emergencyList = response.numbers
-                }
-            case .failure(let error):
-                // TODO: - Alert
-                print("Error fetching emergency numbers: \(error)")
-            }
-        }
-    }
     
+    init() {}
+
+    func fetchEmergencyNumbers() async throws {
+        do {
+            emergencyList = try await EmergencyService.shared.fetchBusinesses()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }  
 }

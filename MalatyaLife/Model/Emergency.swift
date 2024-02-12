@@ -9,9 +9,9 @@ import Foundation
 
 struct Emergency: Codable, Hashable {
     let title: String
-    let number: String
+    let phone: String
 }
 
 struct EmergencyResponse: Codable {
-    let numbers: [Emergency]
+    let emergencies: [Emergency]
 }

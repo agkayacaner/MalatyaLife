@@ -12,23 +12,33 @@ struct EmergencyNumberListView: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.emergencyList, id:\.self) { number in
+            ForEach(viewModel.emergencyList, id:\.self) { emergency in
                 Button(action: {
-                    guard let url = URL(string: "tel://\(number.number)") else { return }
+                    guard let url = URL(string: "tel://\(emergency.phone)") else { return }
                     UIApplication.shared.open(url)
                 }, label: {
                     HStack {
                         Image(systemName: "phone.fill")
-                        Text(number.title)
+                        Text(emergency.title)
                     }
                 })
             }
         }
         .refreshable {
-            viewModel.fetchEmergencyNumbers()
+            Task {
+                do {
+                    try await viewModel.fetchEmergencyNumbers()
+                } catch {
+                    print("An error occurred: \(error)")
+                }
+            }
         }
         .task {
-            viewModel.fetchEmergencyNumbers()
+            do {
+                try await viewModel.fetchEmergencyNumbers()
+            } catch {
+                print("An error occurred: \(error)")
+            }
         }
         .listStyle(.plain)
         .navigationTitle("Önemli Telefonlar")
