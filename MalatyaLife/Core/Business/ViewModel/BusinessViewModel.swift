@@ -88,10 +88,10 @@ final class BusinessViewModel: ObservableObject {
         var openingHour = "8:00"
         var closingHour = "17:00"
         var offDay : Business.WeekDay = .sunday
-        var openingHourSaturday = "0:00"
-        var closingHourSaturday = "0:00"
-        var openingHourSunday = "0:00"
-        var closingHourSunday = "0:00"
+        var openingHourSaturday = "Seçiniz"
+        var closingHourSaturday = "Seçiniz"
+        var openingHourSunday = "Seçiniz"
+        var closingHourSunday = "Seçiniz"
         var category : Business.Category = .select
     }
     
@@ -126,20 +126,19 @@ final class BusinessViewModel: ObservableObject {
         }
         
         switch form.offDay {
-        case .monday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
-             .tuesday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
-             .wednesday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
-             .thursday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
-             .friday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
-             .saturday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00",
-             .sunday where form.openingHourSunday == "0:00" || form.closingHourSunday == "0:00",
-             .noHoliday where form.openingHourSaturday == "0:00" || form.closingHourSaturday == "0:00" || form.openingHourSunday == "0:00" || form.closingHourSunday == "0:00":
-            alertItem = AlertContext.invalidWeekendHours
-            return false
-        default:
-            return true
+            case .monday where form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz",
+                 .tuesday where form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz",
+                 .wednesday where form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz",
+                 .thursday where form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz",
+                 .friday where form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz",
+                 .saturday where form.openingHourSunday == "Seçiniz" || form.closingHourSunday == "Seçiniz",
+                 .sunday where form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz",
+                 .noHoliday where form.openingHourSunday == "Seçiniz" || form.closingHourSunday == "Seçiniz" || form.openingHourSaturday == "Seçiniz" || form.closingHourSaturday == "Seçiniz":
+                alertItem = AlertContext.invalidWeekendHours
+                return false
+            default:
+                return true
         }
-
     }
     
     @MainActor
@@ -213,6 +212,7 @@ final class BusinessViewModel: ObservableObject {
     
     func timePicker(selection: Binding<String>, label: String) -> some View {
         Picker(label, selection: selection) {
+            Text("Seçiniz").tag("Seçiniz")
             ForEach(0..<24) { hour in
                 Text("\(hour):00").tag("\(hour):00")
             }
