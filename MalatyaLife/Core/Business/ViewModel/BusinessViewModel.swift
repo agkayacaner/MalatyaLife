@@ -51,7 +51,7 @@ final class BusinessViewModel: ObservableObject {
             owner: form.owner,
             address: form.address,
             district: form.district.rawValue,
-            phone: form.phone,
+            phone: "+90" + form.phone,
             email: form.email,
             website: form.website,
             description: form.description,

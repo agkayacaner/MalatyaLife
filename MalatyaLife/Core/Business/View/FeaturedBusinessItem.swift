@@ -23,12 +23,10 @@ struct FeaturedBusinessItem: View {
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                         .containerRelativeFrame(.horizontal)
                 } else {
-                // TODO: Shimmer animation
                     RoundedRectangle(cornerRadius: 14)
                         .foregroundColor(Color(.secondarySystemBackground))
                         .frame(width:width ,height: 240)
                         .containerRelativeFrame(.horizontal)
-                        .shimmering()
                 }
             } else {
                 if let imageUrl = business.images?.first {
@@ -38,11 +36,9 @@ struct FeaturedBusinessItem: View {
                         .frame(width: width, height: 240)
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                 } else {
-                    // TODO: Shimmer animation
                     RoundedRectangle(cornerRadius: 14)
                         .foregroundColor(Color(.secondarySystemBackground))
                         .frame(width: width, height: 240)
-                        .shimmering()
                 }
             }
             VStack(alignment:.leading){

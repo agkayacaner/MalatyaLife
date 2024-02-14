@@ -236,7 +236,7 @@ struct ExploreView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(viewModel.events) { event in
-                                NavigationLink(destination: EventDetailView(event: event)) {
+                                NavigationLink(destination: EventDetailView(event: event).toolbar(.hidden, for: .tabBar)) {
                                     EventCardItem(event: event)
                                 }
                                 .foregroundStyle(.primary)
