@@ -11,6 +11,9 @@ import FirebaseFirestoreSwift
 final class ExploreViewModel: ObservableObject {
     @Published var featuredBusinesses : [Business] = []
     @Published var latestBusinesses : [Business] = []
+    @Published var events : [Event] = []
+    @Published var categories : [Category] = []
+    
     @Published var selectedBusiness : Business?
     @Published var isLoading : Bool = false
     
@@ -18,10 +21,49 @@ final class ExploreViewModel: ObservableObject {
         Task {
             await fetchFeaturedBusinessesListen()
             await fetchLatestBusinessesListen()
+            await fetchEvents()
+            await fetchCategories()
         }
     }
     
     let db = Firestore.firestore()
+    
+    @MainActor
+    func fetchEvents() {
+        isLoading = true
+        db.collection("events")
+            .order(by: "timestamp",descending: true)
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+                let events = documents.compactMap { queryDocumentSnapshot in
+                    try? queryDocumentSnapshot.data(as: Event.self)
+                }
+                self.events = events
+                self.isLoading = false
+            }
+    }
+    
+    @MainActor
+    func fetchCategories() {
+        isLoading = true
+        db.collection("categories")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+                let categories = documents.compactMap { queryDocumentSnapshot in
+                    try? queryDocumentSnapshot.data(as: Category.self)
+                }
+                self.categories = categories
+                self.isLoading = false
+            }
+    }
 
     @MainActor
     func fetchFeaturedBusinessesListen() {

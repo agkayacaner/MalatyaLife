@@ -12,6 +12,7 @@ struct User: Identifiable, Codable {
     var name: String
     var lastname: String
     var email: String
+    var isAdmin: Bool = false
     var profileImage: String?
     var likedBusinesses: [String]
     var createdAt: TimeInterval

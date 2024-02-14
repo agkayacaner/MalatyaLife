@@ -112,8 +112,8 @@ struct ExploreView: View {
             if #available(iOS 17.0, *) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack() {
-                        ForEach(Business.Category.allCases.filter { $0 != .select && $0 != .all && $0 != .other }, id:\.self) { category in
-                            NavigationLink(destination: CategoryView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
+                        ForEach( viewModel.categories ) { category in
+                            NavigationLink(destination: CategoryView(searchTerms: category.name, categoryName:category.name)) {
                                 CategoryCell(category: category)
                             }
                             .foregroundStyle(.primary)
@@ -128,8 +128,8 @@ struct ExploreView: View {
             else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing:10) {
-                        ForEach(Business.Category.allCases.filter { $0 != .select && $0 != .all && $0 != .other }, id:\.self) { category in
-                            NavigationLink(destination: CategoryView(searchTerms: category.rawValue, categoryName:category.rawValue)) {
+                        ForEach(viewModel.categories) { category in
+                            NavigationLink(destination: CategoryView(searchTerms: category.name, categoryName:category.name)) {
                                 CategoryCell(category: category)
                             }
                             .foregroundStyle(.primary)
@@ -235,9 +235,9 @@ struct ExploreView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(0..<4) { _ in
-                                NavigationLink(destination: Text("Etkinlik Detayı")) {
-                                    EventCardItem()
+                            ForEach(viewModel.events) { event in
+                                NavigationLink(destination: EventDetailView(event: event)) {
+                                    EventCardItem(event: event)
                                 }
                                 .foregroundStyle(.primary)
                             }
@@ -259,9 +259,9 @@ struct ExploreView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing:10) {
-                            ForEach(0..<4) { _ in
+                            ForEach(viewModel.events) { event in
                                 NavigationLink(destination: Text("Etkinlik Detayı")) {
-                                    EventCardItem()
+                                    EventCardItem(event: event)
                                 }
                                 .foregroundStyle(.primary)
                             }

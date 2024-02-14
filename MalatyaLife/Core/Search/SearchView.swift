@@ -35,7 +35,7 @@ struct SearchView: View {
         NavigationStack {
             List {
                 if searchTerms.isEmpty {
-                    ForEach(filteredBusinessList.prefix(5)) { business in
+                    ForEach(filteredBusinessList) { business in
                         NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
                             BusinessCellView(business: business)
                         }
@@ -53,7 +53,7 @@ struct SearchView: View {
                 }
             }
             .listStyle(.plain)
-            .searchable(text: $searchTerms, prompt: Text("İşletmelerde Arama Yapın..."))
+            .searchable(text: $searchTerms, prompt: Text("Ara..."))
             .overlay {
                 if #available(iOS 17, *){
                     if filteredBusinessList.isEmpty {

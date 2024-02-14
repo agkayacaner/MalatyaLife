@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CategoryCell: View {
-    @State var category : Business.Category
+    @State var category : Category
     
     var body: some View {
         HStack {
-            Text(category.rawValue)
+            Text(category.name)
                 .font(.subheadline)
                 .padding(.horizontal,20)
                 .padding(.vertical,10)
@@ -23,5 +23,5 @@ struct CategoryCell: View {
 }
 
 #Preview {
-    CategoryCell(category: Business.Category.cafe)
+    CategoryCell(category: Category.init(name: "Kategori", businesses: [""]))
 }

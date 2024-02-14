@@ -22,27 +22,21 @@ struct BusinessService {
         try await db.collection("businesses").addDocument(data: businessData)
     }
     
-    func createBusinessAndAddToCategory(_ business: Business) async throws {
+    func createNewBusiness(_ business: Business) async throws {
         guard let businessData = try? Firestore.Encoder().encode(business) else { return }
-        let documentRef = try await db.collection("businesses").addDocument(data: businessData)
+        let docRef = try await db.collection("businesses").addDocument(data: businessData)
         
-        let categoryRef = db.collection("categories").document(business.category)
-        /// Check if the category already exists
-        let docSnapshot = try await categoryRef.getDocument()
-        if docSnapshot.exists {
-            /// If the category exists, just add the business to the businesses collection
-            try await categoryRef.updateData([
-                "businesses": FieldValue.arrayUnion(["\(documentRef.documentID)"])
-            ])
+        let categoryQuery = db.collection("categories").whereField("name", isEqualTo: business.category)
+        let categories = try await categoryQuery.getDocuments()
+        
+        if let categoryDoc = categories.documents.first, var category = try? categoryDoc.data(as: Category.self) {
+            category.businesses.append(docRef.documentID)
+            try  categoryDoc.reference.setData(from: category)
         } else {
-            /// If the category does not exist, create a new document with the business
-            try await categoryRef.setData([
-                "name": business.category,
-                "businesses": ["\(documentRef.documentID)"]
-            ])
+            let newCategory = Category(name: business.category, businesses: [docRef.documentID])
+            try db.collection("categories").addDocument(from: newCategory)
         }
     }
-    
     
     func fetchBusinesses() async throws -> [Business] {
         let querySnapshot = try await db.collection("businesses").whereField("isApproved", isEqualTo: true).getDocuments()

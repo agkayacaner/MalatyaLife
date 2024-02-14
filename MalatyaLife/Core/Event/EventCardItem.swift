@@ -6,26 +6,38 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EventCardItem: View {
+    @StateObject var viewModel = EventViewModel()
+    
     var width = UIScreen.main.bounds.width - 40
+    var event: Event
     
     var body: some View {
         VStack(alignment:.leading) {
             
             ZStack(alignment:.bottomLeading) {
                 if #available(iOS 17.0, *) {
-                    RoundedRectangle(cornerRadius: 14)
-                        .foregroundColor(Color(.secondarySystemBackground))
-                        .frame(height: 200)
-                        .containerRelativeFrame(.horizontal)
+                    if let imageUrl = event.image {
+                        KFImage(URL(string: imageUrl))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: width,height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 14))
+                            .containerRelativeFrame(.horizontal)
+                    }
                 } else {
-                    RoundedRectangle(cornerRadius: 14)
-                        .foregroundColor(Color(.secondarySystemBackground))
-                        .frame(width: width,height: 200)
+                    if let imageUrl = event.image {
+                        KFImage(URL(string: imageUrl))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: width,height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 14))
+                    }
                 }
                 
-                Text("10 Aralık")
+                Text(viewModel.getEventDate(event: event))
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .padding()
@@ -39,14 +51,9 @@ struct EventCardItem: View {
             }
             
             VStack(alignment:.leading){
-                Text("Etkinlik Adı")
+                Text(event.name)
                     .font(.title3)
                     .fontWeight(.bold)
-                
-                Text("Alt Başlık")
-                    .font(.subheadline)
-                    .fontWeight(.light)
-                    .foregroundColor(.secondary)
             }
             .padding(.horizontal)
         }
@@ -54,5 +61,6 @@ struct EventCardItem: View {
 }
 
 #Preview {
-    EventCardItem()
+    EventCardItem(event: EventMockData.events[0])
+        .padding()
 }

@@ -57,7 +57,6 @@ final class BusinessViewModel: ObservableObject {
             description: form.description,
             facebook: form.facebook,
             instagram: form.instagram,
-            twitter: form.twitter,
             workingHours: form.openingHour + " - " + form.closingHour,
             weekendWHSaturday: weekendWHSaturday,
             weekendWHSunday: weekendWHSunday,
@@ -67,7 +66,7 @@ final class BusinessViewModel: ObservableObject {
             timestamp: Timestamp()
         )
         
-        try await BusinessService.shared.createBusinessAndAddToCategory(business)
+        try await BusinessService.shared.createNewBusiness(business)
         alertItem = AlertContext.uploadSuccess
         isUploading = true
         isLoadingImage = false
@@ -84,7 +83,6 @@ final class BusinessViewModel: ObservableObject {
         var description = ""
         var facebook = ""
         var instagram = ""
-        var twitter = ""
         var openingHour = "8:00"
         var closingHour = "17:00"
         var offDay : Business.WeekDay = .sunday
@@ -176,7 +174,7 @@ final class BusinessViewModel: ObservableObject {
     
     func getOffDay(business:Business) -> String {
         if business.offDay == Business.WeekDay.noHoliday.rawValue {
-            return ""
+            return "Tatil günü yok"
         } else {
             return "\(business.offDay) kapalı"
         }

@@ -12,6 +12,7 @@ final class EmergencyViewModel: ObservableObject {
     
     init() {}
 
+    @MainActor
     func fetchEmergencyNumbers() async throws {
         do {
             emergencyList = try await EmergencyService.shared.fetchBusinesses()
