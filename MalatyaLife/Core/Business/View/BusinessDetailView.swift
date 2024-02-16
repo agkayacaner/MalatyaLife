@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import MapKit
 
 struct BusinessDetailView: View {
     @Environment(\.dismiss) var dismiss
@@ -71,6 +72,8 @@ struct BusinessDetailView: View {
                         .foregroundStyle(.secondary)
                         .padding(.top)
                     
+                    Spacer()
+                    
                     Text("Adres")
                         .font(.subheadline)
                         .fontWeight(.semibold)
@@ -80,7 +83,12 @@ struct BusinessDetailView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     
+                    Spacer()
+                    
                     BusinessSocialLinks()
+                    
+                    Spacer()
+                    
                     Button {
                         guard let url = URL(string: "tel://\(business.phone)") else { return }
                         UIApplication.shared.open(url)
@@ -93,8 +101,6 @@ struct BusinessDetailView: View {
                     .tint(.green)
                     .buttonStyle(.bordered)
                     .controlSize(.large)
-                    .padding(.top,30)
-                    .padding(.bottom,20)
                 }
                 .padding()
             }
@@ -126,7 +132,7 @@ struct BusinessDetailView: View {
             HStack(spacing:20) {
                 if (business.website != "") {
                     Button {
-                        guard let url = URL(string: "\(business.website!)") else { return }
+                        guard let url = URL(string: "http://\(business.website!)") else { return }
                         UIApplication.shared.open(url)
                     } label: {
                         Image(systemName: "globe")
@@ -161,6 +167,17 @@ struct BusinessDetailView: View {
             }
             
             Spacer()
+            
+            Button {
+                let coordinate = CLLocationCoordinate2D(latitude: business.coordinates.latitude, longitude: business.coordinates.longitude)
+                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+                mapItem.name = business.name
+                mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+            } label: {
+                Label("Haritada Göster", systemImage: "map")
+                    .foregroundStyle(.brown)
+            }
+            
         }
         .padding(.top,20)
     }

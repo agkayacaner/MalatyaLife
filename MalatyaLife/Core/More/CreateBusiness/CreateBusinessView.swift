@@ -125,9 +125,12 @@ struct CreateBusinessView: View {
                             .textCase(.none)
                     }
                 }
-
                 
-                
+                if #available(iOS 17.0, *) {
+                    Section {
+                        NavigationLink("Konum Ekle", destination: AddLocation(viewModel: viewModel).navigationBarBackButtonHidden())
+                    }
+                }
                 
                 Section {
                     TextField("Facebook", text: $viewModel.form.facebook)

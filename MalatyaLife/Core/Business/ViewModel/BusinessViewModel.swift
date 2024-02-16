@@ -11,7 +11,6 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-@available(iOS 16.0, *)
 final class BusinessViewModel: ObservableObject {
     
     @Published var form = BusinessForm()
@@ -23,8 +22,8 @@ final class BusinessViewModel: ObservableObject {
     @Published var imageURLs = [String]()
     @Published var isUploading = false
     
-    @Published var latitude: Double = 0
-    @Published var longitude: Double = 0
+    @Published var businesslatitude: Double = 0
+    @Published var businesslongitude: Double = 0
     
     @MainActor
     func uploadBusiness() async throws {
@@ -66,7 +65,7 @@ final class BusinessViewModel: ObservableObject {
             weekendWHSunday: weekendWHSunday,
             offDay: form.offDay.rawValue,
             images: imageURLs,
-            coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: 0, longitude: 0)),
+            coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: businesslatitude, longitude: businesslongitude)),
             category: form.category.rawValue,
             timestamp: Timestamp()
         )
@@ -125,6 +124,11 @@ final class BusinessViewModel: ObservableObject {
         
         guard !selectedImages.isEmpty else {
             alertItem = AlertContext.selectImage
+            return false
+        }
+        
+        guard businesslatitude != 0 && businesslongitude != 0 else {
+            alertItem = AlertContext.selectLocation
             return false
         }
         

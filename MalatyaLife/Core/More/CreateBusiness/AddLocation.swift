@@ -3,94 +3,156 @@ import MapKit
 
 @available(iOS 17.0, *)
 struct AddLocation: View {
-    @StateObject var locationManager = LocationManager()
-    @State var camera: MapCameraPosition
-    @State var address: String = ""
-    @State var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-        span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-    )
-    var bounds: MapCameraBounds {
-        let region = MKCoordinateRegion(center:locationManager.lastLocation?.coordinate ?? CLLocationCoordinate2D(), span: .init(latitudeDelta: 0.03, longitudeDelta: 0.03))
-        return MapCameraBounds(centerCoordinateBounds: region, minimumDistance: 2000, maximumDistance: 5000)
-    }
+    @ObservedObject var viewModel = BusinessViewModel()
+    @Environment(\.dismiss) var dismiss
+    @State private var camera: MapCameraPosition = .region(.init(center: .merkez, span: .initialSpan))
+    @State private var coordinate: CLLocationCoordinate2D = .merkez
+    @State private var mapSpan: MKCoordinateSpan = .initialSpan
+    @State private var annotationTitle: String = ""
+    @State private var updatesCamera: Bool = true
+    @State private var displaysTitle: Bool = true
     
     var body: some View {
-        Map(coordinateRegion: $region)
-            .overlay {
-                Image(systemName: "pin.fill")
-                    .font(.largeTitle)
-                    .foregroundStyle(.orange.gradient)
-            }
-            .mapStyle(.standard(pointsOfInterest: .including([MKPointOfInterestCategory.parking, .atm, .bank, .bakery])))
-            .onMapCameraChange { context in
-                camera = MapCameraPosition.region(context.region)
-            }
-        
-            .onReceive(locationManager.$lastLocation) { location in
-                if let location = location {
-                    region = MKCoordinateRegion(
-                        center: location.coordinate,
-                        span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-                    )
-                    Task {
-                        _ = await lookupCurrentLocation()
+        MapReader { proxy in
+            Map(position: $camera) {
+                Annotation(displaysTitle ? annotationTitle : "", coordinate: coordinate) {
+                    DraggablePin(proxy: proxy ,coordinate: $coordinate) { coordinate in
+                        findCoordinateName()
+                        guard updatesCamera else { return }
+                        let newRegion = MKCoordinateRegion(
+                            center: coordinate,
+                            span: mapSpan
+                        )
+                        withAnimation {
+                            camera = .region(newRegion)
+                        }
+                        
+                        viewModel.businesslatitude = coordinate.latitude
+                        viewModel.businesslongitude = coordinate.longitude
                     }
                 }
             }
-
-            .safeAreaInset(edge: .bottom) {
-                VStack(spacing:10) {
-                    Text(address)
-                        .font(.subheadline).bold()
-                    HStack {
-                        Text("Latitude: \(region.center.latitude)")
-                        Text("Longitude: \(region.center.longitude)")
-                    }
-                    .font(.caption)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.thinMaterial)
+            .onMapCameraChange(frequency: .continuous) { ctx in
+                mapSpan = ctx.region.span
             }
-            .onChange(of: camera) { oldValue, newValue in
-                Task {
-                    if let location = await lookupCurrentLocation() {
-                        address = ""
-                        address += location.name ?? ""
-                        address += location.locality ?? ""
+            .safeAreaInset(edge: .bottom, content: {
+                HStack {
+                    annotationTitle.isEmpty ? nil : VStack {
+                        Text(annotationTitle)
                     }
+                    .frame(maxWidth: .infinity)
+                }
+                .textScale(.secondary)
+                .padding(15)
+                .background(.ultraThinMaterial)
+            })
+            .onAppear(perform: findCoordinateName)
+        }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Vazgeç") {
+                    coordinate = .merkez
+                    dismiss()
                 }
             }
-    }
-    func lookupCurrentLocation() async -> CLPlacemark? {
-        let geocoder = CLGeocoder()
-        let location = CLLocation(latitude: region.center.latitude, longitude: region.center.longitude)
-        do {
-            let placemarks = try await geocoder.reverseGeocodeLocation(location)
-            return placemarks.first
-        } catch {
-            print("Failed to find location: \(error)")
-            return nil
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Kaydet") {
+                    viewModel.businesslatitude = coordinate.latitude
+                    viewModel.businesslongitude = coordinate.longitude
+                    
+                    dismiss()
+                }
+            }
+        }
+        .onAppear {
+            // Eğer viewModel'deki koordinatlar default değerlerden farklıysa, bu koordinatları kullanın.
+            if viewModel.businesslatitude != 0 && viewModel.businesslongitude != 0 {
+                coordinate = CLLocationCoordinate2D(latitude: viewModel.businesslatitude, longitude: viewModel.businesslongitude)
+            }
         }
     }
-
-}
-
-class LocationManager: NSObject, ObservableObject {
-    let locationManager = CLLocationManager()
-    @Published var lastLocation: CLLocation?
     
-    override init() {
-        super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+    func findCoordinateName() {
+        annotationTitle = ""
+        Task {
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            let geoDecoder = CLGeocoder()
+            if let name = try? await geoDecoder.reverseGeocodeLocation(location).first?.name {
+                annotationTitle = name
+            }
+        }
     }
 }
-extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lastLocation = locations.first
+
+@available(iOS 17.0, *)
+#Preview {
+    NavigationStack {
+        AddLocation()
+    }
+}
+
+/// Custom Draggable Pin Annotation
+@available(iOS 17.0, *)
+struct DraggablePin: View {
+    var tint: Color = .red
+    var proxy: MapProxy
+    @Binding var coordinate: CLLocationCoordinate2D
+    var onCoordinateChange: (CLLocationCoordinate2D) -> ()
+    @State private var isActive: Bool = false
+    @State private var translation: CGSize = .zero
+    
+    
+    var body: some View {
+        GeometryReader {
+            let frame = $0.frame(in: .global)
+            
+            Image(systemName: "mappin")
+                .font(.title)
+                .foregroundStyle(tint.gradient)
+                .animation(.snappy, body: { content in
+                    content
+                        .scaleEffect(isActive ? 1.3 : 1, anchor: .bottom)
+                })
+                .frame(width: frame.width, height: frame.height)
+                .onChange(of: isActive, initial: false) { oldValue, newValue in
+                    let position = CGPoint(x: frame.midX, y: frame.midY)
+                    if let coordinate = proxy.convert(position, from: .global), !newValue {
+                        self.coordinate = coordinate
+                        translation = .zero
+                        onCoordinateChange(coordinate)
+                    }
+                }
+        }
+        .frame(width: 30, height: 30)
+        .contentShape(.rect)
+        .offset(translation)
+        .gesture(
+            LongPressGesture(minimumDuration: 0.15)
+                .onEnded{
+                    isActive = $0
+                }
+                .simultaneously(with:
+                                    DragGesture(minimumDistance: 0)
+                    .onChanged{ value in
+                        if isActive { translation = value.translation }
+                    }
+                    .onEnded{ value in
+                        if isActive { isActive = false }
+                    }
+                               )
+        )
+    }
+}
+
+/// Static values
+extension MKCoordinateSpan {
+    static var initialSpan: MKCoordinateSpan {
+        return .init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    }
+}
+
+extension CLLocationCoordinate2D {
+    static var merkez: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: 38.347900, longitude: 38.301088)
     }
 }
