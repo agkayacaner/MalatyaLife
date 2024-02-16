@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct EventsView: View {
+    @StateObject var viewModel = EventViewModel()
+    
     var body: some View {
         NavigationStack {
-            VStack() {
-                
+            List(viewModel.events) { event in
+                NavigationLink(destination: EventDetailView(event: event)) {
+                    EventCellView(event: event)
+                }
+                .foregroundStyle(.primary)
             }
+            .listStyle(.plain)
             .navigationTitle("Etkinlikler")
             .navigationBarTitleDisplayMode(.large)
         }

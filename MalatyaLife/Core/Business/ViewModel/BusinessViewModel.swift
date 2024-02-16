@@ -13,6 +13,7 @@ import FirebaseAuth
 
 @available(iOS 16.0, *)
 final class BusinessViewModel: ObservableObject {
+    
     @Published var form = BusinessForm()
     @Published var image : Image?
     @Published var alertItem: AlertItem?
@@ -21,6 +22,9 @@ final class BusinessViewModel: ObservableObject {
     @Published var selectedImages = [UIImage]()
     @Published var imageURLs = [String]()
     @Published var isUploading = false
+    
+    @Published var latitude: Double = 0
+    @Published var longitude: Double = 0
     
     @MainActor
     func uploadBusiness() async throws {
@@ -62,6 +66,7 @@ final class BusinessViewModel: ObservableObject {
             weekendWHSunday: weekendWHSunday,
             offDay: form.offDay.rawValue,
             images: imageURLs,
+            coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: 0, longitude: 0)),
             category: form.category.rawValue,
             timestamp: Timestamp()
         )

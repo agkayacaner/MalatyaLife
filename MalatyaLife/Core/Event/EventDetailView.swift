@@ -27,6 +27,9 @@ struct EventDetailView: View {
                 VStack(alignment:.leading, spacing:10) {
                     Text(event.name)
                         .font(.title).bold()
+                    
+                    Text(viewModel.getEventDate(event: event))
+                    
                     Text(event.description)
                         .font(.body)
                 }
@@ -35,6 +38,7 @@ struct EventDetailView: View {
             
             Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

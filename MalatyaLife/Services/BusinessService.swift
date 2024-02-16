@@ -39,7 +39,7 @@ struct BusinessService {
     }
     
     func fetchBusinesses() async throws -> [Business] {
-        let querySnapshot = try await db.collection("businesses").whereField("isApproved", isEqualTo: true).getDocuments()
+        let querySnapshot = try await db.collection("businesses").whereField("isActive", isEqualTo: true).getDocuments()
         var businesses = querySnapshot.documents.compactMap { document in
             try? document.data(as: Business.self)
         }
@@ -49,6 +49,7 @@ struct BusinessService {
     
     func fetchFeaturedBusinesses() async throws -> [Business] {
         let querySnapshot = try await db.collection("businesses")
+            .whereField("isActive", isEqualTo: true)
             .whereField("isApproved", isEqualTo: true)
             .whereField("isFeatured", isEqualTo: true)
             .getDocuments()

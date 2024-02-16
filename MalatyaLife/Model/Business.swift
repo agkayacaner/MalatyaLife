@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import CoreLocation
 import FirebaseFirestoreSwift
 
 struct Business: Codable, Identifiable {
@@ -26,10 +27,10 @@ struct Business: Codable, Identifiable {
     var weekendWHSunday: String
     var offDay: String
     var images: [String]?
-    var latitude: Double?
-    var longitude: Double?
+    var coordinates: CodableCLLocationCoordinate2D
     var category: String
     var timestamp: Timestamp
+    var isActive: Bool = false
     var isFeatured: Bool = false
     var isApproved: Bool = false
     
@@ -55,7 +56,6 @@ struct Business: Codable, Identifiable {
         case tailor = "Terzi"
         case tekel = "Tekel Bayi"
     }
-
     
     // Malatyanın ilçeleri
     enum District: String, CaseIterable {
@@ -87,9 +87,42 @@ struct Business: Codable, Identifiable {
         case weekend = "Hafta Sonu"
         case noHoliday = "Tatil Günü Yok"
     }
+
 }
 
 struct BusinessMockData {
-    static let sampleBusiness01 = Business(name: "Havuç Kafe", ownerUID:"s", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynı gün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", workingHours: "08.00-23.00",weekendWHSaturday: "08:00 - 00:00" , weekendWHSunday: "",offDay: "Pazar", images: ["https://scontent.cdninstagram.com/v/t51.2885-15/417770454_934253834934499_5259656534685714410_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=ias24pKJ8SMAX9F6lh6&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfD8kGwCeA-2EqEjqWjlFGLpl4UwCguf-AC71nZXgWyXAw&oe=65C03A1F&_nc_sid=10d13b", "https://lh3.googleusercontent.com/p/AF1QipMCkauzhB07t1AJtLt48kjcICpKVcf6__HSMY9o=s680-w680-h510", "https://lh3.googleusercontent.com/p/AF1QipPcpqyobmUuVeYNpQCk8i6EgBduCrHtMLXnpsZQ=s680-w680-h510"] ,latitude: 0.0, longitude: 0.0, category: "Kafe", timestamp: Timestamp())
+    static let sampleBusiness01 = Business(name: "Havuç Kafe", ownerUID:"s", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynı gün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", workingHours: "08.00-23.00",weekendWHSaturday: "08:00 - 00:00" , weekendWHSunday: "",offDay: "Pazar", images: ["https://scontent.cdninstagram.com/v/t51.2885-15/417770454_934253834934499_5259656534685714410_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=ias24pKJ8SMAX9F6lh6&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfD8kGwCeA-2EqEjqWjlFGLpl4UwCguf-AC71nZXgWyXAw&oe=65C03A1F&_nc_sid=10d13b", "https://lh3.googleusercontent.com/p/AF1QipMCkauzhB07t1AJtLt48kjcICpKVcf6__HSMY9o=s680-w680-h510", "https://lh3.googleusercontent.com/p/AF1QipPcpqyobmUuVeYNpQCk8i6EgBduCrHtMLXnpsZQ=s680-w680-h510"] ,coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: 37.827067169207677, longitude: -122.42297807385017)), category: "Kafe", timestamp: Timestamp())
+}
+
+
+struct CodableCLLocationCoordinate2D: Codable {
+    var latitude: Double
+    var longitude: Double
+
+    var clLocationCoordinate2D: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        latitude = try container.decode(Double.self, forKey: .latitude)
+        longitude = try container.decode(Double.self, forKey: .longitude)
+    }
+
+    init(_ location: CLLocationCoordinate2D) {
+        self.latitude = location.latitude
+        self.longitude = location.longitude
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case latitude
+        case longitude
+    }
 }
 

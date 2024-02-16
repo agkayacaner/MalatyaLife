@@ -77,7 +77,7 @@ final class ExploreViewModel: ObservableObject {
     @MainActor
     func fetchLatestBusinessesListen() {
         isLoading = true
-        listenToCollection(collection: "businesses", field: "isApproved", isEqualTo: true) { businesses in
+        listenToCollection(collection: "businesses", field: "isActive", isEqualTo: true) { businesses in
             self.latestBusinesses = businesses
             self.isLoading = false
         }
@@ -85,6 +85,7 @@ final class ExploreViewModel: ObservableObject {
     
     func listenToCollection(collection: String, field: String, isEqualTo: Bool, completion: @escaping ([Business]) -> Void) {
         db.collection(collection)
+            .whereField("isActive", isEqualTo: true)
             .whereField("isApproved", isEqualTo: true)
             .whereField(field, isEqualTo: isEqualTo)
             .order(by: "timestamp",descending: true)
