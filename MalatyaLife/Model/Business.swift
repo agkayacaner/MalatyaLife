@@ -29,7 +29,7 @@ struct Business: Codable, Identifiable {
     var images: [String]?
     var coordinates: CodableCLLocationCoordinate2D
     var category: String
-    var createdAt: TimeInterval
+    var createdAt: Date
     var isActive: Bool = false
     var isFeatured: Bool = false
     var isApproved: Bool = false
@@ -91,7 +91,7 @@ struct Business: Codable, Identifiable {
 }
 
 struct BusinessMockData {
-    static let sampleBusiness01 = Business(name: "Havuç Kafe", ownerUID:"s", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynı gün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", workingHours: "08.00-23.00",weekendWHSaturday: "08:00 - 00:00" , weekendWHSunday: "",offDay: "Pazar", images: ["https://scontent.cdninstagram.com/v/t51.2885-15/417770454_934253834934499_5259656534685714410_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=ias24pKJ8SMAX9F6lh6&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfD8kGwCeA-2EqEjqWjlFGLpl4UwCguf-AC71nZXgWyXAw&oe=65C03A1F&_nc_sid=10d13b", "https://lh3.googleusercontent.com/p/AF1QipMCkauzhB07t1AJtLt48kjcICpKVcf6__HSMY9o=s680-w680-h510", "https://lh3.googleusercontent.com/p/AF1QipPcpqyobmUuVeYNpQCk8i6EgBduCrHtMLXnpsZQ=s680-w680-h510"] ,coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: 37.827067169207677, longitude: -122.42297807385017)), category: "Kafe", createdAt: Date().timeIntervalSince1970)
+    static let sampleBusiness01 = Business(name: "Havuç Kafe", ownerUID:"s", owner: "Sample Owner" ,address: "Karakavak mah.Güngör cad.12/h Yeşilyurt/MALATYA", district: "Yeşilyurt", phone: "131243243224", email: "mail@mail.com", website: "www.site.com", description: "Çiçek&Çikolata&Pasta&Kahvaltı-Yemek\nÇiçek siparişlerinde aynı gün adrese teslimat💐", facebook: "havuc_kafe", instagram: "havuc_kafe", workingHours: "08.00-23.00",weekendWHSaturday: "08:00 - 00:00" , weekendWHSunday: "",offDay: "Pazar", images: ["https://scontent.cdninstagram.com/v/t51.2885-15/417770454_934253834934499_5259656534685714410_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=ias24pKJ8SMAX9F6lh6&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfD8kGwCeA-2EqEjqWjlFGLpl4UwCguf-AC71nZXgWyXAw&oe=65C03A1F&_nc_sid=10d13b", "https://lh3.googleusercontent.com/p/AF1QipMCkauzhB07t1AJtLt48kjcICpKVcf6__HSMY9o=s680-w680-h510", "https://lh3.googleusercontent.com/p/AF1QipPcpqyobmUuVeYNpQCk8i6EgBduCrHtMLXnpsZQ=s680-w680-h510"] ,coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: 37.827067169207677, longitude: -122.42297807385017)), category: "Kafe", createdAt: Date())
 }
 
 

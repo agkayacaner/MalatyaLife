@@ -13,12 +13,12 @@ struct Event: Codable, Identifiable {
     var name: String
     var description: String
     var image: String?
-    var createdAt: TimeInterval
+    var createdAt: Date
     var isFeatured: Bool
 }
 
 struct EventMockData {
     static let events = [
-        Event(id: "1", name: "Event 1", description: "Event 1 Description", image: "https://www.biletix.com/static/images/live/event/groupimages/atademirerr-grup-gorselll.jpg", createdAt: Date().timeIntervalSince1970, isFeatured: true),
+        Event(id: "1", name: "Event 1", description: "Event 1 Description", image: "https://www.biletix.com/static/images/live/event/groupimages/atademirerr-grup-gorselll.jpg", createdAt: Date(), isFeatured: true),
     ]
 }

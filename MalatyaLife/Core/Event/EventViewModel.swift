@@ -42,6 +42,6 @@ class EventViewModel: ObservableObject {
     func getEventDate(event: Event) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM yyyy"
-        return dateFormatter.string(from: event.timestamp.dateValue())
+        return dateFormatter.string(from: event.createdAt)
     }
 }

@@ -15,5 +15,5 @@ struct User: Identifiable, Codable {
     var isAdmin: Bool = false
     var profileImage: String?
     var likedBusinesses: [String]
-    var createdAt: TimeInterval
+    var createdAt: Date
 }
