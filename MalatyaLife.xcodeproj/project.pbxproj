@@ -413,6 +413,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F7C8B9DA2B8262C800E187DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7C7DE0A2B7D095A005B5E63 /* EventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7C8B9DB2B8262CF00E187DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE99B2B56990200A379E5 /* EventsView.swift */,
+				F7E30EEF2B7D395600CA9706 /* EventCellView.swift */,
+				F7C7DE0C2B7D0F3B005B5E63 /* EventDetailView.swift */,
+				F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F7D0644C2B69182A00759780 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,11 +690,8 @@
 		F7EAE99A2B5698F800A379E5 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				F7EAE99B2B56990200A379E5 /* EventsView.swift */,
-				F7C7DE0A2B7D095A005B5E63 /* EventViewModel.swift */,
-				F7E30EEF2B7D395600CA9706 /* EventCellView.swift */,
-				F7C7DE0C2B7D0F3B005B5E63 /* EventDetailView.swift */,
-				F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */,
+				F7C8B9DA2B8262C800E187DB /* ViewModel */,
+				F7C8B9DB2B8262CF00E187DB /* View */,
 			);
 			path = Event;
 			sourceTree = "<group>";

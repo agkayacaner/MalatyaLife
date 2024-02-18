@@ -87,6 +87,15 @@ struct EarthquakeDetailView: View {
                     .bold()
             }
             .font(.footnote)
+            
+            Divider()
+            
+            HStack {
+                Text(viewModel.magnitudeInfo(earthquake: earthquake))
+            }
+            .foregroundStyle(.secondary)
+            .font(.footnote)
+            .padding(.bottom, 5)
         }
         .padding(.top,30)
         .padding(.horizontal)

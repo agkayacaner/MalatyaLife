@@ -15,23 +15,46 @@ struct EventDetailView: View {
     let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment:.leading) {
+                
                 if let imageURL = event.image {
                     KFImage(URL(string: imageURL))
                         .resizable()
                         .scaledToFill()
-                        .frame(width: screenWidth, height: 220)
+                        .frame(width: 220, height: 320)
                         .clipped()
                 }
+                
                 VStack(alignment:.leading, spacing:10) {
                     Text(event.name)
                         .font(.title).bold()
                     
-                    Text(viewModel.getEventDate(event: event))
+                    VStack(alignment:.leading, spacing:5) {
+                        
+                        HStack {
+                            Text("\(viewModel.getEventDate(dateString: event.date))")
+                            Text("saat: \(event.time)")
+                        }
+                        
+                        
+                        HStack {
+                            Image(systemName: "mappin.and.ellipse")
+                                .foregroundStyle(.secondary)
+                            
+                            Text(event.location)
+                        }
+                    }
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    
+                    
+                    
+                    Divider()
                     
                     Text(event.description)
                         .font(.body)
+                        .lineSpacing(8)
                 }
                 .padding()
             }

@@ -30,6 +30,7 @@ struct BusinessCell: View {
                 Text(business.name)
                     .font(.subheadline)
                     .fontWeight(.bold)
+                    .lineLimit(1)
                 Text(business.category)
                     .font(.footnote)
                     .foregroundColor(.secondary)

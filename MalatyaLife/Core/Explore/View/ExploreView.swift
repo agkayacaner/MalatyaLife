@@ -65,7 +65,7 @@ struct ExploreView: View {
             }
             
         }
-        .padding(.horizontal)
+        .padding()
     }
     
     @ViewBuilder
@@ -260,7 +260,7 @@ struct ExploreView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing:10) {
                             ForEach(viewModel.events) { event in
-                                NavigationLink(destination: Text("Etkinlik Detayı")) {
+                                NavigationLink(destination: EventDetailView(event: event).toolbar(.hidden, for: .tabBar)) {
                                     EventCardItem(event: event)
                                 }
                                 .foregroundStyle(.primary)
@@ -284,6 +284,7 @@ struct ExploreView: View {
                         .foregroundStyle(.secondary)
                         .padding(.horizontal,20)
                         .padding(.bottom,-20)
+                    
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack() {
                             ForEach(0..<4) { _ in
@@ -308,6 +309,7 @@ struct ExploreView: View {
                         .foregroundStyle(.secondary)
                         .padding(.horizontal,20)
                         .padding(.bottom,10)
+                    
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack() {
                             ForEach(0..<4) { _ in

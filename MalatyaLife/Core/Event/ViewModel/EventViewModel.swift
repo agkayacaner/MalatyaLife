@@ -24,7 +24,7 @@ class EventViewModel: ObservableObject {
     func fetchEvents() {
         isLoading = true
         db.collection("events")
-            .order(by: "timestamp",descending: true)
+            .order(by: "date",descending: false)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
@@ -39,9 +39,16 @@ class EventViewModel: ObservableObject {
             }
     }
     
-    func getEventDate(event: Event) -> String {
+    func getEventDate(dateString: String) -> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "tr_TR") // Türkçe tarih formatı için
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: dateString) else {
+            return "Geçersiz tarih formatı"
+        }
+
         dateFormatter.dateFormat = "dd MMMM yyyy"
-        return dateFormatter.string(from: event.createdAt)
+        return dateFormatter.string(from: date)
     }
+
 }

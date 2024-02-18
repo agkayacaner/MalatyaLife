@@ -36,7 +36,7 @@ final class EarthquakeViewModel: ObservableObject {
             print("Unknown error: \(error)")
         }
     }
-
+    
     @MainActor
     func fetchFromAfad() async {
         isLoading = true
@@ -52,7 +52,7 @@ final class EarthquakeViewModel: ObservableObject {
             print("Unknown error: \(error)")
         }
     }
-
+    
     
     func handleAPIError(_ error: APError) {
         var alertItem: AlertItem
@@ -124,7 +124,32 @@ final class EarthquakeViewModel: ObservableObject {
             return sortedMagnitudes.first ?? 0
         }
     }
-     
+    
+    func magnitudeInfo(earthquake: Earthquake) -> String {
+        let magnitude = getMagnitude(earthquake: earthquake)
+        
+        switch magnitude {
+        case 0..<2:
+            return "Bu büyüklükte bir deprem genellikle hissedilmez."
+        case 2..<3:
+            return "Bu büyüklükte bir deprem hafif şiddette hissedilir."
+        case 3..<4:
+            return "Bu büyüklükte bir deprem masa sallanması gibi hissedilir."
+        case 4..<5:
+            return "Bu büyüklükte bir deprem çamaşır makinesi sanılan titreşimler oluşturabilir."
+        case 5..<6:
+            return "Bu büyüklükte bir deprem binalarda ciddi hasara yol açabilir."
+        case 6..<7:
+            return "Bu büyüklükte bir deprem binalarda yıkıma yol açabilir."
+        case 7..<8:
+            return "Bu büyüklükte bir deprem büyük alanlarda yıkıma yol açabilir."
+        case 8..<9:
+            return "Bu büyüklükte bir deprem ülke çapında yıkıma yol açabilir."
+        default:
+            return "Bilinmiyor"
+        }
+    }
+    
     func showMagnitude(earthquake: Earthquake) -> String {
         let magnitude = getMagnitude(earthquake: earthquake)
         return String(format: "%.1f", magnitude)

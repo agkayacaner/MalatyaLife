@@ -32,7 +32,7 @@ final class ExploreViewModel: ObservableObject {
     func fetchEvents() {
         isLoading = true
         db.collection("events")
-            .order(by: "createdAt",descending: true)
+            .order(by: "date",descending: false)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")

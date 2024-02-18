@@ -67,7 +67,7 @@ final class BusinessViewModel: ObservableObject {
             images: imageURLs,
             coordinates: CodableCLLocationCoordinate2D(CLLocationCoordinate2D(latitude: businesslatitude, longitude: businesslongitude)),
             category: form.category.rawValue,
-            createdAt: Date().timeIntervalSince1970
+            createdAt: Date()
         )
         
         try await BusinessService.shared.createNewBusiness(business)

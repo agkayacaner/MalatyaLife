@@ -43,8 +43,11 @@ struct FeaturedBusinessItem: View {
             }
             VStack(alignment:.leading){
                 Text(business.name)
+                    .lineLimit(1)
+                    .frame(width: width - 20, alignment: .leading)
                     .font(.title)
                     .fontWeight(.bold)
+                
                 Text(business.category)
                     .font(.subheadline)
                     .fontWeight(.light)
