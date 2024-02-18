@@ -43,7 +43,7 @@ struct BusinessService {
         var businesses = querySnapshot.documents.compactMap { document in
             try? document.data(as: Business.self)
         }
-        businesses.sort(by: { compareTimestamps($0.timestamp, $1.timestamp) })
+        businesses.sort { $0.createdAt > $1.createdAt }
         return businesses
     }
     
@@ -56,11 +56,5 @@ struct BusinessService {
         return querySnapshot.documents.compactMap { document in
             try? document.data(as: Business.self)
         }
-    }
-    
-    func compareTimestamps(_ t1: Timestamp, _ t2: Timestamp) -> Bool {
-        let time1 = t1.dateValue().timeIntervalSince1970
-        let time2 = t2.dateValue().timeIntervalSince1970
-        return time1 > time2
     }
 }

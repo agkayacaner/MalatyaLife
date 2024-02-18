@@ -32,7 +32,7 @@ final class ExploreViewModel: ObservableObject {
     func fetchEvents() {
         isLoading = true
         db.collection("events")
-            .order(by: "timestamp",descending: true)
+            .order(by: "createdAt",descending: true)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
@@ -88,7 +88,7 @@ final class ExploreViewModel: ObservableObject {
             .whereField("isActive", isEqualTo: true)
             .whereField("isApproved", isEqualTo: true)
             .whereField(field, isEqualTo: isEqualTo)
-            .order(by: "timestamp",descending: true)
+            .order(by: "createdAt",descending: true)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
