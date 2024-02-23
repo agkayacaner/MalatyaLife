@@ -22,45 +22,52 @@ struct EventDetailView: View {
                     KFImage(URL(string: imageURL))
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 220, height: 320)
                         .clipped()
                 }
                 
-                VStack(alignment:.leading, spacing:10) {
-                    Text(event.name)
-                        .font(.title).bold()
-                    
-                    VStack(alignment:.leading, spacing:5) {
+                VStack(alignment:.leading, spacing:15) {
+                    VStack(alignment:.leading, spacing: 10) {
+                        Text(event.name)
+                            .font(.title).bold()
                         
-                        HStack {
-                            Text("\(viewModel.getEventDate(dateString: event.date))")
-                            Text("saat: \(event.time)")
-                        }
-                        
-                        
-                        HStack {
-                            Image(systemName: "mappin.and.ellipse")
-                                .foregroundStyle(.secondary)
+                        VStack(alignment:.leading, spacing:10) {
+                            
+                            HStack {
+                                Text("\(viewModel.getEventDate(dateString: event.date))")
+                                Text("saat: \(event.time)")
+                            }
                             
                             Text(event.location)
                         }
+                        .foregroundStyle(.secondary)
                     }
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    
-                    
                     
                     Divider()
                     
                     Text(event.description)
                         .font(.body)
                         .lineSpacing(8)
+                    
+                    Button(action: {
+                        guard let url = URL(string: "https://biletinial.com/tr-tr/sehrineozel/malatya") else { return }
+                        UIApplication.shared.open(url)
+                        
+                    }) {
+                        Text("Daha Fazla Bilgi ve Bilet İçin")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.accentColor)
+                            .cornerRadius(10)
+                    }
+                    .font(.subheadline)
                 }
                 .padding()
             }
-            
             Spacer()
         }
+        .ignoresSafeArea(edges:.top)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

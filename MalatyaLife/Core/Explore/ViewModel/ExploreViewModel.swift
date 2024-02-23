@@ -13,6 +13,7 @@ final class ExploreViewModel: ObservableObject {
     @Published var latestBusinesses : [Business] = []
     @Published var events : [Event] = []
     @Published var categories : [Category] = []
+    @Published var announcements : [Announcement] = []
     
     @Published var selectedBusiness : Business?
     @Published var isLoading : Bool = false
@@ -23,10 +24,22 @@ final class ExploreViewModel: ObservableObject {
             await fetchLatestBusinessesListen()
             await fetchEvents()
             await fetchCategories()
+            try await fetchAnnouncements()
         }
     }
     
     let db = Firestore.firestore()
+    
+    @MainActor
+    func fetchAnnouncements() async throws  {
+        do {
+            isLoading = true
+            AnnouncementService.shared.fetchAnnouncements { [weak self] announcements in
+                self?.announcements = announcements
+                self?.isLoading = false
+            }
+        }
+    }
     
     @MainActor
     func fetchEvents() {

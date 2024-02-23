@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-
 struct MoreView: View {
+    @StateObject var profileViewModel = ProfileViewModel()
+    @State private var alertItem: AlertItem?
     @State var appVersion = Bundle.main.infoDictionary? ["CFBundleShortVersionString"] as? String ?? ""
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var appState: AppState
-    @StateObject var profileViewModel = ProfileViewModel()
     
     private var currentUser: User? {
         return profileViewModel.currentUser
@@ -39,6 +39,24 @@ struct MoreView: View {
                         }
                         .padding(10)
                     }
+                    
+                    if profileViewModel.businessStatusControl() {
+                        Section(header:Text("İşletmem")) {
+                            NavigationLink("İşletmelerim", destination: UserBusinessesView())
+                            NavigationLink("Etkinlik ve Duyurularım", destination: UserAnnouncementsView())
+                            if profileViewModel.businesses.filter({ $0.isActive  }).count < 1 {
+                                Button(action: {
+                                    alertItem = AlertItem(title: Text("Etkinlik, Duyuru Talebi"), message: Text("Aktif bir işletmeniz yok!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+                                }) {
+                                    Text("Yeni Etkinlik, Duyuru Oluştur")
+                                }
+                                .foregroundStyle(.primary)
+                            } else {
+                                NavigationLink("Yeni Etkinlik, Duyuru Oluştur", destination: CreateAnnouncementView())
+                            }
+                        }
+                        
+                    }
                 } else {
                     NavigationLink(destination: LoginView().toolbar(.hidden, for: .tabBar)) {
                         VStack(alignment:.leading,spacing: 5) {
@@ -60,10 +78,21 @@ struct MoreView: View {
                 
                 Section {
                     if appState.userSession != nil {
-                        NavigationLink("Yeni İşletme Talebi", destination: CreateBusinessView())
+                        if !profileViewModel.businessStatusControl() {
+                            Button(action: {
+                                alertItem = AlertItem(title: Text("İşletme Talebi"), message: Text("Zaten bir işletme talebiniz bulunmakta."), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+                            }) {
+                                Text("Yeni İşletme Talebi")
+                            }
+                            .foregroundStyle(.primary)
+                        } else {
+                            NavigationLink("Yeni İşletme Talebi", destination: CreateBusinessView())
+                        }
                     } else {
                         NavigationLink("Yeni İşletme Talebi", destination: LoginView().toolbar(.hidden, for: .tabBar))
                     }
+                }.alert(item: $alertItem) { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.primaryButton)
                 }
                 
                 Section {

@@ -188,8 +188,6 @@ struct BusinessDetailView: View {
         let edgeInsets = scene?.windows.first?.safeAreaInsets ?? .zero
         VStack {
             HStack {
-                Spacer()
-                
                 Button {
                     dismiss()
                 } label: {
@@ -200,6 +198,8 @@ struct BusinessDetailView: View {
                 .foregroundColor(.primary)
                 .background(.regularMaterial)
                 .clipShape(Circle())
+                
+                Spacer()
             }
             .padding(.horizontal,20)
             

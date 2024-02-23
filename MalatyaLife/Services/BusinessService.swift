@@ -36,6 +36,14 @@ struct BusinessService {
             let newCategory = Category(name: business.category, businesses: [docRef.documentID])
             try db.collection("categories").addDocument(from: newCategory)
         }
+        
+        let userDocRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        let userDoc = try await userDocRef.getDocument()
+        if var user = try? userDoc.data(as: User.self) {
+            user.businesses.append(docRef.documentID)
+            try userDocRef.setData(from:user)
+        }
     }
     
     func fetchBusinesses() async throws -> [Business] {
@@ -45,6 +53,37 @@ struct BusinessService {
         }
         businesses.sort { $0.createdAt > $1.createdAt }
         return businesses
+    }
+    
+    func fetchBusiness(withID id: String, completion: @escaping (Business) -> Void) {
+        db.collection("businesses").document(id).getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let business = try? document.data(as: Business.self) {
+                    completion(business)
+                }
+            }
+        }
+    }
+    
+    
+    // Current userin businesses arrayi içindeki businessleri getirir.
+    
+    func fetchBusinessCurrentUser(completion: @escaping ([String]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let docRef = Firestore.firestore().collection("users").document(uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let businesses = document.data()?["businesses"] as? [String] {
+                    completion(businesses)
+                } else {
+                    print("No businesses found")
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func fetchFeaturedBusinesses() async throws -> [Business] {

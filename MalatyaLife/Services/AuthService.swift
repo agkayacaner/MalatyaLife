@@ -30,7 +30,7 @@ class AuthService {
             }
             
             self.userSession = result.user
-            try await UserService.shared.fetchCurrentUser()
+            UserService.shared.fetchCurrentUser()
         } catch {
             print("DEBUG: \(error.localizedDescription)")
             throw error
@@ -52,7 +52,7 @@ class AuthService {
     
     @MainActor
     func uploadUserData(withEmail email:String, name:String, lastname:String, id:String) async throws {
-        let user = User(id: id, name: name, lastname: lastname, email: email, likedBusinesses: [], createdAt: Date())
+        let user = User(id: id, name: name, lastname: lastname, email: email, businesses: [], createdAt: Date())
         guard let userData = try? Firestore.Encoder().encode(user) else { return }
         try await Firestore.firestore().collection("users").document(id).setData(userData)
         UserService.shared.currentUser = user

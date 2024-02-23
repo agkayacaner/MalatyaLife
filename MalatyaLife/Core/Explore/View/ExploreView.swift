@@ -14,27 +14,24 @@ struct ExploreView: View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(){
-                    // Header
                     header()
-                    
                     VStack(spacing:20) {
-                        // Featured Businesses
                         featuredItems()
-                        // Categories
+                        
                         categories()
-                        // Latest 5 Business
+                        
                         latestFiveItem()
-                        // Landmarks
-                        landmarks()
-                        // Latest 5 Events
+                        
                         latestFiveEvent()
                         
+                        announcement()
                     }
                     Spacer()
                 }
             }
         }
     }
+    
     @ViewBuilder
     func header() -> some View{
         HStack {
@@ -73,7 +70,7 @@ struct ExploreView: View {
         Section {
             if #available(iOS 17.0, *) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing:10) {
+                    HStack(spacing:0) {
                         ForEach(viewModel.featuredBusinesses) { business in
                             NavigationLink(destination: BusinessDetailView(business: business).navigationBarBackButtonHidden()) {
                                 FeaturedBusinessItem(business: business)
@@ -221,17 +218,20 @@ struct ExploreView: View {
             .padding(.horizontal)
         }
     }
-
+    
     @ViewBuilder
     func latestFiveEvent() -> some View{
         Section {
             if #available(iOS 17.0, *) {
                 VStack(alignment:.leading) {
-                    Text("Yaklaşan Etkinlikler")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal,20)
-                        .padding(.bottom,-20)
+                    VStack(alignment:.leading){
+                        Text("YAKLAŞAN ETKİNLİKLER")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(.horizontal,20)
+                    .padding(.bottom,-20)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -251,11 +251,14 @@ struct ExploreView: View {
                 
             } else {
                 VStack(alignment:.leading) {
-                    Text("Yaklaşan Etkinlikler")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal,20)
-                        .padding(.bottom,10)
+                    VStack(alignment:.leading){
+                        Text("YAKLAŞAN ETKİNLİKLER")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(.horizontal,20)
+                    .padding(.bottom,-20)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing:10) {
@@ -275,52 +278,41 @@ struct ExploreView: View {
     }
     
     @ViewBuilder
-    func latestMovies() -> some View{
+    func announcement() -> some View {
         Section {
-            if #available(iOS 17.0, *) {
-                VStack(alignment:.leading) {
-                    Text("Vizyondaki Filmler")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal,20)
-                        .padding(.bottom,-20)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack() {
-                            ForEach(0..<4) { _ in
-                                NavigationLink(destination: Text("Film Detayı")) {
-                                    MovieCardItem()
-                                }
-                                .foregroundStyle(.primary)
-                            }
-                        }
-                        .scrollTargetLayout()
+            VStack(alignment:.leading) {
+                HStack {
+                    VStack(alignment:.leading){
+                        Text("İşletmelerden")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        Text("DUYURU VE ETKİNLİKLER")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.secondary)
                     }
-                    .scrollTargetBehavior(.viewAligned)
-                    .contentMargins(20, for: .scrollContent)
-                    .listRowInsets(EdgeInsets())
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: AnnouncementView()) {
+                        Text("Tümünü Gör")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.accent)
+                    }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom)
                 
-            } else {
-                
-                VStack(alignment:.leading) {
-                    Text("Vizyondaki Filmler")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal,20)
-                        .padding(.bottom,10)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack() {
-                            ForEach(0..<4) { _ in
-                                MovieCardItem()
-                            }
-                        }
-                        .padding(.horizontal, 20)
+                ForEach(viewModel.announcements.prefix(5)) { announcement in
+                    NavigationLink(destination: AnnouncementDetailsView(announcement: announcement)) {
+                        AnnouncementCell(announcement: announcement)
                     }
-                    .listRowInsets(EdgeInsets())
+                    .foregroundStyle(.primary)
                 }
             }
+            .padding(.horizontal)
         }
     }
 }

@@ -50,5 +50,7 @@ struct AlertContext {
     static let selectLocation = AlertItem(title: Text("Konum Seçin"), message: Text("İşletmenin konumunu seçin!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
     
     static let uploadSuccess = AlertItem(title: Text("Başarılı"), message: Text("İşletme başvurunuz alındı, onay sürecinden sonra aktif olacaktır!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
+    
+    static let requestBusiness = AlertItem(title: Text("İşletme Başvurusu"), message: Text("İşletme başvurunuz alındı, onay sürecinden sonra aktif olacaktır!"), primaryButton: .default(Text("Tamam")), secondaryButton: nil)
 }
 

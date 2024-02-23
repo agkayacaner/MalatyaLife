@@ -14,6 +14,6 @@ struct User: Identifiable, Codable {
     var email: String
     var isAdmin: Bool = false
     var profileImage: String?
-    var likedBusinesses: [String]
+    var businesses: [String]
     var createdAt: Date
 }

@@ -94,7 +94,7 @@ struct EarthquakeListView: View {
                     .tag(EarthquakeSorter.kandilli)
             }
         } label: {
-            Label("Kategoriler", systemImage: "slider.horizontal.3")
+            Label("Kaynak", image: "globe.europe.africa.badge.gearshape.fill")
         }
     }
 }

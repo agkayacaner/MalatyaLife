@@ -23,9 +23,19 @@
 		F724155A2B7F6F400016C496 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F72415592B7F6F400016C496 /* FirebaseFirestore */; };
 		F724155C2B7F6F400016C496 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F724155B2B7F6F400016C496 /* FirebaseFirestoreSwift */; };
 		F724155E2B7F6F400016C496 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F724155D2B7F6F400016C496 /* FirebaseStorage */; };
+		F73A83A32B889CDA009CABE7 /* UserBusinessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A83A22B889CDA009CABE7 /* UserBusinessesView.swift */; };
+		F73A83A52B88B5EE009CABE7 /* UserAnnouncementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73A83A42B88B5EE009CABE7 /* UserAnnouncementsView.swift */; };
 		F73F761D2B61C82000BA9F73 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F761C2B61C82000BA9F73 /* UserService.swift */; };
 		F73F761F2B61C9F900BA9F73 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */; };
+		F74308862B86A0CB00C008A3 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74308852B86A0CB00C008A3 /* CreateViewModel.swift */; };
 		F748D2DA2B69BC5700710E53 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748D2D92B69BC5700710E53 /* CategoryView.swift */; };
+		F7506DBF2B84F45B00D2CBBB /* CreateAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7506DBE2B84F45B00D2CBBB /* CreateAnnouncementView.swift */; };
+		F75747ED2B838031006EEF89 /* AnnouncementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75747EC2B838031006EEF89 /* AnnouncementCell.swift */; };
+		F75747EF2B838160006EEF89 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75747EE2B838160006EEF89 /* AnnouncementView.swift */; };
+		F75747F12B838177006EEF89 /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75747F02B838177006EEF89 /* AnnouncementDetailsView.swift */; };
+		F75747F62B8385A1006EEF89 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75747F52B8385A1006EEF89 /* Announcement.swift */; };
+		F75747F82B83870C006EEF89 /* AnnouncementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75747F72B83870C006EEF89 /* AnnouncementViewModel.swift */; };
+		F75747FA2B83893C006EEF89 /* AnnouncementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75747F92B83893C006EEF89 /* AnnouncementService.swift */; };
 		F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DAF2B5A83D4007912D9 /* Emergency.swift */; };
 		F7605DB22B5A87A9007912D9 /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB12B5A87A9007912D9 /* EmergencyService.swift */; };
 		F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */; };
@@ -36,7 +46,6 @@
 		F76E83BB2B5FE7CA00C974A0 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */; };
 		F76E83BD2B5FE7F100C974A0 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */; };
 		F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */; };
-		F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */; };
 		F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */; };
 		F77EE07D2B6D2CBD00765A41 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EE07C2B6D2CBD00765A41 /* NotificationView.swift */; };
 		F77EE07F2B6D2CC600765A41 /* NotificationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EE07E2B6D2CC600765A41 /* NotificationCellView.swift */; };
@@ -45,7 +54,6 @@
 		F78FAE7A2B6AAAAF007F3D40 /* CreateBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */; };
 		F7B323AC2B6A927B00C93AEB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B323AB2B6A927B00C93AEB /* Category.swift */; };
 		F7B8B74F2B6BACEC00CF8E87 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */; };
-		F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */; };
 		F7C755D82B7E4B3000FDF0AB /* AddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C755D72B7E4B3000FDF0AB /* AddLocation.swift */; };
 		F7C7DE092B7D0911005B5E63 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7DE082B7D0911005B5E63 /* Event.swift */; };
 		F7C7DE0B2B7D095A005B5E63 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7DE0A2B7D095A005B5E63 /* EventViewModel.swift */; };
@@ -97,9 +105,19 @@
 		F71DAC3D2B5AC2D900FE3BF2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F71DAC3F2B5AC87500FE3BF2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F71DAC422B5AD78A00FE3BF2 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		F73A83A22B889CDA009CABE7 /* UserBusinessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserBusinessesView.swift; path = MalatyaLife/Core/Profile/ViewModel/UserBusinessesView.swift; sourceTree = SOURCE_ROOT; };
+		F73A83A42B88B5EE009CABE7 /* UserAnnouncementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnouncementsView.swift; sourceTree = "<group>"; };
 		F73F761C2B61C82000BA9F73 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F73F761E2B61C9F900BA9F73 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F74308852B86A0CB00C008A3 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		F748D2D92B69BC5700710E53 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		F7506DBE2B84F45B00D2CBBB /* CreateAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnouncementView.swift; sourceTree = "<group>"; };
+		F75747EC2B838031006EEF89 /* AnnouncementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementCell.swift; sourceTree = "<group>"; };
+		F75747EE2B838160006EEF89 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
+		F75747F02B838177006EEF89 /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
+		F75747F52B8385A1006EEF89 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		F75747F72B83870C006EEF89 /* AnnouncementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementViewModel.swift; sourceTree = "<group>"; };
+		F75747F92B83893C006EEF89 /* AnnouncementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementService.swift; sourceTree = "<group>"; };
 		F7605DAF2B5A83D4007912D9 /* Emergency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
 		F7605DB12B5A87A9007912D9 /* EmergencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
 		F7605DB32B5A87EA007912D9 /* EmergencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewModel.swift; sourceTree = "<group>"; };
@@ -110,7 +128,6 @@
 		F76E83BA2B5FE7CA00C974A0 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F76E83BC2B5FE7F100C974A0 /* BusinessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		F76E83BE2B5FE81F00C974A0 /* EventCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardItem.swift; sourceTree = "<group>"; };
-		F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardItem.swift; sourceTree = "<group>"; };
 		F76E83C22B5FEB2200C974A0 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		F77EE07C2B6D2CBD00765A41 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		F77EE07E2B6D2CC600765A41 /* NotificationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellView.swift; sourceTree = "<group>"; };
@@ -120,7 +137,6 @@
 		F78FAE792B6AAAAF007F3D40 /* CreateBusinessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessView.swift; sourceTree = "<group>"; };
 		F7B323AB2B6A927B00C93AEB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F7B8B74E2B6BACEC00CF8E87 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusinessesView.swift; sourceTree = "<group>"; };
 		F7C755D72B7E4B3000FDF0AB /* AddLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocation.swift; sourceTree = "<group>"; };
 		F7C7DE082B7D0911005B5E63 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F7C7DE0A2B7D095A005B5E63 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -181,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				F7EAE99D2B569AD300A379E5 /* ExploreView.swift */,
-				F76E83C02B5FE84F00C974A0 /* MovieCardItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,9 +357,39 @@
 		F73D435D2B63FB8200199B1E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F7B927ED2B62B2D2001C63AC /* UserBusinessesView.swift */,
+				F73A83A22B889CDA009CABE7 /* UserBusinessesView.swift */,
+				F73A83A42B88B5EE009CABE7 /* UserAnnouncementsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F75747F22B838554006EEF89 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				F75747F42B838575006EEF89 /* ViewModel */,
+				F75747F32B838571006EEF89 /* View */,
+			);
+			path = Announcement;
+			sourceTree = "<group>";
+		};
+		F75747F32B838571006EEF89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F75747EE2B838160006EEF89 /* AnnouncementView.swift */,
+				F7506DBE2B84F45B00D2CBBB /* CreateAnnouncementView.swift */,
+				F75747F02B838177006EEF89 /* AnnouncementDetailsView.swift */,
+				F75747EC2B838031006EEF89 /* AnnouncementCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F75747F42B838575006EEF89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F75747F72B83870C006EEF89 /* AnnouncementViewModel.swift */,
+				F74308852B86A0CB00C008A3 /* CreateViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F7605DB52B5A965E007912D9 /* Onboard */ = {
@@ -573,6 +618,7 @@
 				F7DCBA992B56D5A60001B60B /* EarthquakeService.swift */,
 				F70B5D6B2B56EEED00E624F5 /* UploadImageService.swift */,
 				F70B5D822B5723B200E624F5 /* BusinessService.swift */,
+				F75747F92B83893C006EEF89 /* AnnouncementService.swift */,
 				F7605DB12B5A87A9007912D9 /* EmergencyService.swift */,
 				F7E05F6E2B5AF7A500928424 /* AuthService.swift */,
 				F73F761C2B61C82000BA9F73 /* UserService.swift */,
@@ -602,6 +648,7 @@
 				F7605DAF2B5A83D4007912D9 /* Emergency.swift */,
 				F71DAC3B2B5AC18100FE3BF2 /* User.swift */,
 				F7C7DE082B7D0911005B5E63 /* Event.swift */,
+				F75747F52B8385A1006EEF89 /* Announcement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -669,6 +716,7 @@
 		F7EAE9922B56918B00A379E5 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				F75747F22B838554006EEF89 /* Announcement */,
 				F7921B402B6FAE42004F66D0 /* CreateBusiness */,
 				F7E3E7F62B5C3BF300EFEB29 /* About */,
 				F7DCBA852B56C2710001B60B /* Emergency */,
@@ -785,18 +833,22 @@
 				F7EAE99E2B569AD300A379E5 /* ExploreView.swift in Sources */,
 				F7605DBA2B5A9BBA007912D9 /* AppState.swift in Sources */,
 				F7DCBA822B56BFB20001B60B /* EarthquakeListView.swift in Sources */,
+				F74308862B86A0CB00C008A3 /* CreateViewModel.swift in Sources */,
 				F7D064502B69185400759780 /* NewsCellView.swift in Sources */,
+				F73A83A32B889CDA009CABE7 /* UserBusinessesView.swift in Sources */,
 				F77EE07D2B6D2CBD00765A41 /* NotificationView.swift in Sources */,
 				F70B5D662B56DDC000E624F5 /* Business.swift in Sources */,
 				F7DCBA842B56C04B0001B60B /* EarthquakeCellView.swift in Sources */,
 				F7EAE9992B5697C200A379E5 /* SearchView.swift in Sources */,
 				F76E83C32B5FEB2200C974A0 /* ExploreViewModel.swift in Sources */,
+				F73A83A52B88B5EE009CABE7 /* UserAnnouncementsView.swift in Sources */,
 				F70B5D6A2B56E02700E624F5 /* BusinessViewModel.swift in Sources */,
 				F78DBDDA2B6289C70074B316 /* ResetPasswordViewModel.swift in Sources */,
 				F7DCBA962B56D2A40001B60B /* LoadingView.swift in Sources */,
 				F7C755D82B7E4B3000FDF0AB /* AddLocation.swift in Sources */,
 				F7DCBA9A2B56D5A60001B60B /* EarthquakeService.swift in Sources */,
 				F73F761F2B61C9F900BA9F73 /* ProfileViewModel.swift in Sources */,
+				F7506DBF2B84F45B00D2CBBB /* CreateAnnouncementView.swift in Sources */,
 				F7605DB02B5A83D4007912D9 /* Emergency.swift in Sources */,
 				F7DCBA7F2B56BAE60001B60B /* PharmacyDetailView.swift in Sources */,
 				F76E83B92B5FE70800C974A0 /* FeaturedBusinessItem.swift in Sources */,
@@ -804,7 +856,9 @@
 				F70B5D782B570A5500E624F5 /* CustomTextField.swift in Sources */,
 				F7E30EF02B7D395600CA9706 /* EventCellView.swift in Sources */,
 				F7605DB72B5A9674007912D9 /* OnboardingView.swift in Sources */,
+				F75747F62B8385A1006EEF89 /* Announcement.swift in Sources */,
 				F7D0644E2B69183A00759780 /* NewsListView.swift in Sources */,
+				F75747F12B838177006EEF89 /* AnnouncementDetailsView.swift in Sources */,
 				F7C7DE0B2B7D095A005B5E63 /* EventViewModel.swift in Sources */,
 				F748D2DA2B69BC5700710E53 /* CategoryView.swift in Sources */,
 				F71DAC402B5AC87500FE3BF2 /* RegisterView.swift in Sources */,
@@ -812,11 +866,12 @@
 				F71DAC3E2B5AC2D900FE3BF2 /* LoginView.swift in Sources */,
 				F70B5D6C2B56EEED00E624F5 /* UploadImageService.swift in Sources */,
 				F7B8B74F2B6BACEC00CF8E87 /* String+Ext.swift in Sources */,
+				F75747EF2B838160006EEF89 /* AnnouncementView.swift in Sources */,
 				F76E83BB2B5FE7CA00C974A0 /* CategoryCell.swift in Sources */,
+				F75747F82B83870C006EEF89 /* AnnouncementViewModel.swift in Sources */,
 				F7DCBA942B56D1040001B60B /* PharmacyService.swift in Sources */,
 				F7D358062B5B03A900C98419 /* LoginViewModel.swift in Sources */,
 				F70B5D812B57141C00E624F5 /* BusinessCellView.swift in Sources */,
-				F7B927EE2B62B2D2001C63AC /* UserBusinessesView.swift in Sources */,
 				F7EAE97C2B568F5500A379E5 /* ContentView.swift in Sources */,
 				F7EAE97A2B568F5500A379E5 /* MalatyaLifeApp.swift in Sources */,
 				F7E3E7F82B5C3BFE00EFEB29 /* AboutView.swift in Sources */,
@@ -831,15 +886,16 @@
 				F7EAE9952B5691EB00A379E5 /* MainTabView.swift in Sources */,
 				F76E83BD2B5FE7F100C974A0 /* BusinessCell.swift in Sources */,
 				F7EAE9972B56953F00A379E5 /* MoreView.swift in Sources */,
+				F75747ED2B838031006EEF89 /* AnnouncementCell.swift in Sources */,
 				F7DCBA922B56CEF30001B60B /* APError.swift in Sources */,
 				F7DCBA872B56C2940001B60B /* EmergencyNumberListView.swift in Sources */,
 				F7DCBA9E2B56D5F30001B60B /* EarthquakeViewModel.swift in Sources */,
 				F7605DB42B5A87EA007912D9 /* EmergencyViewModel.swift in Sources */,
 				F7DCBA8E2B56CE9B0001B60B /* PharmacyViewModel.swift in Sources */,
+				F75747FA2B83893C006EEF89 /* AnnouncementService.swift in Sources */,
 				F7E05F6F2B5AF7A500928424 /* AuthService.swift in Sources */,
 				F7D358042B5AF93900C98419 /* RegisterViewModel.swift in Sources */,
 				F7DCBA7D2B56B9350001B60B /* GetDate.swift in Sources */,
-				F76E83C12B5FE84F00C974A0 /* MovieCardItem.swift in Sources */,
 				F78FAE7A2B6AAAAF007F3D40 /* CreateBusinessView.swift in Sources */,
 				F76E83BF2B5FE81F00C974A0 /* EventCardItem.swift in Sources */,
 				F77EE07F2B6D2CC600765A41 /* NotificationCellView.swift in Sources */,

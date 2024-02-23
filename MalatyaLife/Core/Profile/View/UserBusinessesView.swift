@@ -9,7 +9,19 @@ import SwiftUI
 
 struct UserBusinessesView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section {
+                VStack(alignment:.leading) {
+                    Text("User Name")
+                    Text("email@mail.com")
+                }
+            }
+            
+            Section {
+                Text("İşletmelerim")
+                Text("Yeni Etkinlik, Duyuru Oluştur")
+            }
+        }
     }
 }
 
