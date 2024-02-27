@@ -102,6 +102,7 @@ struct BusinessDetailView: View {
                     .buttonStyle(.bordered)
                     .controlSize(.large)
                 }
+                .frame(minHeight: 320)
                 .padding()
             }
         }

@@ -11,6 +11,12 @@ struct MainTabView: View {
     @State var activeTab: Tab = .explore
     @ObservedObject private var appState = AppState()
     
+    init() {
+        let apparence = UITabBarAppearance()
+        apparence.configureWithOpaqueBackground()
+        UITabBar.appearance().scrollEdgeAppearance = apparence
+    }
+    
     var body: some View {
         TabView {
             ExploreView()
