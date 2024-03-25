@@ -11,7 +11,7 @@ struct Pharmacy: Codable, Identifiable {
     let id: Int
     let name: String
     let address: String
-    let district: String
+    let district: String?
     let phone: String
     let description: String
 }
